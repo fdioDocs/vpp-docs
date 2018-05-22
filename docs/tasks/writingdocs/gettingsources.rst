@@ -1,10 +1,17 @@
+.. _gettingsources:
+
+=============================================
+Getting and Building the VPP Documentation
+=============================================
+
+.. toctree::
+
 
 Overview
 ========
 
-This repository was created as a private staring point for the vpp documentation
-project. It is expected that it will be used as a sandbox that can be used to
-evaluate and comment on the new fd.io document structure.
+This repository contains the sources for much of the VPP documentation. These instructions show
+how most of the VPP documentation sources are obtained anbd built.
 
 Build and Load Instructions
 ===========================
