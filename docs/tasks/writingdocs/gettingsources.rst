@@ -13,8 +13,8 @@ Overview
 This repository contains the sources for much of the VPP documentation. These instructions show
 how most of the VPP documentation sources are obtained anbd built.
 
-Build and Load Instructions
-===========================
+Build and View Instructions
+==============================
 I build and load the documents using a mac, but these instuctions should be portable
 to any platform. I used the Python virtual environment.
 

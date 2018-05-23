@@ -7,3 +7,5 @@ Writing and pushing VPP Documentation
 .. toctree::
 
   gettingsources
+  pushingapatch
+
