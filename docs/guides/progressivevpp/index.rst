@@ -1,9 +1,9 @@
-.. _guides:
+.. _progressivevpp:
 
 =========================================
-Guides
+Progressive VPP Tutorial
 =========================================
 
 .. toctree::
 
-    progressivevpp/index
+    vagrant

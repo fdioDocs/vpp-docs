@@ -1,9 +1,10 @@
-.. _guides:
+.. _whatisvpp:
 
 =========================================
-Guides
+What is VPP?
 =========================================
 
 .. toctree::
 
-    progressivevpp/index
+   whatisvpp
+
