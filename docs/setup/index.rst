@@ -4,6 +4,7 @@
 Setup
 =========================================
 
-.. note::
+.. toctree::
 
-    To Do
+  installing/index.rst
+
