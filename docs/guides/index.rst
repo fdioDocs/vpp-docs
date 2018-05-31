@@ -4,6 +4,6 @@
 Guides
 =========================================
 
-.. toctree::
+.. note::
 
-    progressivevpp/index
+  TO DO
