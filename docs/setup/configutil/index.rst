@@ -1,9 +1,9 @@
-.. _guides:
+.. _configutil:
 
 =========================================
-Guides
+VPP Configuration Utility 
 =========================================
 
 .. toctree::
 
-    progressivevpp/index
+   configtutorial

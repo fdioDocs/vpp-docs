@@ -4,6 +4,6 @@
 Setup
 =========================================
 
-.. note::
+.. toctree::
 
-    To Do
+    configutil/index
