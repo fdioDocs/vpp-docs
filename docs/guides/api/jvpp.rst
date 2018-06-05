@@ -1,4 +1,4 @@
-.. _opensuse:
+.. _jvpp:
 
 .. toctree::
 

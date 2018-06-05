@@ -2,14 +2,33 @@
 
 .. toctree::
 
-The fd.io repo
---------------------
+Setup the fd.io Repository (Centos 7.3)
+=======================================
+
 From the following choose one of the releases to install.
 
-CentOS 7.3 - VPP Release RPMs (Latest)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a file **/etc/yum.repos.d/fdio-release.repo** with contents:
+Update the OS
+-------------
+
+It is probably a good idea to update and upgrade the OS before starting
+
+.. code-block:: console
+
+    yum update
+
+
+Point to the Repository
+-----------------------
+
+Create a file **"/etc/yum.repos.d/fdio-release.repo"** with the contents that point to
+the version needed. The contents needed are shown below.
+
+
+VPP latest Release
+^^^^^^^^^^^^^^^^^^
+
+Create the file "/etc/yum.repos.d/fdio-release.repo".
 
 .. code-block:: console
 
@@ -19,10 +38,11 @@ Create a file **/etc/yum.repos.d/fdio-release.repo** with contents:
    enabled=1
    gpgcheck=0
 
-CentOS 7.3 - VPP stable/1804 branch RPMs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a file **/etc/yum.repos.d/fdio-release.repo** with contents:
+VPP stable/1804 Branch
+^^^^^^^^^^^^^^^^^^^^^^
+
+Create the file "/etc/yum.repos.d/fdio-release.repo".
 
 .. code-block:: console
 
@@ -32,10 +52,11 @@ Create a file **/etc/yum.repos.d/fdio-release.repo** with contents:
    enabled=1
    gpgcheck=0
 
-CentOS 7.3 - VPP master branch RPMs (in development)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a file **/etc/yum.repos.d/fdio-release.repo** with contents:
+VPP master Branch
+^^^^^^^^^^^^^^^^^
+
+Create the file "/etc/yum.repos.d/fdio-release.repo".
 
 .. code-block:: console
 
@@ -45,24 +66,26 @@ Create a file **/etc/yum.repos.d/fdio-release.repo** with contents:
    enabled=1
    gpgcheck=0
 
+
 Install VPP RPMs
--------------------
+================
 
 .. code-block:: console
 
    sudo yum install vpp
 
+
 Install the optional RPMs
-----------------------------
+=========================
 
 .. code-block:: console
 
    sudo yum install vpp-plugins vpp-devel vpp-api-python vpp-api-lua vpp-api-java
 
+
 Uninstall the VPP RPMs
-------------------------
+======================
 
 .. code-block:: console
 
    sudo yum autoremove vpp*
-

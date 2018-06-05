@@ -1,20 +1,20 @@
 .. _gettingsources:
 
-=============================================
-Getting and Building the VPP Documentation
-=============================================
+Getting and Building the VPP Docs
+=================================
 
 .. toctree::
 
 
 Overview
-========
+________
 
 This repository contains the sources for much of the VPP documentation. These instructions show
 how most of the VPP documentation sources are obtained anbd built.
 
-Build and View Instructions
-==============================
+Build and View
+--------------
+
 I build and load the documents using a mac, but these instuctions should be portable
 to any platform. I used the Python virtual environment.
 
@@ -23,14 +23,16 @@ For more information on how to use the Python virtual enviroment check out
 
 .. _`Installing packages using pip and virtualenv`: https://packaging.python.org/guides/installing-using-pip-and-virtualenv/
  
-1. Get the repository
+Get the repository
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: console
 
    git clone https://github.com/fdioDocs/vpp-docs
    cd vpp-docs
 
-2. Install the virtual environment
+Install the virtual environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: console
 
@@ -47,14 +49,16 @@ For more information on how to use the Python virtual enviroment check out
 
    deactivate
 
-3. Build the html files
+Build the html files
+^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: console
 
    cd docs
    make html
 
-4. View the results.
+View the results.
+^^^^^^^^^^^^^^^^^
 
 To view the results start a browser and open the file:
 

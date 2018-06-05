@@ -2,79 +2,78 @@
 
 .. toctree::
 
-The fd.io repo
---------------------------------
+Ubuntu 16.04 - Setup the fd.io Repository
+=========================================
 
-**1. Pick the Ubuntu version**
+From the following choose one of the releases to install.
 
-* Ubuntu 16.04 - Xenial
 
-.. code-block:: console
+Update the OS
+-------------
 
-   export UBUNTU="xenial"
-
-**2. Pick the VPP version**
-
-* Latest VPP Release
+It is probably a good idea to update and upgrade the OS before starting
 
 .. code-block:: console
 
-  unset -v RELEASE
+    apt-get update
 
-* Latest VPP 18.04 Throttle Branch
 
-.. code-block:: console
+Point to the Repository
+-----------------------
 
-  export RELEASE=".stable.1804"
+Create a file **"/etc/apt/sources.list.d/99fd.io.list"** with the contents that point to
+the version needed. The contents needed are shown below.
 
-* Latest VPP 18.01 Throttle Branch
 
-.. code-block:: console
+VPP latest Release
+^^^^^^^^^^^^^^^^^^
 
-  export RELEASE=".stable.1801"
-
-* Latest VPP 17.10 Throttle Branch
-
-.. code-block:: console
-
-  export RELEASE=".stable.1710"
-
-* Latest VPP 17.07 Throttle Branch
+Create the file **/etc/apt/sources.list.d/99fd.io.list** with contents:
 
 .. code-block:: console
 
-  export RELEASE=".stable.1707"
+   deb [trusted=yes] https://nexus.fd.io/content/repositories/fd.io.ubuntu.xenial.main/ ./
 
-* MASTER (in development)
 
-.. code-block:: console
+VPP stable/1804 Branch
+^^^^^^^^^^^^^^^^^^^^^^
 
-  export RELEASE=".master"
-
-**3. To write the fd.io sources list execute:**
+Create the file **/etc/apt/sources.list.d/99fd.io.list** with contents:
 
 .. code-block:: console
 
-  sudo rm /etc/apt/sources.list.d/99fd.io.list
-  echo "deb [trusted=yes] https://nexus.fd.io/content/repositories/fd.io$RELEASE.ubuntu.$UBUNTU.main/ ./" | sudo tee -a /etc/apt/sources.list.d/99fd.io.list
+   deb [trusted=yes] https://nexus.fd.io/content/repositories/fd.io.stable.1804.ubuntu.xenial.main/ ./
 
-Install the mandatory packages
---------------------------------
+
+VPP master Branch
+^^^^^^^^^^^^^^^^^
+
+Create the file **/etc/apt/sources.list.d/99fd.io.list** with contents:
+
+.. code-block:: console
+
+   deb [trusted=yes] https://nexus.fd.io/content/repositories/fd.io.master.ubuntu.xenial.main/ ./
+
+
+Install the Mandatory Packages
+==============================
 
 .. code-block:: console
 
   sudo apt-get update
   sudo apt-get install vpp vpp-lib vpp-plugin
 
-Install the optional packages
---------------------------------
+
+Install the Optional Packages
+=============================
 
 .. code-block:: console
 
   sudo apt-get install vpp-dbg vpp-dev vpp-api-java vpp-api-python vpp-api-lua
 
-Uninstall the packages
---------------------------------
+
+Uninstall the Packages
+======================
 
 .. code-block:: console
 
