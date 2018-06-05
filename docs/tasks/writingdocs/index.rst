@@ -1,8 +1,7 @@
 .. _writingdocs:
 
-=========================================
-Writing and pushing VPP Documentation
-=========================================
+Writing VPP Documentation
+=========================
 
 .. toctree::
 
