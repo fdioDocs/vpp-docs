@@ -14,8 +14,12 @@ Forking your own branch
 In your browser, navigate to the repo you want to branch off of. In this case, the `fdioDocs/vpp-docs <https://github.com/fdioDocs/vpp-docs>`_ repo. At the top right of the page you should see this:
 
 .. image:: pictures/forkoptions.png
-   :align: center
+   :align: right
    :scale: 50%
+
+|
+|
+|
 
 Click on "Fork", and then a pop-up should appear where you should then click your Github username. Once this is done, it should automatically take you to the Github page where your new branch is located, just like in the image below.
 
@@ -29,7 +33,7 @@ Now your **own branch** can be **cloned** to your computer using the URL (https:
 Creating a local repository
 ---------------------------
 
-Now that you have our own branch of the repo on Github, you can store it locally on our computer. In your shell, navigate to the directory where you want to store your branch/repo. Then execute:
+Now that you have your own branch of the main repository on Github, you can store it locally on your computer. In your shell, navigate to the directory where you want to store your branch/repo. Then execute:
 
 .. code-block:: shell
 
@@ -42,13 +46,11 @@ This will create a directory on your computer named **vpp-docs**, the name of th
    $ git clone https://github.com/YOURUSERNAME/vpp-docs OTHERNAME
 
 
-Now that your branch is on your computer, you can modify files and make changes however you wish.
-
-**REMEMBER,** commit often to save your work. Now that you have your own branch and local repo, you can **git add** your modified files, **git commit** them, and **git push** them to your branch. Even just **committing** your files saves a Snapshot of them in Git, so it's very hard to lose your work!
+Now that your branch is on your computer, you can modify and build files however you wish.
 
 
-Modifying and building files
-----------------------------
+Building required files
+-----------------------
 
 Since we use **.rst** files, **Sphinx**, and **Read the docs** for documenting, you should install `Sphinx <http://www.sphinx-doc.org/en/master/usage/installation.html>`_, and follow their `getting started guide <http://www.sphinx-doc.org/en/master/usage/quickstart.html>`_.
 
@@ -80,7 +82,7 @@ If there are no errors during the build process, an **index.html** file will now
    :scale: 35%
 
 
-Viewing your changes on Read the docs (Optional)
+Viewing the build on Read the docs (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 **Read the docs** looks at repositories on Github and hosts it's own standalone page by generating and displaying your **index.html** file, so others users can view it without having to download and build your repo. 
 
@@ -96,24 +98,19 @@ Click "request", and then a dialog will pop-up asking for request approval from 
 !!!!!!!!!!TO DO!!!!!!!!!!!!!!! (waiting for request approval).
 
 
-Adding, committing, and pushing your changes
---------------------------------------------
 
-When you're satisfied with the additions and changes you've made to your local repo, and now you want your changes to be reflected in the main vpp-docs repo, you must add the main repo as a remote repository for the merging process to begin.
+Pushing to your remote branch
+-----------------------------
 
-First, change directories to your local repo.
+The following talks about remote branches, but keep in mind that there are currently *two* branches, your local "master" branch (on your computer), and your remote "origin or origin/master" branch (the one you created using "Fork" on the Github website).
 
-.. code-block:: shell
-
-   $ cd vpp-docs
-
-You can view current repositories with:
+You can view your *remote* repositories with:
 
 .. code-block:: shell
 
    $ git remote -v
 
-At this point, it should only show us the repo of the branch you created from previous steps.
+At this point, it should only show us the remote branch that you cloned from.
 
 .. image:: pictures/screenshotremotes.png
    :align: left
@@ -122,9 +119,8 @@ At this point, it should only show us the repo of the branch you created from pr
 |
 |
 |
-|
 
-Now you want to create a remote repository of the main vpp-docs repo (naming it upstream), so we can merge our repo and the main repo together.
+Now you want to create a new remote repository of the main vpp-docs repo (naming it upstream).
 
 .. code-block:: shell
 
@@ -143,14 +139,40 @@ You can verify that you have added a remote repo using the previous **git remote
 |
 
 
-If there has been any changes to the main repo since you've started working and modifying your own branch (hopefully not the same files as the ones you were working on!), you want to keep them in sync, so merge the main repo into your own (). 
+If there have been any changes to the main repo since you've started working and modifying your own branch (hopefully not the same files you were working on!), you want to make sure they are in sync (excluding your modified files).
+
+Fetch any changes that the main repo has made, and then merge them into your local master branch using:
+
+.. code-block:: shell
+
+   $ git fetch upstream
+   $ git merge upstream/master
+
+
+After you've modified some files, you now want to add, commit, and push them from *your local branch* to your *personal remote branch* (not the main fdioDocs repo).
+
+You can achieve this by doing:
+
+.. code-block:: shell
+
+   $ git add FILENAME1 FILENAME2
+   $ git commit -m 'A descriptive commit message for two files.'
+   $ git push origin master
+
+Here, your personal remote branch is "origin" and your local branch is "master".
+
+
+**REMEMBER,** even just using **git commit** saves a Snapshot of all your work, so it's very hard to lose your modified files if you *commit often*.
 
 
 
 
+Initiating a pull request for the main branch
+---------------------------------------------
 
-Initiating a pull request
--------------------------
+Now you can go to the main fdioDocs repo on the Github page (not your branch), and click on "Compare & pull request" to go through the process of initiating a pull request.
+
+!!!!!TO-DO ADD PICTURES!!!!!!
 
 
 Getting the Latest Sources
