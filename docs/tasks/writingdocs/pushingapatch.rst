@@ -170,6 +170,8 @@ Here, your personal remote branch is "origin" and your local branch is "master".
 Initiating a pull request for the main branch
 ---------------------------------------------
 
+Do we first click "New pull request" on the main fdioDocs page????
+
 Now you can go to the main fdioDocs repo on the Github page (not your branch), and click on "Compare & pull request" to go through the process of initiating a pull request.
 
 !!!!!TO-DO ADD PICTURES!!!!!!
