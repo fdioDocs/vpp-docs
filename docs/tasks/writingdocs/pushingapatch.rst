@@ -13,9 +13,10 @@ Forking your own branch
 ------------------------
 In your browser, navigate to the repo you want to branch off of. In this case, the `fdioDocs/vpp-docs <https://github.com/fdioDocs/vpp-docs>`_ repo. At the top right of the page you should see this:
 
-.. image:: pictures/forkoptions.png
-   :align: right
+.. figure:: /_images/forkoptions.png
+   :alt: Figure: Repository options on Github 
    :scale: 50%
+   :align: right
 
 |
 |
@@ -23,9 +24,11 @@ In your browser, navigate to the repo you want to branch off of. In this case, t
 
 Click on "Fork", and then a pop-up should appear where you should then click your Github username. Once this is done, it should automatically take you to the Github page where your new branch is located, just like in the image below.
 
-.. image:: pictures/usernameforked.png
-   :align: center
+.. figure:: /_images/usernameforked.png
+   :alt: Figure: Your own branch of the main repo on Github
    :scale: 35%
+   :align: center
+
 
 Now your **own branch** can be **cloned** to your computer using the URL (https://github.com/YOURUSERNAME/vpp-docs) of the Github page where your branch is located.
 
@@ -77,10 +80,10 @@ You must also specify the build directory, which is the name of newly created di
 
 If there are no errors during the build process, an **index.html** file will now be generated inside NEWDIRECTORYNAME (I named mine vpp-docs-build), which you can then open up in your browser.
 
-.. image:: pictures/screenshotdirectory.png
-   :align: center
+.. figure:: /_images/screenshotdirectory.png
+   :alt: Figure: My directory containing the index.html file
    :scale: 35%
-
+   :align: center
 
 Viewing the build on Read the docs (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -88,9 +91,10 @@ Viewing the build on Read the docs (Optional)
 
 Sign up for a Read the docs account. When brought to this page,
 
-.. image:: pictures/screenshotreadthedocs.png
-   :align: center
+
+.. figure:: /_images/screenshotreadthedocs.png
    :scale: 35%
+   :align: center
 
 
 Click "request", and then a dialog will pop-up asking for request approval from fdioDocs. Then click "Request approval from owners."
@@ -112,9 +116,10 @@ You can view your *remote* repositories with:
 
 At this point, it should only show us the remote branch that you cloned from.
 
-.. image:: pictures/screenshotremotes.png
-   :align: left
+
+.. figure:: /_images/screenshotremotes.png
    :scale: 45%
+   :align: left   
 
 |
 |
@@ -129,9 +134,9 @@ Now you want to create a new remote repository of the main vpp-docs repo (naming
 
 You can verify that you have added a remote repo using the previous **git remote -v** command.
 
-.. image:: pictures/screenshotbothremotes.png
-   :align: left
+.. figure:: /_images/screenshotbothremotes.png
    :scale: 45%
+   :align: left
 
 |
 |
