@@ -5,7 +5,7 @@
 Feature Rich
 ************
 
-The full suite of graph nodes allows a wide variety of network appliance
+The huge number of supported network protocols allows a wide variety of network appliance
 workloads to be built. At a high level, the platform provides:
 
 -  Fast lookup tables for routes, bridge entries
@@ -13,12 +13,6 @@ workloads to be built. At a high level, the platform provides:
 -  Out of the box production quality switch/router functionality
 
 The following is a summary of the features the FD.io VPP platform provides:
-
-.. figure:: /_images/vpp_at_1000_feet_features.png
-  :alt:
-
-  FD.io VPP at 10,000 Feet
-
 
 List of Features
 ----------------
@@ -36,32 +30,19 @@ Universal Data Plane
 Fast, Scalable and Deterministic
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Fast
-
-  * L2XC - 15+ Mpps per core
-
-* Deterministic
-
-  * 0 packet drops, ~15µs latency
-  * Continuous & extensive latency testing
-
-* Scalability
-
-  * Linear scaling with core/thread count
-  * Supporting millions of concurrent L[2,3] tables entries
+* L2XC - 15+ Mpps per core
+* 0 packet drops, ~15µs latency
+* Continuous & extensive latency testing
+* Linear scaling with core/thread count
+* Supporting millions of concurrent L[2,3] tables entries
 
 Extensible Modular Design
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Architecture
-
-  * Pluggable, easy to understand & extend
-  * Mature graph node Architecture
-
-* Plugins
-
-  * Full control to reorganize the pipeline
-  * Fast, plugins are equal citizens
+* Pluggable, easy to understand & extend
+* Mature graph node Architecture
+* Full control to reorganize the pipeline
+* Fast, plugins are equal citizens
 
 Developer Friendly
 ^^^^^^^^^^^^^^^^^^
@@ -93,32 +74,8 @@ IPv4/IPv6
 * Multiple million Classifiers - Arbitrary N-tuple
 * VLAN Support – Single/Double tag
 
-IPv4
-^^^^
-
-* GRE, MPLS-GRE, NSH-GRE,
-* VXLAN
-* IPSEC
-* DHCP client/proxy
-
-IPv6
-^^^^
-
-* Neighbor discovery
-* Router Advertisement
-* DHCPv6 Proxy
-* L2TPv3
-* Segment Routing
-* MAP/LW46 – IPv4aas
-* iOAM
-
-MPLS
-^^^^
-
-* MPLS-o-Ethernet – Deep label stacks supported
-
 L2
-^^
+--
 
 * VLAN Support
 
@@ -134,3 +91,30 @@ L2
 * Flooding
 * Input ACLs
 * Interface cross-connect
+
+MPLS
+^^^^
+
+* MPLS-o-Ethernet – Deep label stacks supported
+
+L3
+-- 
+
+IPv4
+^^^^
+
+* GRE, MPLS-GRE, NSH-GRE
+* VXLAN
+* IPSEC
+* DHCP client/proxy
+
+IPv6
+^^^^
+
+* Neighbor discovery
+* Router Advertisement
+* DHCPv6 Proxy
+* L2TPv3
+* Segment Routing
+* MAP/LW46 – IPv4aas
+* iOAM

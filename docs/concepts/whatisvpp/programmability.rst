@@ -26,7 +26,7 @@ The implementation is on a local on a box or container. All CLI tasks
 can be done through API calls.
 
 The current implementation of the FD.io VPP platform generates Low Level
-Bindings for C clients and for Java clients. It's possible for future
+Bindings for C, Java, and Python clients. It's possible for future
 support to be provided for bindings for other programming languages.
 
 Remote Programmability
@@ -49,3 +49,19 @@ platform does not restrict communication to only \*one\* high level API.
 Anybody can bring a Data Plane Management Agent. This allows you to
 match the high level API/Data Plane Management Agent and implementation
 to the specific needs of the FD.io VPP app.
+
+ODL Honeycomb Agent
+^^^^^^^^^^^^^^^^^^^^
+
+One example of using a high hevel API is to implement the FD.io VPP platform
+as an app on a box that is running a local ODL instance (Honeycomb). You
+could use a low level API over generated Java Bindings to talk to the
+FD.io VPP App, and expose Yang Models over netconf/restconf NB.
+
+.. figure:: /_images/VPP_sample_data_plane_management_agent_x260.jpg
+   :alt: VPP Using ODL Honeycomb as a Data Plane Management Agent
+
+   FD.io VPP Using ODL Honeycomb as a Data Plane Management Agent
+
+This would be one way to implement Bridge Domains.
+

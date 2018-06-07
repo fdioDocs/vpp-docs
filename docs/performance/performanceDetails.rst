@@ -1,4 +1,4 @@
-.. _performance:
+.. _performanceDetails:
 
 .. toctree::
 
@@ -23,13 +23,22 @@ performance is based on the following highlights:
 Performance Metrics
 -------------------
 
-The FD.io VPP platform has been shown to provide the following approximate
-performance metrics:
+FD.io VPP platform is high performance packet processing software, typically achieving:
 
 * Multiple MPPS from a single x86_64 core
 * >100Gbps full-duplex on a single physical host
-* Example of multi-core scaling benchmarks (on UCS-C240 M3, 3.5 gHz, all memory channels forwarded, simple ipv4 forwarding):
+* Continuous performance regression testing in FD.io, demonstrates FD.io ongoing commitment to achieving ever performance.
+    * L2 Ethernet Switching (1 thread, 1 core, 10GE).
 
-   * 1 core: 9 MPPS in+out
-   * 2 cores: 13.4 MPPS in+out
-   * 4 cores: 20.0 MPPS in+out
+    .. note::
+     
+        todo embed this `live graph <https://docs.fd.io/csit/master/trending/_static/vpp/cpta-l2-1t1c-x520.html>`_
+
+    * IPv4 Routed Forwarding (1 thread, 1 core, 10GE).
+
+    .. note::
+     
+        todo embed this `graph <https://docs.fd.io/csit/master/trending/_static/vpp/cpta-ip4-1t1c-x520.html>`_
+
+    * `Further information can be found in the VPP Performance Dashboard <https://docs.fd.io/csit/master/trending/introduction/index.html>`_
+

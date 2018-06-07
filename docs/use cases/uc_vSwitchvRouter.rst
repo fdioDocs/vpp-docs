@@ -6,7 +6,7 @@ Example Use Cases:
 ******************
 
 FD.io VPP as a vSwitch/vRouter
-------------------------------------------
+------------------------------
 
 One of the use cases for the FD.io VPP platform is to implement it as a
 virtual switch or router. The following section describes examples of

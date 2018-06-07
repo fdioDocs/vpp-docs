@@ -1,9 +1,10 @@
-.. _guides:
+.. _performance:
 
 =========================================
-Guides
+Performance
 =========================================
 
-.. note::
+.. toctree::
 
-  todo
+    performanceDetails
+    ndrrates

@@ -29,6 +29,11 @@ Integrated with the DPDK, FD.io VPP supports existing NIC devices including:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Intel i40e, Intel ixgbe physical and virtual functions, Intel e1000, virtio, vhost-user, Linux TAP
+
+.. note::
+
+    todo: Reorganize this, and include all the supported technologies to this list
+
 * HP rebranded Intel Niantic MAC/PHY
 * Cisco VIC
 
