@@ -13,7 +13,7 @@ Forking your own branch
 ------------------------
 In your browser, navigate to the repo you want to branch off of. In this case, the `fdioDocs/vpp-docs <https://github.com/fdioDocs/vpp-docs>`_ repo. At the top right of the page you should see this:
 
-.. figure:: /_images/forkoptions.png
+.. figure:: /_images/ForkButtons.png
    :alt: Figure: Repository options on Github 
    :scale: 50%
    :align: right
@@ -24,7 +24,7 @@ In your browser, navigate to the repo you want to branch off of. In this case, t
 
 Click on "Fork", and then a pop-up should appear where you should then click your Github username. Once this is done, it should automatically take you to the Github page where your new branch is located, just like in the image below.
 
-.. figure:: /_images/usernameforked.png
+.. figure:: /_images/usernameFork.png
    :alt: Figure: Your own branch of the main repo on Github
    :scale: 35%
    :align: center
@@ -42,65 +42,34 @@ Now that you have your own branch of the main repository on Github, you can stor
 
    $ git clone https://github.com/YOURUSERNAME/vpp-docs
 
-This will create a directory on your computer named **vpp-docs**, the name of the repo. If you want the directory to be named something other than vpp-docs, you can add your own directory name at the end of the command, shown below:
-
-.. code-block:: shell
-
-   $ git clone https://github.com/YOURUSERNAME/vpp-docs OTHERNAME
-
+This will create a directory on your computer named **vpp-docs**, the name of the repo.
 
 Now that your branch is on your computer, you can modify and build files however you wish.
-
 
 Building required files
 -----------------------
 
-Since we use **.rst** files, **Sphinx**, and **Read the docs** for documenting, you should install `Sphinx <http://www.sphinx-doc.org/en/master/usage/installation.html>`_, and follow their `getting started guide <http://www.sphinx-doc.org/en/master/usage/quickstart.html>`_.
+FD.io VPP Documentation uses `reStructuredText <http://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_ (rst) files, which are used by `Sphinx <http://www.sphinx-doc.org/en/master/>`_. You should install Sphinx `here <http://www.sphinx-doc.org/en/master/usage/installation.html>`_, and follow their `getting started guide <http://www.sphinx-doc.org/en/master/usage/quickstart.html>`_.
 
 Building these files will generate an **index.html** file, which you can then view in your browser to verify and see your file changes.
 
-Make sure your Sphinx-build directory is **not** the directory of your local repo, or else Git will think you want to stage and commit your build files (which will show up as "Untracked files" when you try to commit). To ensure this, create a new empty directory which will store your build files.
 
-If you're in your local repository, change to the parent directory and create a new directory:
-
+To *build* your files, make sure you're in your **vpp-docs/docs** directory, where your **conf.py** file is located, and run:
 
 .. code-block:: shell
 
-   $ cd ..
-   $ mkdir NEWDIRECTORYNAME
+   $ make html
 
-Now you can build your repo files into the newly created directory.
 
-You must specify the source directory, the directory where your **conf.py** is located. In this case, it's located in **vpp-docs/docs**. 
-You must also specify the build directory, which is the name of newly created directory from the previous step.
+| If there are no errors during the build process, you should now have an **index.html** file in your
+| **vpp-docs/docs/_build/html** directory, which you can then view in your browser.
 
-.. code-block:: shell
-
-   $ sphinx-build -b html vpp-docs/docs NEWDIRECTORYNAME
-
-If there are no errors during the build process, an **index.html** file will now be generated inside NEWDIRECTORYNAME (I named mine vpp-docs-build), which you can then open up in your browser.
-
-.. figure:: /_images/screenshotdirectory.png
+.. figure:: /_images/htmlBuild.png
    :alt: Figure: My directory containing the index.html file
    :scale: 35%
    :align: center
 
-Viewing the build on Read the docs (Optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-**Read the docs** looks at repositories on Github and hosts it's own standalone page by generating and displaying your **index.html** file, so others users can view it without having to download and build your repo. 
-
-Sign up for a Read the docs account. When brought to this page,
-
-
-.. figure:: /_images/screenshotreadthedocs.png
-   :scale: 35%
-   :align: center
-
-
-Click "request", and then a dialog will pop-up asking for request approval from fdioDocs. Then click "Request approval from owners."
-
-!!!!!!!!!!TO DO!!!!!!!!!!!!!!! (waiting for request approval).
-
+Whenever you make changes to your **.rst** files that you want to see, repeat this build process.
 
 
 Pushing to your remote branch
@@ -117,7 +86,7 @@ You can view your *remote* repositories with:
 At this point, it should only show us the remote branch that you cloned from.
 
 
-.. figure:: /_images/screenshotremotes.png
+.. figure:: /_images/showRemotes.png
    :scale: 45%
    :align: left   
 
@@ -134,7 +103,7 @@ Now you want to create a new remote repository of the main vpp-docs repo (naming
 
 You can verify that you have added a remote repo using the previous **git remote -v** command.
 
-.. figure:: /_images/screenshotbothremotes.png
+.. figure:: /_images/showBothRemotes.png
    :scale: 45%
    :align: left
 
@@ -146,7 +115,7 @@ You can verify that you have added a remote repo using the previous **git remote
 
 If there have been any changes to the main repo since you've started working and modifying your own branch (hopefully not the same files you were working on!), you want to make sure they are in sync (excluding your modified files).
 
-Fetch any changes that the main repo has made, and then merge them into your local master branch using:
+To do so, fetch any changes that the main repo has made, and then merge them into your local master branch using:
 
 .. code-block:: shell
 
@@ -154,21 +123,28 @@ Fetch any changes that the main repo has made, and then merge them into your loc
    $ git merge upstream/master
 
 
-After you've modified some files, you now want to add, commit, and push them from *your local branch* to your *personal remote branch* (not the main fdioDocs repo).
+At this point, the files you weren't working on are synced with your remote branch, and you're ready to move these changes onto your remote branch.
 
-You can achieve this by doing:
+You now want to add each modified file, commit, and push them from *your local branch* to your *personal remote branch* (not the main fdioDocs repo).
+
+To add files (use **git add -A** to add all modified files):
 
 .. code-block:: shell
 
    $ git add FILENAME1 FILENAME2
+
+Commit and push using: 
+
+.. code-block:: shell
+
    $ git commit -m 'A descriptive commit message for two files.'
    $ git push origin master
 
 Here, your personal remote branch is "origin" and your local branch is "master".
 
+.. note::
 
-**REMEMBER,** even just using **git commit** saves a Snapshot of all your work, so it's very hard to lose your modified files if you *commit often*.
-
+    Using **git commit** after adding your files saves a "Snapshot" of them, so it's very hard to lose your work if you *commit often*.
 
 
 
