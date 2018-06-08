@@ -2,8 +2,12 @@
 
 .. toctree::
 
-Feature Rich
-************
+Features
+********
+
+.. note::
+
+    Todo: John will get a complete list of features
 
 The huge number of supported network protocols allows a wide variety of network appliance
 workloads to be built. At a high level, the platform provides:

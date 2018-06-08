@@ -2,10 +2,10 @@
 
 .. toctree::
 
-Supported
+Architectures and Operating Systems
 ***********************************
 
-Supported Architectures
+Architectures
 -----------------------
 
 * - The FD.io VPP platform supports:
@@ -13,8 +13,8 @@ Supported Architectures
    * - x86/64
    * - ARM
      
-Supported Packaging Models
---------------------------
+Operating Systems and Packaging
+-------------------------------
 
 FD.io VPP supports package installation on the following 
 recent LTS operating systems releases:
