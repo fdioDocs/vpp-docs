@@ -21,7 +21,8 @@ A key component is the Vector Packet Processing (VPP) library donated by Cisco.
 
    concepts/index
    setup/index
+   use cases/index
    tasks/index
    guides/index
+   performance/index
    reference/index
-

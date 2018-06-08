@@ -1,0 +1,83 @@
+.. _10000feet:
+
+.. toctree::
+
+FD.io VPP at 10,000 Feet
+========================
+
+Devices 
+-------
+
+* DPDK
+* QAT
+* ODP 
+* Virtl/O
+* MEMIF
+
+Layer 2
+-------
+
+* Discovery
+* Bridge
+* ACLs
+* VLANs
+* MPLS
+
+TM 
+--
+
+* ACLs
+* Policers
+* SPAN
+* sFLOW
+
+.. note::
+
+    todo are there more?
+
+Overlays
+--------
+
+* SFC
+* SRv6
+* GRE
+* VXLAN
+* GENEVE
+* L2TP
+* PPP
+
+IP 
+--
+
+
+IPSEC
+------
+
+* IPv4
+* IPv6
+* xCMP
+* VRFs
+* hFIB
+* ICMP
+
+Layer 4
+--------
+
+* Stateful
+* Stateless
+
+CP
+--
+
+* BGP
+* LLCP
+* IKE
+* DHCP
+* DNS
+
+SDN, NFV & Cloud
+----------------
+
+* OpenDayLight
+* Contiv
+* Neutron ML2

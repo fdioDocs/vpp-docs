@@ -1,9 +1,10 @@
-.. _guides:
+.. _performance:
 
 =========================================
-User Guides
+Performance
 =========================================
 
 .. toctree::
 
-   api/index.rst
+    performanceDetails
+    ndrrates
