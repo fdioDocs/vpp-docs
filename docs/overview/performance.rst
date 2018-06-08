@@ -1,9 +1,14 @@
-.. _performanceDetails:
+.. _performance:
 
 .. toctree::
 
 Performance
 ***********
+
+.. note::
+
+    todo: This section needs some work we need to get some help
+
 
 Performance Expectations
 -------------------------
@@ -42,3 +47,27 @@ FD.io VPP platform is high performance packet processing software, typically ach
 
     * `Further information can be found in the VPP Performance Dashboard <https://docs.fd.io/csit/master/trending/introduction/index.html>`_
 
+NDR (No Drop Rate)  for 2p10GE, 1 core, L2 NIC-to_NIC
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following chart shows the NDR rates on: 2p10GE, 1 core, L2
+NIC-to_NIC.
+
+.. note::
+
+    todo find a way to embed `link <https://docs.fd.io/csit/rls1804/report/_static/vpp/64B-1t1c-l2-sel1-ndrdisc.html>`_ the html page with the live NDR data
+
+NDR for 2p10GE, 1 core, L2 NIC-to-VM/VM-to-VM
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following chart shows the NDR rates on: 2p10GE, 1 core, L2
+NIC-to-VM/VM-to-VM .
+
+.. note::
+
+    todo find a way to embedded link the html page with the live NDR data
+
+* Virtual network infra benchmark of efficiency
+* All tests per connection only, single core
+* Potential higher performance with more connections, more cores
+* Latest SW: OVSDPDK 2.4.0, FD.io VPP 09/2015

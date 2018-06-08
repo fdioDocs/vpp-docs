@@ -5,6 +5,11 @@
 FD.io VPP at 10,000 Feet
 ========================
 
+.. note::
+
+    todo: This section needs some work would love to get some input
+
+
 Devices 
 -------
 
