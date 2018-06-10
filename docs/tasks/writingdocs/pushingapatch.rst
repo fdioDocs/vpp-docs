@@ -4,7 +4,10 @@
 Pushing your changes to the VPP Docs Repository
 ===============================================
 
-This section will cover how to fork your own branch of the `fdioDocs/vpp-docs <https://github.com/fdioDocs/vpp-docs>`_ repository, clone that repo locally to your computer, make changes to it, see those changes on `Read the Docs <https://readthedocs.org/>`_, and how to issue a pull request when you want your changes to be reflected on the main repo.
+Overview
+________
+
+This section will cover how to fork your own branch of the `fdioDocs/vpp-docs <https://github.com/fdioDocs/vpp-docs>`_ repository, clone that repo locally to your computer, make changes to it, and how to issue a pull request when you want your changes to be reflected on the main repo.
  
 
 .. toctree::
@@ -46,34 +49,9 @@ This will create a directory on your computer named **vpp-docs**, the name of th
 
 Now that your branch is on your computer, you can modify and build files however you wish.
 
-Building required files
------------------------
 
-FD.io VPP Documentation uses `reStructuredText <http://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_ (rst) files, which are used by `Sphinx <http://www.sphinx-doc.org/en/master/>`_. You should install Sphinx `here <http://www.sphinx-doc.org/en/master/usage/installation.html>`_, and follow their `getting started guide <http://www.sphinx-doc.org/en/master/usage/quickstart.html>`_.
-
-Building these files will generate an **index.html** file, which you can then view in your browser to verify and see your file changes.
-
-
-To *build* your files, make sure you're in your **vpp-docs/docs** directory, where your **conf.py** file is located, and run:
-
-.. code-block:: shell
-
-   $ make html
-
-
-| If there are no errors during the build process, you should now have an **index.html** file in your
-| **vpp-docs/docs/_build/html** directory, which you can then view in your browser.
-
-.. figure:: /_images/htmlBuild.png
-   :alt: Figure: My directory containing the index.html file
-   :scale: 35%
-   :align: center
-
-Whenever you make changes to your **.rst** files that you want to see, repeat this build process.
-
-
-Pushing to your remote branch
------------------------------
+Keeping your files in sync with the main repo
+---------------------------------------------
 
 The following talks about remote branches, but keep in mind that there are currently *two* branches, your local "master" branch (on your computer), and your remote "origin or origin/master" branch (the one you created using "Fork" on the Github website).
 
@@ -85,14 +63,12 @@ You can view your *remote* repositories with:
 
 At this point, it should only show us the remote branch that you cloned from.
 
+.. code-block:: console
 
-.. figure:: /_images/showRemotes.png
-   :scale: 45%
-   :align: left   
+   Macintosh:docs Andrew$ git remote -v
+   origin  https://github.com/a-olechtchouk/vpp-docs (fetch)
+   origin  https://github.com/a-olechtchouk/vpp-docs (push) 
 
-|
-|
-|
 
 Now you want to create a new remote repository of the main vpp-docs repo (naming it upstream).
 
@@ -103,17 +79,16 @@ Now you want to create a new remote repository of the main vpp-docs repo (naming
 
 You can verify that you have added a remote repo using the previous **git remote -v** command.
 
-.. figure:: /_images/showBothRemotes.png
-   :scale: 45%
-   :align: left
+.. code-block:: console
 
-|
-|
-|
-|
+   Macintosh:docs Andrew$ git remote -v
+   origin  https://github.com/a-olechtchouk/vpp-docs (fetch)
+   origin  https://github.com/a-olechtchouk/vpp-docs (push)
+   upstream    https://github.com/fdioDocs/vpp-docs (fetch)
+   upstream    https://github.com/fdioDocs/vpp-docs (push) 
 
 
-If there have been any changes to the main repo since you've started working and modifying your own branch (hopefully not the same files you were working on!), you want to make sure they are in sync (excluding your modified files).
+If there have been any changes to files in the main repo (hopefully not the same files you were working on!), you want to make sure your local branch is in sync with them.
 
 To do so, fetch any changes that the main repo has made, and then merge them into your local master branch using:
 
@@ -123,9 +98,43 @@ To do so, fetch any changes that the main repo has made, and then merge them int
    $ git merge upstream/master
 
 
-At this point, the files you weren't working on are synced with your remote branch, and you're ready to move these changes onto your remote branch.
+Pushing to your remote branch
+-----------------------------
 
-You now want to add each modified file, commit, and push them from *your local branch* to your *personal remote branch* (not the main fdioDocs repo).
+Now that your files are in sync, you want to add modified files, commit, and push them from *your local branch* to your *personal remote branch* (not the main fdioDocs repo).
+
+To check the status of your files, run:
+
+.. code-block:: shell
+
+   $ git status
+
+
+In the output example below, I deleted gettingsources.rst, made changes to index.rst and pushingapatch.rst, and have created a new file called buildingrst.rst.
+
+.. code-block:: console
+
+   Macintosh:docs Andrew$ git status
+   On branch master
+   Your branch is up-to-date with 'origin/master'.
+   Changes to be committed:
+     (use "git reset HEAD <file>..." to unstage)
+
+       deleted:    tasks/writingdocs/gettingsources.rst
+
+   Changes not staged for commit:
+     (use "git add <file>..." to update what will be committed)
+     (use "git checkout -- <file>..." to discard changes in working directory)
+
+       modified:   tasks/writingdocs/index.rst
+       modified:   tasks/writingdocs/pushingapatch.rst
+
+   Untracked files:
+     (use "git add <file>..." to include in what will be committed)
+
+       tasks/writingdocs/buildingrst.rst
+
+
 
 To add files (use **git add -A** to add all modified files):
 
@@ -151,20 +160,25 @@ Here, your personal remote branch is "origin" and your local branch is "master".
 Initiating a pull request for the main branch
 ---------------------------------------------
 
-Do we first click "New pull request" on the main fdioDocs page????
+Once you've pushed your changes to your remote branch, go to your remote branch on Github (https://github.com/YOURUSERNAME/vpp-docs), and click on "New pull request". 
 
-Now you can go to the main fdioDocs repo on the Github page (not your branch), and click on "Compare & pull request" to go through the process of initiating a pull request.
+.. figure:: /_images/issuePullReq.png
+   :alt: Figure: Your own branch of the main repo on Github
+   :scale: 35%
+   :align: center
 
-!!!!!TO-DO ADD PICTURES!!!!!!
 
 
-Getting the Latest Sources
---------------------------
 
-.. code-block:: console
+Additional Git commands
+-----------------------
 
-    git reset --hard origin/master
-    git checkout master
+You may find some of these Git commands useful:
+
+Use **git diff** to quickly show the file changes and repo differences of your commits.
+
+Use **git rm FILENAME** to stop tracking a file and to remove it from your remote branch and local directory. Use flag **-r** to remove folders/directories. E.g (**git rm -r oldfolder**)
+
 
 .. _fdioDocs: https://github.com/fdioDocs/vpp-docs
 

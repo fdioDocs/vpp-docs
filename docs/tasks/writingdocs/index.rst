@@ -5,6 +5,6 @@ Writing VPP Documentation
 
 .. toctree::
 
-  gettingsources
+  buildingrst
   pushingapatch
 
