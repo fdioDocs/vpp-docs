@@ -167,7 +167,24 @@ Once you've pushed your changes to your remote branch, go to your remote branch 
    :scale: 35%
    :align: center
 
+This will bring you to a "Comparing changes" page. Click "Create new pull request".
 
+.. figure:: /_images/createNewPullReq.png
+   :scale: 35%
+   :align: left
+
+|
+|
+|
+
+Which will open up text fields to add information to your pull request.
+
+.. figure:: /_images/examplePullReq.png
+   :scale: 35%
+   :align: center
+
+
+   Then finally click "Create pull request" to complete the pull request.
 
 
 Additional Git commands
