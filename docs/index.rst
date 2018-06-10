@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-This is beta VPP Documentation it is not meant to be complete or accurate!!!! 
+This is beta VPP Documentation it is not meant to be complete or accurate yet!!!! 
 ===========================================================================================
 
 FD.io (Fast data - Input/Output) is a collection of several projects and
@@ -19,9 +19,9 @@ A key component is the Vector Packet Processing (VPP) library donated by Cisco.
 
 .. toctree::
 
-   concepts/index
-   setup/index
+   overview/index
+   gettingstarted/index
+   use cases/index
    tasks/index
    guides/index
    reference/index
-

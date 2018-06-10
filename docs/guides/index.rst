@@ -7,4 +7,3 @@ User Guides
 .. toctree::
 
    api/index.rst
-
