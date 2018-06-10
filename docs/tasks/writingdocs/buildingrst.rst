@@ -107,7 +107,7 @@ Create an account on *Read the Docs* if you haven't already.
 
 Go to your `dashboard <https://readthedocs.org/dashboard/>`_ , and click on "Import a Project".
 
-.. figure:: /_images/ImportReadDocs.png
+.. figure:: /_images/importReadDocs.png
    :scale: 35%
    :align: left
 
