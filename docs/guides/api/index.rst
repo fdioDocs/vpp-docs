@@ -3,10 +3,10 @@
 .. toctree::
 
 
-!!!!! This is a placeholder for the API User Guides
-===================================================
+API User Guides
+===============
 
-The jvpp section is placed here for safekeeping.
+This chapter describes how to use the C, Python and java APIs.
 
 
 Downloading the jvpp jar

@@ -43,12 +43,18 @@ Which installs all the required applications into it's own, isolated, virtual en
 Build the html files
 ^^^^^^^^^^^^^^^^^^^^
 
+For example start with a clone of the vpp-docs
+
+.. code-block:: shell
+
+   $ git clone https://github.com/YOURUSERNAME/vpp-docs
+
 Change into your vpp-docs/docs directory, since that is where Sphinx will look for your **conf.py** file,
 and build the **.rst** files into an **index.html** file: 
 
 .. code-block:: shell
 
-   $ cd docs
+   $ cd vpp-docs/docs
    $ make html
 
 View the results
