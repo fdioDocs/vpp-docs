@@ -1,9 +1,9 @@
 .. _reference:
 
-=========================================
+
 Reference
-=========================================
+=========
 
 .. note::
 
-    To Do
+    Any reference material should be included here.

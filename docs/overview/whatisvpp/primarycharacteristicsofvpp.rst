@@ -2,7 +2,7 @@
 
 .. toctree::
 
-Primary Characteristics Of FD.io VPP
+Primary Characteristics of FD.io VPP
 *************************************
 
 Improved fault-tolerance and ISSU
