@@ -49,6 +49,12 @@ This will create a directory on your computer named **vpp-docs**, the name of th
 
 Now that your branch is on your computer, you can modify and build files however you wish.
 
+If you are not on the master branch, move to it.
+
+.. code-block:: shell
+
+    $ git checkout master
+
 
 Keeping your files in sync with the main repo
 ---------------------------------------------
@@ -61,14 +67,13 @@ You can view your *remote* repositories with:
 
    $ git remote -v
 
-At this point, it should only show us the remote branch that you cloned from.
+At this point, you may only see the remote branch that you cloned from.
 
 .. code-block:: console
 
    Macintosh:docs Andrew$ git remote -v
    origin  https://github.com/a-olechtchouk/vpp-docs (fetch)
    origin  https://github.com/a-olechtchouk/vpp-docs (push) 
-
 
 Now you want to create a new remote repository of the main vpp-docs repo (naming it upstream).
 
@@ -98,8 +103,24 @@ To do so, fetch any changes that the main repo has made, and then merge them int
    $ git merge upstream/master
 
 
-Pushing to your remote branch
------------------------------
+Create a Branch
+---------------
+
+At this point you may want to work on a branch. To create a branch create and checkout the branch.
+
+.. code-block:: shell
+
+   $ git checkout -b cleanup-01
+   $ git branch
+   * cleanup-01
+     master
+     overview
+
+Now you can make your changes.
+
+
+Pushing to your branch
+----------------------
 
 Now that your files are in sync, you want to add modified files, commit, and push them from *your local branch* to your *personal remote branch* (not the main fdioDocs repo).
 
@@ -157,8 +178,8 @@ Here, your personal remote branch is "origin" and your local branch is "master".
 
 
 
-Initiating a pull request for the main branch
----------------------------------------------
+Initiating a pull request (Code review)
+---------------------------------------
 
 Once you've pushed your changes to your remote branch, go to your remote branch on Github (https://github.com/YOURUSERNAME/vpp-docs), and click on "New pull request". 
 
@@ -185,6 +206,13 @@ Which will open up text fields to add information to your pull request.
 
 
    Then finally click "Create pull request" to complete the pull request.
+
+Your documents will be reviewed. To this same branch make the changes requested from the review and then push your new changes again. There is no need to create another pull request.
+
+.. code-block:: shell
+
+   $ git commit -m 'A descriptive commit message for the new changes'
+   $ git push origin master
 
 
 Additional Git commands

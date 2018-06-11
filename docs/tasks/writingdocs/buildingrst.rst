@@ -1,7 +1,7 @@
 .. _buildingrst:
 
-Building your .rst files
-========================
+Building VPP Documents
+======================
 
 .. toctree::
 
