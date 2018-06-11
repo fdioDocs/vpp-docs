@@ -171,6 +171,8 @@ Commit and push using:
 
 Push your changes for the branch where your changes were made
 
+.. code-block:: shell
+
    $ git push origin <branch name>
 
 Here, your personal remote branch is "origin" and your local branch is "master".
@@ -210,7 +212,7 @@ Which will open up text fields to add information to your pull request.
 
    Then finally click "Create pull request" to complete the pull request.
 
-Your documents will be reviewed. To this same branch make the changes requested from the review and then push your new changes again. There is no need to create another pull request.
+Your documents will be reviewed. To this same branch make the changes requested from the review and then push your new changes. There is no need to create another pull request.
 
 .. code-block:: shell
 
