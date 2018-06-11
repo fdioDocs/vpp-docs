@@ -168,7 +168,10 @@ Commit and push using:
 .. code-block:: shell
 
    $ git commit -m 'A descriptive commit message for two files.'
-   $ git push origin master
+
+Push your changes for the branch where your changes were made
+
+   $ git push origin <branch name>
 
 Here, your personal remote branch is "origin" and your local branch is "master".
 
@@ -212,9 +215,6 @@ Your documents will be reviewed. To this same branch make the changes requested 
 .. code-block:: shell
 
    $ git commit -m 'A descriptive commit message for the new changes'
-
-Push you changes for the branch where your changes were made
-
    $ git push origin <branch name>
 
 
