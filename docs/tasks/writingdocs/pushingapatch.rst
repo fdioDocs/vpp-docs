@@ -212,7 +212,10 @@ Your documents will be reviewed. To this same branch make the changes requested 
 .. code-block:: shell
 
    $ git commit -m 'A descriptive commit message for the new changes'
-   $ git push origin master
+
+Push you changes for the branch where your changes were made
+
+   $ git push origin <branch name>
 
 
 Additional Git commands
