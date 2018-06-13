@@ -9,6 +9,6 @@ extensive list, but should give a sampling of the many features contained in FD.
 
 .. toctree::
 
+    vhost
+    homegateway
     uc_vSwitchvRouter
-    uc_HomeGateway
-    cmdreference/index.rst

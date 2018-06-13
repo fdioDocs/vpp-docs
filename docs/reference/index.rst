@@ -1,9 +1,8 @@
 .. _reference:
 
-
 Reference
 =========
 
-.. note::
+.. toctree::
 
-    Any reference material should be included here.
+    cmdreference/index.rst
