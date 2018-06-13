@@ -1,4 +1,4 @@
-.. _homegatewaydesc:
+.. _homegateway:
 
 .. toctree::
 
