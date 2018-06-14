@@ -1,9 +1,9 @@
-.. _vswitch:
+.. _homegateway:
 
 .. toctree::
 
-Home Gateway
-============
+Using VPP as a Home Gateway
+===========================
 
 Vpp running on a small system (with appropriate NICs) makes a fine
 home gateway. The resulting system performs far in excess of
@@ -14,7 +14,7 @@ At a minimum, install sshd and the isc-dhcp-server. If you prefer, you
 can use dnsmasq.
 
 Configuration files
-===================
+-------------------
 
 /etc/vpp/startup.conf::
 
@@ -99,7 +99,7 @@ vpp configuration::
   add default linux route via 192.168.1.1
  
 Patches
-=======
+-------
 
 You'll need this patch to add the "service restart" and "add default linux route" commands::
 
