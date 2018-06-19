@@ -19,18 +19,14 @@ performance is based on the following highlights:
 * Extensible by use of plugins
 * Control-plane / orchestration-plane via standards-based APIs
 
-Performance Metrics
-^^^^^^^^^^^^^^^^^^^
+Ongoing Regression Performance Tests
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 FD.io VPP platform is high performance packet processing software, typically achieving:
 
 * Multiple MPPS from a single x86_64 core
 * >100Gbps full-duplex on a single physical host
 * Continuous performance regression testing in FD.io, demonstrates FD.io ongoing commitment to achieving ever performance.
-
-=========================================
-Performance Tests
-=========================================
 
 .. toctree::
 

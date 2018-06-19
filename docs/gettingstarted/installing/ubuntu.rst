@@ -1,7 +1,7 @@
 .. _ubuntu:
 
 .. toctree::
-
+ 
 Ubuntu 16.04 - Setup the fd.io Repository
 =========================================
 
