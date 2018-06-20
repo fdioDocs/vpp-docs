@@ -18,7 +18,7 @@ We will also cover how to view your build on Read the Docs in `Using Read the Do
 To build your files, you can either `Create a Virtual Environment using virtualenv`_, which installs all the required applications for you,  or you can `Install Sphinx manually`_.
 
 Create a Virtual Environment using virtualenv
----------------------------------------------
+_____________________________________________
 
 For more information on how to use the Python virtual environment check out
 `Installing packages using pip and virtualenv`_.
@@ -80,7 +80,7 @@ Whenever you make changes to your **.rst** files that you want to see, repeat th
 
 
 Install Sphinx manually
------------------------
+_______________________
 
 Skip this step if you created a *virtualenv* in the previous step. If you dont want to create a *virtualenv*, you should install Sphinx `here <http://www.sphinx-doc.org/en/master/usage/installation.html>`_, and follow their `getting started guide <http://www.sphinx-doc.org/en/master/usage/quickstart.html>`_.
 
@@ -105,7 +105,7 @@ Whenever you make changes to your **.rst** files that you want to see, repeat th
 
 
 Using Read the Docs
--------------------
+___________________
 
 `Read the Docs <https://readthedocs.org/>`_ is a website that "simplifies software documentation by automating building, versioning, and hosting of your docs for you". Essentially, it accesses your Github repo to generate the **index.html** file, and then displays it on its own *Read the Docs* webpage so others can view your documentation. 
 

@@ -12,8 +12,9 @@ This section will cover how to fork your own branch of the `fdioDocs/vpp-docs <h
 
 .. toctree::
 
-Forking your own branch 
-------------------------
+Forking your own branch
+_______________________
+ 
 In your browser, navigate to the repo you want to branch off of. In this case, the `fdioDocs/vpp-docs <https://github.com/fdioDocs/vpp-docs>`_ repo. At the top right of the page you should see this:
 
 .. figure:: /_images/ForkButtons.png
@@ -37,7 +38,7 @@ Now your **own branch** can be **cloned** to your computer using the URL (https:
 
 
 Creating a local repository
----------------------------
+___________________________
 
 Now that you have your own branch of the main repository on Github, you can store it locally on your computer. In your shell, navigate to the directory where you want to store your branch/repo. Then execute:
 
@@ -57,7 +58,7 @@ If you are not on the master branch, move to it.
 
 
 Keeping your files in sync with the main repo
----------------------------------------------
+_____________________________________________
 
 The following talks about remote branches, but keep in mind that there are currently *two* branches, your local "master" branch (on your computer), and your remote "origin or origin/master" branch (the one you created using "Fork" on the Github website).
 
@@ -103,24 +104,23 @@ To do so, fetch any changes that the main repo has made, and then merge them int
    $ git merge upstream/master
 
 
-Create a Branch
----------------
+.. note:: **This is optional, so don't do these commands if you just want one local branch!!!**
 
-At this point you may want to work on a branch. To create a branch create and checkout the branch.
+    You may want to have multiple branches, where each branch has its own different features, allowing you to have multiple pull requests out at a time. To create a new local branch:
 
-.. code-block:: shell
+    .. code-block:: shell
 
-   $ git checkout -b cleanup-01
-   $ git branch
-   * cleanup-01
-     master
-     overview
+       $ git checkout -b cleanup-01
+       $ git branch
+       * cleanup-01
+         master
+         overview
 
-Now you can make your changes.
+    Now you can redo the previous steps for "Keeping your files in sync with the main repo" for your newly created local branch, and then depending on which branch you want to send out a pull reqest for, proceed below.
 
 
 Pushing to your branch
-----------------------
+______________________
 
 Now that your files are in sync, you want to add modified files, commit, and push them from *your local branch* to your *personal remote branch* (not the main fdioDocs repo).
 
@@ -184,7 +184,7 @@ Here, your personal remote branch is "origin" and your local branch is "master".
 
 
 Initiating a pull request (Code review)
----------------------------------------
+_______________________________________
 
 Once you've pushed your changes to your remote branch, go to your remote branch on Github (https://github.com/YOURUSERNAME/vpp-docs), and click on "New pull request". 
 
@@ -221,7 +221,7 @@ Your documents will be reviewed. To this same branch make the changes requested 
 
 
 Additional Git commands
------------------------
+_______________________
 
 You may find some of these Git commands useful:
 
