@@ -28,9 +28,19 @@ FD.io VPP platform is high performance packet processing software, typically ach
 * >100Gbps full-duplex on a single physical host
 * Continuous performance regression testing in FD.io, demonstrates FD.io ongoing commitment to achieving ever performance.
 
+A few examples of test results for FD.io VPP performance data are shown below. 
+
 .. toctree::
 
     l2ethswitch.rst
     ipv4routedforwarding.rst
     ndr.rst
 
+For More information on CSIT 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+These are FD.io Continuous System Integration and Testing (CSIT)'s documentation links.
+
+* `CSIT Code Documentation <https://docs.fd.io/csit/master/doc/overview.html>`_
+* `CSIT Test Overview <https://docs.fd.io/csit/rls1804/report/introduction/overview.html>`_
+* `VPP Performance Dashboard <https://docs.fd.io/csit/master/trending/introduction/index.html>`_

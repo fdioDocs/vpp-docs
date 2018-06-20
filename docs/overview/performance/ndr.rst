@@ -2,16 +2,10 @@
 
 .. toctree::
 
-NDR (No Drop Rate) Performance Tests
-************************************
+NDR Performance Tests
+*********************
 
-* Virtual network infra benchmark of efficiency
-* All tests per connection only, single core
-* Potential higher performance with more connections, more cores
-
-.. note::
-
-    `Further information can be found in the VPP Performance Dashboard <https://docs.fd.io/csit/master/trending/introduction/index.html>`_
+This is a live graph of the NDR (No Drop Rate) Performance Tests. 
 
 .. raw:: html
 
