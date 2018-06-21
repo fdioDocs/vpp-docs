@@ -1,7 +1,7 @@
 .. _troubleshooting:
 
-Troubleshooting Guide
-=====================
+How to Report a Bug
+===================
 
 .. toctree::
 

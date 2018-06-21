@@ -130,6 +130,8 @@ Summary/Usage
 
     set interface promiscuous [on|off] <interface>.
 
+.. _setintstate:
+
 Set Interface State
 ===================
 This command is used to change the admin state (up/down) of an
