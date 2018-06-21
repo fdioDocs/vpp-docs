@@ -1,11 +1,11 @@
-.. _ndr:
+.. _ndrpacket:
 
 .. toctree::
 
 NDR Performance Tests
 *********************
 
-This is a live graph of the NDR (No Drop Rate) Performance Tests. 
+This is a VPP NDR 64B packet throughput in 1 Core, 1 Thread setup, live graph of the NDR (No Drop Rate) L2 Performance Tests. 
 
 .. raw:: html
 

@@ -1,8 +1,8 @@
-.. _ipv4routedforwarding:
+.. _ipv4routedforwardingthroughput:
 
 .. toctree::
 
-IPv4 Routed Forwarding Performance Tests
+IPv4 Routed-Forwarding Performance Tests
 ****************************************
 
 This is a live graph of the IPv4 Routed Forwarding Switching Performance Tests. 

@@ -1,11 +1,11 @@
- .. _l2ethswitch:
+ .. _l2ethswitchthroughput:
 
 .. toctree::
 
 L2 Ethernet Switching Performance Tests
 ***************************************
 
-This is a live graph of the L2 Ethernet Switching Performance Tests. 
+This is a live graph of the 1 Core, 1 Thread, L2 Ethernet Switching Performance Tests Test on the x520 NIC.
 
 .. raw:: html
 
