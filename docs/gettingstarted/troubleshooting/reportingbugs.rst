@@ -26,16 +26,19 @@ Data to include in bug reports
 Image version and operating environment
 ---------------------------------------
 
-Please make sure to include the vpp image version::
+Please make sure to include the vpp image version.
 
- # vppctl show version verbose
+.. code-block:: console
+
+    $ sudo bash
+    # vppctl show version verbose
  
- vpp v1.0.0-188~geef4d99 built by vagrant on localhost at Wed Feb 24 08:52:13 PST 2016
- Built in /home/vagrant/git/vpp
- Compiled with GCC 4.8.4
- DPDK version is RTE 2.2.0
- DPDK EAL init arguments: -c 1 -n 4 --socket-mem 1024 --huge-dir /run/vpp/hugepages 
-          --file-prefix vpp -b 0000:02:00.0 -b 0000:02:01.0 --master-lcore 0 
+    vpp v1.0.0-188~geef4d99 built by vagrant on localhost at Wed Feb 24 08:52:13 PST 2016
+    Built in /home/vagrant/git/vpp
+    Compiled with GCC 4.8.4
+    DPDK version is RTE 2.2.0
+    DPDK EAL init arguments: -c 1 -n 4 --socket-mem 1024 --huge-dir /run/vpp/hugepages 
+    --file-prefix vpp -b 0000:02:00.0 -b 0000:02:01.0 --master-lcore 0 
 
 With respect to the operating environment: if misbehavior involving a
 specific VM / container / bare-metal environment is involved, please
@@ -61,36 +64,42 @@ Please include ip4 / ip6 / mpls FIB contents ("show ip fib", "show ip6 fib", "sh
 
 Please include "show hardware", "show interface", and "show interface address" output
 
-Here is a consolidated set of commands that are generally useful before/after sending traffic.  Before sending traffic::
+Here is a consolidated set of commands that are generally useful before/after sending traffic.  Before sending traffic.
 
- vppctl clear hardware
- vppctl clear interface
- vppctl clear error
- vppctl clear run
+.. code-block:: console
 
-Send some traffic and then issue the following commands::
+    vppctl clear hardware
+    vppctl clear interface
+    vppctl clear error
+    vppctl clear run
+
+Send some traffic and then issue the following commands.
  
- vppctl show version verbose
- vppctl show hardware
- vppctl show hardware address
- vppctl show interface
- vppctl show run
- vppctl show error
+.. code-block:: console
+
+    vppctl show version verbose
+    vppctl show hardware
+    vppctl show hardware address
+    vppctl show interface
+    vppctl show run
+    vppctl show error
 
 Here are some protocol specific show commands that may also make
-sense.  Only include those features which have been configured::
+sense.  Only include those features which have been configured.
 
- vppctl show l2fib
- vppctl show bridge-domain
+.. code-block:: console
+
+     vppctl show l2fib
+     vppctl show bridge-domain
  
- vppctl show ip fib
- vppctl show ip arp
+     vppctl show ip fib
+     vppctl show ip arp
  
- vppctl show ip6 fib
- vppctl show ip6 neighbors
+     vppctl show ip6 fib
+     vppctl show ip6 neighbors
  
- vppctl show mpls fib
- vppctl show mpls tunnel
+     vppctl show mpls fib
+     vppctl show mpls tunnel
 
 Network Topology
 ----------------
@@ -105,11 +114,17 @@ problematic to reproduce the original setup.
 Packet Tracer Output
 --------------------
 
-If you capture packet tracer output which seems relevant, please include it::
+If you capture packet tracer output which seems relevant, please include it.
 
- vppctl trace add dpdk-input 100  # or similar
- <i><send-traffic></i>
- vppctl show trace
+.. code-block:: console
+
+    vppctl trace add dpdk-input 100  # or similar
+
+send-traffic
+
+.. code-block:: console
+
+    vppctl show trace
 
 Capturing post-mortem data
 ==========================
@@ -156,13 +171,15 @@ Production systems, as well as long-running pre-production soak-test
 systems, **must** arrange to collect core images. There are various
 ways to configure core image capture, including e.g. the Ubuntu
 "corekeeper" package. In a pinch, the following very basic sequence
-will capture usable vpp core files in /tmp/dumps::
+will capture usable vpp core files in /tmp/dumps.
 
-     # mkdir -p /tmp/dumps
-     # sysctl -w debug.exception-trace=1 
-     # sysctl -w kernel.core_pattern="/tmp/dumps/%e-%t"
-     # ulimit -c unlimited
-     # echo 2 > /proc/sys/fs/suid_dumpable
+.. code-block:: console
+
+    # mkdir -p /tmp/dumps
+    # sysctl -w debug.exception-trace=1 
+    # sysctl -w kernel.core_pattern="/tmp/dumps/%e-%t"
+    # ulimit -c unlimited
+    # echo 2 > /proc/sys/fs/suid_dumpable
 
 Vpp core files often appear enormous. Gzip typically compresses them
 to manageable sizes. A multi-GByte corefile often compresses to 10-20
@@ -178,13 +195,13 @@ passed by orchestration software.
 Core files from private, modified images are discouraged. If it's
 necessary to go that route, please copy the **exact** Debian
 packages (or RPMs) corresponding to the core file to the same public
-place as the core file. In particular::
+place as the core file. In particular.
 
- vpp_<version>_<arch>.deb         # the vpp executable
- vpp-dbg_<version>_<arch>.deb     # debug symbols
- vpp-dev_<version>_<arch>.deb     # development package 
- vpp-lib_<version>_<arch>.deb     # shared libraries
- vpp-plugins_<version>_<arch>.deb # plugins
+* vpp_<version>_<arch>.deb         # the vpp executable
+* vpp-dbg_<version>_<arch>.deb     # debug symbols
+* vpp-dev_<version>_<arch>.deb     # development package 
+* vpp-lib_<version>_<arch>.deb     # shared libraries
+* vpp-plugins_<version>_<arch>.deb # plugins
 
 Please include the full commit-ID the Jira ticket.
 
