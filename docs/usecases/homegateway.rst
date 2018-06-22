@@ -101,7 +101,8 @@ vpp configuration::
 Patches
 -------
 
-You'll need this patch to add the "service restart" and "add default linux route" commands::
+You'll need this patch to add the "service restart" and "add default
+linux route" commands::
 
   diff --git a/src/vpp/vnet/main.c b/src/vpp/vnet/main.c
   index 6e136e19..69189c93 100644
@@ -177,3 +178,30 @@ You'll need this patch to add the "service restart" and "add default linux route
   +/* *INDENT-ON* */
   +
   + 
+
+Using the temporal mac filter plugin
+------------------------------------
+
+If you need to restrict network access for certain devices to specific
+daily time ranges, configure the "mactime" plugin. Enable the feature
+on the NAT "inside" interfaces::
+
+  bin mactime_enable_disable GigabitEthernet0/14/0
+  bin mactime_enable_disable GigabitEthernet0/14/1
+  ...
+
+Create the required src-mac-address rule database. There are 4 rule
+entry types:
+
+* allow-static - pass traffic from this mac address
+* drop-static - drop traffic from this mac address
+* allow-range - pass traffic from this mac address at specific times
+* drop-range - drop traffic from this mac address at specific times
+
+Here are some examples::
+
+  bin mactime_add_del_range name alarm-system mac 00:de:ad:be:ef:00 allow-static
+  bin mactime_add_del_range name unwelcome mac 00:de:ad:be:ef:01 drop-static
+  bin mactime_add_del_range name not-during-business-hours mac <mac> drop-range Mon - Fri 7:59 - 18:01
+  bin mactime_add_del_range name monday-busines-hours mac <mac> allow-range Mon 7:59 - 18:01
+  
