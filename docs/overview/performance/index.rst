@@ -34,10 +34,6 @@ FD.io VPP platform is high performance packet processing software, typically ach
     ndrpacket.rst
     ipv6packetthroughput.rst
 
-.. note::
-
-    todo: ipv4 packet throughput graph
-
 Trending Throughput Graphs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 
