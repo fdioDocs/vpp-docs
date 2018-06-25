@@ -7,4 +7,6 @@ Writing VPP Documentation
 
   buildingrst
   pushingapatch
+  styleguide/index.rst
+
 
