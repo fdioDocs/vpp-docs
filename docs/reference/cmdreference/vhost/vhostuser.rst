@@ -2,8 +2,11 @@
 
 .. toctree::
 
+.. _createvhostuser:
+
 Create Vhost-User
 =================
+
 Create a vHost User interface. Once created, a new virtual interface
 will exist with the name '*VirtualEthernet0/0/x*', where '*x*' is the
 next free index.
@@ -79,8 +82,11 @@ Once the vHost interface is created, enable the interface using:
 
     vpp# set interface state VirtualEthernet0/0/0 up
 
+.. _showvhost:
+
 Show Vhost-User
 ===============
+
 Display the attributes of a single vHost User interface (provide
 interface name), multiple vHost User interfaces (provide a list of
 interface names seperated by spaces) or all Vhost User interfaces (omit
