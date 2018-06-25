@@ -1,4 +1,4 @@
-.. _xmlexample:
+.. _xmlexample01:
 
 The XML File
 ------------
