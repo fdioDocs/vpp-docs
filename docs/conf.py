@@ -76,16 +76,16 @@ pygments_style = 'sphinx'
 # a list of builtin themes.
 #
 
-import sphinx_theme
+# import sphinx_theme
 
-# html_theme = "sphinx_rtd_theme"
-html_theme = 'neo_rtd_theme'
+html_theme = "sphinx_rtd_theme"
+# html_theme = 'neo_rtd_theme'
 
-# html_theme_path = ["_themes", ]
-html_theme_path = [sphinx_theme.get_html_theme_path('neo-rtd-theme')]
+html_theme_path = ["_themes", ]
+# html_theme_path = [sphinx_theme.get_html_theme_path('neo-rtd-theme')]
 
 # All available themes:
-print(sphinx_theme.THEME_LIST)
+# print(sphinx_theme.THEME_LIST)
 # >> ['stanford_theme', 'neo_rtd_theme']
 
 # The name of an image file (relative to this directory) to place at the top
