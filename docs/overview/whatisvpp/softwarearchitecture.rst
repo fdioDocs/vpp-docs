@@ -2,8 +2,9 @@
 
 .. toctree::
 
+*********************
 Software Architecture
-=====================
+*********************
 
 The fd.io vpp implementation is a third-generation vector packet
 processing implementation specifically related to US Patent 7,961,636,
@@ -23,7 +24,7 @@ threads which process ingress-hashes packets from multiple queues using
 identical forwarding graph replicas. 
 
 Implemetation taxonomy
-----------------------
+======================
 
 The vpp dataplane consists of four distinct layers: 
 
@@ -56,7 +57,8 @@ to cause (intentional) side-effects.
 Vppinfra has been around for almost 20 years and tends not to change frequently.
 all.
 
-2.1.1 Vectors
+Vectors
+-------
 
 Vppinfra vectors are ubiquitous dynamically resized arrays with by
 user defined "headers". Many vpppinfra data structures (e.g. hash,
@@ -469,7 +471,8 @@ function which may suspend, one had best know by construction that it
 cannot change. Often, it's best to simply make a snapshot copy of a
 data structure, walk the copy at leisure, then free the copy.
 
-2.2.5 Process events
+Process events
+--------------
 
 The vlib process event mechanism API is extremely lightweight and easy
 to use. Here is a typical example::
