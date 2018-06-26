@@ -1,32 +1,41 @@
 .. _performance:
 
-=========================================
-Performance 
-=========================================
+Performance
+===========
 
 Overview
 ^^^^^^^^
 
-One of the benefits of this implementation of FD.io VPP is its high
-performance on relatively low-power computing. This high level of
-performance is based on the following highlights:
+One of the benefits of FD.io VPP, is high performance on relatively low-power computing, this performance is based on the following features:
 
-* High-performance user-space network stack for commodity hardware
-* The same code for host, VMs, Linux containers
-* Integrated vhost-user virtio backend for high speed VM-to-VM connectivity
-* L2 and L3 functionality, multiple encapsulations
-* Leverages best-of-breed open source driver technology: DPDK
-* Extensible by use of plugins
-* Control-plane / orchestration-plane via standards-based APIs
+* A high-performance user-space network stack designed for commodity hardware.
+
+  - L2, L3 and L4 features and encapsulations.
+
+* Optimized packet interfaces supporting a multitude of use cases.
+
+  - An integrated vhost-user backend for high speed VM-to-VM connectivity.
+  - An integrated memif container backend for high speed Container-to-Container connectivity. 
+  - An integrated vhost based interface to punt packets to the Linux Kernel. 
+
+* The same optimized code-paths run execute on the host, and inside VMs and Linux containers.
+* Leverages best-of-breed open source driver technology: `DPDK <https://www.dpdk.org/>`_.
+* Tested at scale; linear core scaling, tested with millions of flows and mac addresses.  
+
+These features have been designed to take full advantage of common micro-processor optimization techniques, such as: 
+
+* Reducing cache and TLS misses by processing packets in vectors. 
+* Realizing `IPC <https://en.wikipedia.org/wiki/Instructions_per_cycle>`_ gains with vector instructions such as: SSE, AVX and NEON.
+* Eliminating mode switching, context switches and blocking, to always be doing useful work.  
+* Cache-lined aliged buffers for cache and memory efficiency.
+
 
 Packet Throughput Graphs
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-FD.io VPP platform is high performance packet processing software, typically achieving:
+These are some of the packet throughput graphs for FD.io VPP 18.04 from the CSIT `18.04 benchmarking report <https://docs.fd.io/csit/rls1804/report/>`_.   
 
-* Multiple MPPS from a single x86_64 core
-* >100Gbps full-duplex on a single physical host
-* Continuous performance regression testing in FD.io, demonstrates FD.io ongoing commitment to achieving ever performance.
+TODO : rework files
 
 .. toctree::
 
@@ -37,9 +46,9 @@ FD.io VPP platform is high performance packet processing software, typically ach
 Trending Throughput Graphs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 
-This is the trending live performance graphs, performance changes on a nightly basis.
+These are some of the trending packet throughput graphs from the CSIT `trending dashboard <https://docs.fd.io/csit/master/trending/introduction/index.html>`_. **Please note that**, performance in the trending graphs will change on a nightly basis in line with the software development cycle.
 
-A few examples of test results for FD.io VPP performance data are shown below. 
+TODO : rework files
 
 .. toctree::
 
