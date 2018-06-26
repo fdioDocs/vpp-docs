@@ -6,6 +6,10 @@
 Software Architecture
 *********************
 
+.. note::
+
+   Add Overview Section.
+
 The fd.io vpp implementation is a third-generation vector packet
 processing implementation specifically related to US Patent 7,961,636,
 as well as earlier work. Note that the Apache-2 license specifically
@@ -14,9 +18,9 @@ point of historical interest.
 
 For performance, the vpp dataplane consists of a directed graph of
 forwarding nodes which process multiple packets per invocation. This
-schema enables a variety of cache-related optimizations: pipelining
+schema enables a variety of micro-processor optimizations: pipelining
 and prefetching to cover dependent read latency, inherent I-cache
-phase behavior. Aside from hardware input and hardware output nodes,
+phase behavior, vector instructions. Aside from hardware input and hardware output nodes,
 the entire forwarding graph is portable code.
 
 Depending on the scenario at hand, we often spin up multiple worker
@@ -55,7 +59,6 @@ name. Macros are used to avoid function calls in the typical case, and
 to cause (intentional) side-effects.
 
 Vppinfra has been around for almost 20 years and tends not to change frequently.
-all.
 
 Vectors
 -------
@@ -704,7 +707,3 @@ problems where the number of items to process is not known in advance:
 typical hardware RX-ring processing. This coding style is also very
 effective when a given node will not need to cover a complex set of
 dependent reads.
-
-
-
-
