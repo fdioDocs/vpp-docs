@@ -1,13 +1,11 @@
 .. _buildingrst:
 
+**********************
 Building VPP Documents
-======================
-
-.. toctree::
-
+**********************
 
 Overview
-________
+========
 
 These instructions show how the VPP documentation sources are built.
 
@@ -25,36 +23,40 @@ For more information on how to use the Python virtual environment check out
 
 .. _`Installing packages using pip and virtualenv`: https://packaging.python.org/guides/installing-using-pip-and-virtualenv/
 
+Get the Documents
+^^^^^^^^^^^^^^^^^
+
+For example start with a clone of the vpp-docs.
+
+.. code-block:: console
+
+   $ git clone https://github.com/fdioDocs/vpp-docs
+   $ cd vpp-docs/docs
+
+
 Install the virtual environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  
 In your vpp-docs directory, run: 
 
-
-.. code-block:: shell
+.. code-block:: console
 
    $ python -m pip install --user virtualenv 
    $ python -m virtualenv env
    $ source env/bin/activate
    $ pip install -r etc/requirements.txt
 
-Which installs all the required applications into it's own, isolated, virtual environment, so as to not interfere with other builds that may use different versions of software.
+Which installs all the required applications into it's own, isolated, virtual environment, so as to not
+interfere with other builds that may use different versions of software.
 
 Build the html files
 ^^^^^^^^^^^^^^^^^^^^
 
-For example start with a clone of the vpp-docs
+Be sure you are in your vpp-docs/docs directory, since that is where Sphinx will look for your **conf.py**
+file, and build the **.rst** files into an **index.html** file: 
 
-.. code-block:: shell
+.. code-block:: console
 
-   $ git clone https://github.com/YOURUSERNAME/vpp-docs
-
-Change into your vpp-docs/docs directory, since that is where Sphinx will look for your **conf.py** file,
-and build the **.rst** files into an **index.html** file: 
-
-.. code-block:: shell
-
-   $ cd vpp-docs/docs
    $ make html
 
 View the results
@@ -74,7 +76,7 @@ Whenever you make changes to your **.rst** files that you want to see, repeat th
 
    To exit from the virtual environment execute:
 
-.. code-block:: shell
+.. code-block:: console
 
    $ deactivate
 
@@ -89,7 +91,7 @@ Building these files will generate an **index.html** file, which you can then vi
 
 To *build* your files, make sure you're in your **vpp-docs/docs** directory, where your **conf.py** file is located, and run:
 
-.. code-block:: shell
+.. code-block:: console
 
    $ make html
 

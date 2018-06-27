@@ -1,11 +1,11 @@
 .. _styleguide:
 
-###########
-Style Guide
-###########
+#############################
+reStructured Text Style Guide
+#############################
 
-This chapter describes some of the Sphinx Markup Constructs used in these documents.
-The Sphinx style guide can be found at:
+Most of the these documents are written ins reStructured Text (rst). This chapter describes some of
+the Sphinx Markup Constructs used in these documents. The Sphinx style guide can be found at:
 `Sphinx Style Guide <http://documentation-style-guide-sphinx.readthedocs.io/en/latest/style-guide.html>`_
 For a more detailed list of Sphinx Markup Constructs please refer to:
 `Sphinx Markup Constructs <http://www.sphinx-doc.org/en/stable/markup/index.html>`_

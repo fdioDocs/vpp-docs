@@ -12,9 +12,9 @@ is shown at the top of this page. A label used in this way must be above a headi
 
 :ref:`showintcommand` command.
 
-*************
-External Link
-*************
+**************
+External Links
+**************
 
 An external link is done with the following construct:
 
