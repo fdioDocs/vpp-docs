@@ -35,26 +35,23 @@ Packet Throughput Graphs
 
 These are some of the packet throughput graphs for FD.io VPP 18.04 from the CSIT `18.04 benchmarking report <https://docs.fd.io/csit/rls1804/report/>`_.   
 
-TODO : rework files
-
 .. toctree::
 
-    l2packetthroughput.rst    
-    ndrpacket.rst
-    ipv6packetthroughput.rst
+    current_l2_throughput.rst    
+    current_ndr_throughput.rst
+    current_ipv4_throughput.rst
+    current_ipv6_throughput.rst
 
 Trending Throughput Graphs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 
 These are some of the trending packet throughput graphs from the CSIT `trending dashboard <https://docs.fd.io/csit/master/trending/introduction/index.html>`_. **Please note that**, performance in the trending graphs will change on a nightly basis in line with the software development cycle.
 
-TODO : rework files
-
 .. toctree::
 
-    l2ethswitchthroughput.rst
-    ipv4routedforwardingthroughput.rst
-    ipv6trendingthroughputgraph.rst
+    trending_l2_throughput.rst
+    trending_ipv4_throughput.rst
+    trending_ipv6_throughput.rst
 
 For More information on CSIT 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
