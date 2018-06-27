@@ -190,9 +190,8 @@ Check if we installed lxc:
   
    $ lxc-checkconfig
 
-Making our containers
-^^^^^^^^^^^^^^^^^^^^^
-
+Creating containers
+^^^^^^^^^^^^^^^^^^^
 
 We want to configure an LXC (Linux container) network to create an inteface for Linux bridge and a unconsumed second inteface for our containers.
 
@@ -279,16 +278,99 @@ Verify its running:
     ctwo STOPPED 0         -      -    -  
 
 
-Lets go into container cone and install prerequisites such as VPP:
+Container setup
+^^^^^^^^^^^^^^^
+
+Lets go into container *cone* and install prerequisites such as VPP, as we did with our VM:
 
 .. code-block:: shell
     
     $ sudo lxc-attach -n cone
+    $ sudo bash
+    $ resolvconf -d eth0
+    $ dhclient
+    $ apt-get install -y wget
+    $ echo "deb [trusted=yes] https://nexus.fd.io/content/repositories/fd.io.ubuntu.xenial.main/ ./" | sudo tee -a /etc/apt/sources.list.d/99fd.io.list
+    $ apt-get update
+    $ apt-get install -y --force-yes vpp
+    $ sh -c 'echo  \"\\ndpdk {\\n   no-pci\\n}\" >> /etc/vpp/startup.conf'
+
+And lets start VPP in this container as well:
+
+.. code-block:: shell
+    
+    $ service vpp start
+
+Now repeat this process for the second container, ctwo, and also don't forget to "start" it just like we did with cone.
 
 
-Creating Containers
-^^^^^^^^^^^^^^^^^^^
-Creating contai
+
+Bridging Demo
+^^^^^^^^^^^^^
+
+Now lets go through the process of connecting these two containers via an L2 bridge.
+
+First get out of ctwo and back into our VM.
+
+.. code-block:: shell
+    
+    $ exit
+
+We can show our current interfaces with:
+
+.. code-block:: shell
+    
+    $ sudo vppctl show inter
+
+
+Lets examine our workloads cone and ctwo:
+
+.. code-block:: shell
+    
+    $ sudo lxc-attach -n cone -- ip -o a
+    $ sudo lxc-attach -n ctwo -- ip -o a
+
+
+To add interfaces, we add the host-side of the veth link pair.
+The links we need to add are link1 and link2 so lets add them with:
+
+.. code-block:: shell
+    
+    $ ip link
+    $ sudo vppctl create host-interface name link1
+    $ sudo vppctl create host-interface name link2
+    $ sudo vppctl show inter
+
+
+Change the links state to up:
+
+.. code-block:: shell
+    
+    $ sudo vppctl set interface state host-link1 up
+    $ sudo vppctl set interface state host-link2 up
+    $ sudo vppctl show inter
+
+
+Add IP addresses for the other end of each veth link:
+
+.. code-block:: shell
+    
+    $ sudo vppctl set interface l2 bridge host-link1 1
+    $ sudo vppctl set interface l2 bridge host-link2 1
+
+
+You can also see the bridge-domain:
+
+.. code-block:: shell
+    
+    $ sudo vppctl show bridge-domain 1 detail
+
+At long last you probably want to see some pings:
+
+.. code-block:: shell
+    
+    $ sudo lxc-attach -n cone -- ping -c3 172.16.1.3
+    $ sudo lxc-attach -n ctwo -- ping -c3 172.16.1.2
 
 
 
