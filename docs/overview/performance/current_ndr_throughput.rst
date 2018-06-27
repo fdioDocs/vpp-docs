@@ -1,4 +1,4 @@
-.. _ndrpacket:
+.. _current_ndr_throughput:
 
 .. toctree::
 

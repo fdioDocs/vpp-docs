@@ -1,4 +1,4 @@
- .. _l2packetthroughput:
+ .. _current_l2_throughput:
 
 .. toctree::
 

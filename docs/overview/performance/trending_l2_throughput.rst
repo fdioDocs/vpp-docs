@@ -1,4 +1,4 @@
- .. _l2ethswitchthroughput:
+ .. _trending_l2_throughput:
 
 .. toctree::
 
