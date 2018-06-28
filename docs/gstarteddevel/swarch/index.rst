@@ -10,3 +10,4 @@ Describe the software archetecture here.
 
    softwarearchitecture
    featurearcs
+   bihash
