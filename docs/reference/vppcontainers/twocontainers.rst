@@ -7,8 +7,8 @@ VPP with two Containers using Vagrant
 =====================================
 
 Prerequistes
-^^^^^^^^^^^^^^
-You have the VPP git cloned repo locally on your machine.
+^^^^^^^^^^^^
+You have the git cloned repo of VPP locally on your machine.
 
 Overview
 ________
@@ -51,7 +51,7 @@ Here we are on a 64-bit version of CentOS, downloading and installing Vagrant 2.
 
     This is an installation of Vagrant 2.1.1 on a 64-bit CentOS machine.
 
-    If you don't have 64-bit CentOS, or want to download a newer version of Vagrant (if 2.1.1 is not the latest), go to the Vagrant `download page <https://www.vagrantup.com/downloads.html>`_, copy the download link for your specified version (a **.rpm** file), and replace the https:// link in the above *yum* command with the link you copied.
+    If you don't have 64-bit CentOS or want to download a newer version of Vagrant, go to the Vagrant `download page <https://www.vagrantup.com/downloads.html>`_, copy the download link for your specified version, and replace the https:// link above and use the install command for the OS of your current system (*yum install* for CentOS or *apt-get install* for Ubuntu).
 
 
 Vagrantfiles
@@ -70,11 +70,34 @@ The Vagrantfile creates a **Vagrant Box**, which is a "development-ready box" th
 Creating your VM
 ^^^^^^^^^^^^^^^^
 
-As a prereq, you should already have the Git VPP directory on your machine.
+As a prerequiste, you should already have the Git VPP directory on your machine.
 
-Change directories to your **vpp/extras/vagrant** directory.
+Change directories to your *vpp/extras/vagrant* directory.
 
-Since there is a *Vagrantfile* already there for you, all you need to do is:
+Looking at the **Vagrantfile**, we can see that the default OS is Ubuntu 16.04:
+
+.. code-block:: console
+
+    # -*- mode: ruby -*-
+    # vi: set ft=ruby :
+
+    Vagrant.configure(2) do |config|
+
+      # Pick the right distro and bootstrap, default is ubuntu1604
+      distro = ( ENV['VPP_VAGRANT_DISTRO'] || "ubuntu1604")
+      if distro == 'centos7'
+        config.vm.box = "centos/7"
+        config.vm.box_version = "1708.01"
+        config.ssh.insert_key = false
+      elsif distro == 'opensuse'
+        config.vm.box = "opensuse/openSUSE-42.3-x86_64"
+        config.vm.box_version = "1.0.4.20170726"
+      else
+        config.vm.box = "puppetlabs/ubuntu-16.04-64-nocm"
+
+As mentioned in the preface above, if you want a box configured to a different OS, you can specify which `OS box you want on the Vagrant boxes page <https://app.vagrantup.com/boxes/search>`_.
+
+Since there already exists a *Vagrantfile* from our repo, all you need to do is:
 
 .. code-block:: shell
 
@@ -88,7 +111,7 @@ To confirm it is up, we can do:
 
   $ vagrant global-status
 
-You will have only one machine running, but I have multiple to ssh into.
+You will have only one machine running, but I have multiple as shown below:
 
 .. code-block:: console
 
@@ -101,6 +124,12 @@ You will have only one machine running, but I have multiple to ssh into.
   c199140  default virtualbox running  /home/centos/andrew-vpp/vppsb3/vpp-userdemo 
 
 
+.. note::
+  To poweroff your VM, type **vagrant halt <id>**.
+  If you want to try other commands on your box, visit the `Vagrant CLI Page <https://www.vagrantup.com/docs/cli/>`_.
+
+
+
 Accessing your VM
 ^^^^^^^^^^^^^^^^^
 
@@ -109,7 +138,7 @@ Lets ssh into our newly created box:
 
 .. code-block:: shell
 
-    vagrant ssh <id>
+    $ vagrant ssh <id>
 
 Now you're in your VM.
 
@@ -199,14 +228,11 @@ ___________________
 
 The system configuration is located at /etc/lxc/lxc.conf or ~/.config/lxc/lxc.conf for unprivileged containers.
 
-This configuration file is used to set values such as default lookup paths and storage backend settings for LXC.
+This configuration file is used to set values such as default lookup paths and storage backend settings for LXC. It can be found in each container's **/sys/class/net** directory.
 
-Both containers will have these veth0 and veth_link1 network names and types.
+The command below configures the LXC (Linux container) networks to create an interface for a Linux bridge and an unconsumed second interface to be used by each container.
 
-This can be found in each container's **/sys/class/net** directory.
-
-This command configures the LXC (Linux container) networks to create an interface for a Linux bridge and an unconsumed second interface for our containers.
-
+For more information on linux containers with Ubuntu, visit the `lxc server guide <https://help.ubuntu.com/lts/serverguide/lxc.html>`_.
 
 .. code-block:: shell
 
@@ -445,7 +471,7 @@ Now, in the VM, if we run **ip link** we can see the host *veth* network interfa
     33: vethQL7KOC@if32: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default qlen 1000
         link/ether fe:ed:89:54:47:a2 brd ff:ff:ff:ff:ff:ff link-netnsid 0
 
-Remember our network interface index 32 in cone? We can see at the bottom the name of the 33rd index **vethQL7KOC@if32**. Take note of this name for the veth connected to cone and ctwo.
+Remember our network interface index 32 in *cone*? We can see at the bottom the name of the 33rd index **vethQL7KOC@if32**. Take note of this network interface name for the veth connected to cone, and the other network interface name for ctwo.
 
 With VPP in our VM, we can show our current VPP interfaces:
 
@@ -455,7 +481,7 @@ With VPP in our VM, we can show our current VPP interfaces:
 
 Which should only show local0.
 
-Now, based on these names, we can setup the VPP host-interfaces.
+Based on these names, which are specific to my systems, we can setup the VPP host-interfaces:
 
 .. code-block:: shell
     
@@ -467,6 +493,8 @@ Verify they have been setup:
 .. code-block:: shell
     
     $ sudo vppctl show inter
+
+Which should output **three** interfaces, lo, and the other two network interfaces we just set up.
 
 
 Change the links state to up:
@@ -499,8 +527,7 @@ At long last you probably want to see some pings:
     $ sudo lxc-attach -n ctwo -- ping -c3 172.16.1.2
 
 
-
-
+Which should send/recieve three packets for each command.
 
 
 
