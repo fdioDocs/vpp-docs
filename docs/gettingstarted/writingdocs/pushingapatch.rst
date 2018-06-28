@@ -42,7 +42,7 @@ ___________________________
 
 Now that you have your own branch of the main repository on Github, you can store it locally on your computer. In your shell, navigate to the directory where you want to store your branch/repo. Then execute:
 
-.. code-block:: shell
+.. code-block:: console
 
    $ git clone https://github.com/YOURUSERNAME/vpp-docs
 
@@ -52,7 +52,7 @@ Now that your branch is on your computer, you can modify and build files however
 
 If you are not on the master branch, move to it.
 
-.. code-block:: shell
+.. code-block:: console
 
     $ git checkout master
 
@@ -64,7 +64,7 @@ The following talks about remote branches, but keep in mind that there are curre
 
 You can view your *remote* repositories with:
 
-.. code-block:: shell
+.. code-block:: console
 
    $ git remote -v
 
@@ -78,7 +78,7 @@ At this point, you may only see the remote branch that you cloned from.
 
 Now you want to create a new remote repository of the main vpp-docs repo (naming it upstream).
 
-.. code-block:: shell
+.. code-block:: console
 
    $ git remote add upstream https://github.com/fdioDocs/vpp-docs
 
@@ -87,7 +87,7 @@ You can verify that you have added a remote repo using the previous **git remote
 
 .. code-block:: console
 
-   Macintosh:docs Andrew$ git remote -v
+   $ git remote -v
    origin  https://github.com/a-olechtchouk/vpp-docs (fetch)
    origin  https://github.com/a-olechtchouk/vpp-docs (push)
    upstream    https://github.com/fdioDocs/vpp-docs (fetch)
@@ -98,7 +98,7 @@ If there have been any changes to files in the main repo (hopefully not the same
 
 To do so, fetch any changes that the main repo has made, and then merge them into your local master branch using:
 
-.. code-block:: shell
+.. code-block:: console
 
    $ git fetch upstream
    $ git merge upstream/master
@@ -108,13 +108,13 @@ To do so, fetch any changes that the main repo has made, and then merge them int
 
     You may want to have multiple branches, where each branch has its own different features, allowing you to have multiple pull requests out at a time. To create a new local branch:
 
-    .. code-block:: shell
+.. code-block:: shell
 
-       $ git checkout -b cleanup-01
-       $ git branch
-       * cleanup-01
-         master
-         overview
+     $ git checkout -b cleanup-01
+     $ git branch
+     * cleanup-01
+       master
+       overview
 
     Now you can redo the previous steps for "Keeping your files in sync with the main repo" for your newly created local branch, and then depending on which branch you want to send out a pull reqest for, proceed below.
 
@@ -126,7 +126,7 @@ Now that your files are in sync, you want to add modified files, commit, and pus
 
 To check the status of your files, run:
 
-.. code-block:: shell
+.. code-block:: console
 
    $ git status
 
@@ -159,19 +159,19 @@ In the output example below, I deleted gettingsources.rst, made changes to index
 
 To add files (use **git add -A** to add all modified files):
 
-.. code-block:: shell
+.. code-block:: console
 
    $ git add FILENAME1 FILENAME2
 
 Commit and push using: 
 
-.. code-block:: shell
+.. code-block:: console
 
    $ git commit -m 'A descriptive commit message for two files.'
 
 Push your changes for the branch where your changes were made
 
-.. code-block:: shell
+.. code-block:: console
 
    $ git push origin <branch name>
 
@@ -214,7 +214,7 @@ Which will open up text fields to add information to your pull request.
 
 Your documents will be reviewed. To this same branch make the changes requested from the review and then push your new changes. There is no need to create another pull request.
 
-.. code-block:: shell
+.. code-block:: console
 
    $ git commit -m 'A descriptive commit message for the new changes'
    $ git push origin <branch name>

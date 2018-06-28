@@ -1,4 +1,4 @@
-.. _ipv4routedforwardingthroughput:
+.. _trending_ipv4_throughput:
 
 .. toctree::
 

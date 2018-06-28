@@ -1,4 +1,4 @@
-.. _ipv6trendingthroughputgraph:
+.. _trending_ipv6_throughput:
 
 .. toctree::
 

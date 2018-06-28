@@ -16,7 +16,6 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
-
 # -- Project information -----------------------------------------------------
 
 project = u'Vector Packet Processor'
@@ -49,9 +48,10 @@ templates_path = ['_templates']
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
-source_suffix = '.rst'
 source_suffix = ['.rst', '.md']
-
+source_parsers = {
+   '.md': 'recommonmark.parser.CommonMarkParser',
+}
 # The master toctree document.
 master_doc = 'index'
 
@@ -77,13 +77,21 @@ pygments_style = 'sphinx'
 # a list of builtin themes.
 #
 
-html_theme = 'sphinx_rtd_theme'
-# html_theme = "sphinx_rtd_theme"
-# html_theme_path = ["_themes", ]
+# import sphinx_theme
+
+html_theme = "sphinx_rtd_theme"
+# html_theme = 'neo_rtd_theme'
+
+html_theme_path = ["_themes", ]
+# html_theme_path = [sphinx_theme.get_html_theme_path('neo-rtd-theme')]
+
+# All available themes:
+# print(sphinx_theme.THEME_LIST)
+# >> ['stanford_theme', 'neo_rtd_theme']
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = '_images/fdio_logo.png'
+html_logo = '_static/fdio_logo.png'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
