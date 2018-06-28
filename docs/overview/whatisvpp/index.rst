@@ -34,5 +34,3 @@ It is a modular design. The framework allows anyone to "plug in" new graph nodes
     modularflexibleextensible
     programmability
     primarycharacteristicsofvpp
-    softwarearchitecture
-    featurearcs
