@@ -1,4 +1,4 @@
-.. _ipv6packetthroughput:
+.. _current_ipv6_throughput:
 
 .. toctree::
 
