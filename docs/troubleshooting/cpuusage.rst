@@ -4,7 +4,7 @@
 CPU Load/Usage
 **************
 
-Are there any command or tools in vpp to show real cpu and memory usage at runtime?
+There are various commands and tools that can help users see FD.io VPP CPU and memory usage at runtime.
 
 Linux top/htop
 ==============
@@ -62,7 +62,7 @@ This is the example VPP memory usage on 2 cores.
 VPP CPU Load
 ============
 
-To find the VPP CPU load or how busy VPP is use the **show running** command.
+To find the VPP CPU load or how busy VPP is use the **show runtime** command.
 
 With at least one interface in polling mode, the VPP CPU utilization is always 100%.
 
