@@ -8,4 +8,4 @@ Getting Started (Users)
 
   installing/index.rst
   writingdocs/index.rst
-  troubleshooting/index.rst
+  reportingissues/index.rst
