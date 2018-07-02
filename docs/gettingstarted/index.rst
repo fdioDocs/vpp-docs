@@ -7,5 +7,6 @@ Getting Started (Users)
 .. toctree::
 
   installing/index.rst
+  building/index.rst
   writingdocs/index.rst
   reportingissues/index.rst
