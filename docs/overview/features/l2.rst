@@ -1,0 +1,20 @@
+.. _l2:
+
+Layer 2
+-------
+
+* VLAN Support
+
+  * Single/ Double tag
+  * L2 forwarding with EFP/BridgeDomain concepts
+
+* VTR – push/pop/Translate (1:1,1:2, 2:1,2:2)
+* Mac Learning – default limit of 50k addresses
+* Bridging – Split-horizon group support/EFP Filtering
+* Proxy Arp
+* Arp termination
+* IRB – BVI Support with RouterMac assignment
+* Flooding
+* Input ACLs
+* Interface cross-connect
+
