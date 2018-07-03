@@ -1,16 +1,59 @@
-.. _twocontainers:
+.. _installingPrereq:
 
 .. toctree::
 
-=====================================
-VPP with two Containers using Vagrant
-=====================================
+Overview
+^^^^^^^^
+
+This section will describe how to install a Virtual Machine (VM) for Vagrant, and install containers inside that VM.
+
+Containers are environments similar to VM's, but are known to be faster since they do not simulate  seperate kernels and hardware, as VM's do. You can read more about `Linux containers here <https://linuxcontainers.org/>`_.
+
+
+In this section, we'll use Vagrant to run our VirtualBox VM. **Vagrant** automates the configuration of virtual environments by giving you the ability to create and destroy VM's quick and seemlessly.
+You have the git cloned repo of VPP locally on your machine.
+
+Prerequisites
+_____________
+
+You have the git cloned repo of VPP locally on your machine.
+
+
+Installing VirtualBox
+_____________________
+
+First, download VirtualBox, which is virtualization software for creating VM's.
+
+If you're on CentOS, follow the `steps here <https://wiki.centos.org/HowTos/Virtualization/VirtualBox>`_.
+
+
+If you're on Ubuntu, perform:
+
+.. code-block:: shell
+
+   $ sudo apt-get install virtualbox 
+
+Installing Vagrant
+__________________
+
+
+Now its time to install Vagrant.
+
+Here we are on a 64-bit version of CentOS, downloading and installing Vagrant 2.1.1:
+
+.. code-block:: shell
+
+   $ yum -y install https://releases.hashicorp.com/vagrant/2.1.1/vagrant_2.1.1_x86_64.rpm
+
+
+.. note::
+
+    This is an installation of Vagrant 2.1.1 on a 64-bit CentOS machine.
+
+    If you don't have 64-bit CentOS or want to download a newer version of Vagrant, go to the Vagrant `download page <https://www.vagrantup.com/downloads.html>`_, copy the download link for your specified version, and replace the https:// link above and use the install command for the OS of your current system (*yum install* for CentOS or *apt-get install* for Ubuntu).
 
 Vagrantfiles
 ____________
-
-Preface
-^^^^^^^
 
 The *Vagrantfile* contains the configuration settings for the machine and software requirements of your VM. Thus, any user with your *Vagrantfile* can instantiate a VM with those exact settings.
 

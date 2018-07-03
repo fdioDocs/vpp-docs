@@ -1,10 +1,6 @@
-.. _twocontainers:
+.. _containerCreation:
 
 .. toctree::
-
-=====================================
-VPP with two Containers using Vagrant
-=====================================
 
 Creating Containers
 ___________________

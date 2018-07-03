@@ -1,10 +1,6 @@
-.. _twocontainers:
+.. _Routing:
 
 .. toctree::
-
-=====================================
-VPP with two Containers using Vagrant
-=====================================
 
 Routing two Containers
 ______________________

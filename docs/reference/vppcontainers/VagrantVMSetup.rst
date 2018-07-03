@@ -1,10 +1,6 @@
-.. _twocontainers:
+.. _VagrantVMSetup:
 
 .. toctree::
-
-=====================================
-VPP with two Containers using Vagrant
-=====================================
 
 Accessing your VM
 ^^^^^^^^^^^^^^^^^

@@ -1,10 +1,6 @@
-.. _twocontainers:
+.. _containerSetup:
 
 .. toctree::
-
-=====================================
-VPP with two Containers using Vagrant
-=====================================
 
 Container prerequisites
 _______________________
