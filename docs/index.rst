@@ -3,8 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+#########
 FD.io VPP
-=========
+#########
 
 This is beta VPP Documentation it is not meant to be complete or accurate yet!!!! 
 
@@ -24,5 +25,6 @@ Finally it is useful both a software development kit or an appliance out of the 
    gettingstarted/index
    usecases/index
    gstarteddevel/index
+   troubleshooting/index
    guides/index
    reference/index
