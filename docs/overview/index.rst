@@ -5,8 +5,9 @@ Overview
 =========================================
 
 .. toctree::
+   :maxdepth: 1
 
-    whatisvpp/index.rst
-    performance/index.rst
-    supported.rst
-    features.rst
+   whatisvpp/index.rst
+   features/index.rst
+   performance/index.rst
+   supported.rst

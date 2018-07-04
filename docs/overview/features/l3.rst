@@ -1,0 +1,27 @@
+.. _l3:
+
+=======
+Layer 3
+=======
+
+IPv4/IPv6
+^^^^^^^^^
+
+* 14+ MPPS, single core
+* Multimillion entry FIBs
+* Input Checks
+
+  * Source RPF
+  * TTL expiration
+  * header checksum
+  * L2 length < IP length
+  * ARP resolution/snooping
+  * ARP proxy
+
+* Thousands of VRFs
+
+  * Controlled cross-VRF lookups
+
+* Multipath – ECMP and Unequal Cost
+* Multiple million Classifiers - Arbitrary N-tuple
+* VLAN Support – Single/Double tag
