@@ -1,0 +1,8 @@
+table.left-align-right-col td:last-child {
+    text-align: center;
+}
+table.left-align-right-col td:first-child {
+    text-align: center;
+}
+
+
