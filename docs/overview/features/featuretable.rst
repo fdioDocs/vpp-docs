@@ -1,8 +1,9 @@
 =================
 List of features
 =================
+
 	 
-.. rst-class:: left-align-right-col
+.. rst-class:: center-align-table
 	 
 +-------------------------+-----------+
 | :ref:`sdn`              |           |
@@ -16,6 +17,18 @@ List of features
 | :ref:`dev`                          |
 +-------------------------------------+
 
+
+.. toctree::
+   :hidden:
+  
+   devices.rst
+   integrations.rst
+   l2.rst
+   l3.rst
+   l4.rst
+   trafficmanagement.rst
+   tunnels.rst
+   controlplane.rst
 
 MPLS
 ^^^^
