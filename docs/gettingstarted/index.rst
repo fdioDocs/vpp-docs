@@ -1,8 +1,8 @@
 .. _gettingstarted:
 
-#######################
-Getting Started (Users)
-#######################
+######################
+Getting Started Guides
+######################
 
 .. toctree::
 
@@ -10,3 +10,5 @@ Getting Started (Users)
   building/index.rst
   writingdocs/index.rst
   reportingissues/index.rst
+  users/index.rst
+  developers/index.rst
