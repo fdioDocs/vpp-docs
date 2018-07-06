@@ -66,8 +66,7 @@ This build version contains debug symbols which is useful to modify VPP. The com
 This build will come with /build-root/vpp_debug-native.
 
 ::
-    $ sudo bash
-    # make build
+    $ make build
     make[1]: Entering directory '/home/vagrant/vpp-master/build-root'
     @@@@ Arch for platform 'vpp' is native @@@@
     @@@@ Finding source for dpdk @@@@
@@ -95,8 +94,7 @@ This build will come with /build-root/build-vpp-native
 
 ::
 
-    $ sudo bash
-    # make release
+    $ make release
 
 
 Building Necessary Packages
@@ -127,7 +125,7 @@ The packages will be found in the build-root directory.
 
 :: 
     
-    # ls *.deb
+    $ ls *.deb
 
     If packages built correctly, this should be the Output
 
@@ -140,4 +138,5 @@ Packages built installed end up in build-root directory. Finally, the command be
 
 :: 
 
+   $ sudo bash
    # dpkg -i *.deb
