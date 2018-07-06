@@ -2,8 +2,8 @@
 
 .. toctree::
 
-Building in VPP
-===============
+Building FD.io VPP
+==================
 
 Once FD.io VPP has been installed, this getting started guide will be useful to aid you in building FD.io VPP.
 
