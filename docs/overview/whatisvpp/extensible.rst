@@ -31,7 +31,7 @@ each packet in turn.  Graph nodes are small and modular, and loosely
 coupled. This makes it easy to introduce new graph nodes and rewire existing
 graph nodes.
 
-Plugins are `shared libraries (https://en.wikipedia.org/wiki/Library_(computing))`_ 
+Plugins are `shared libraries <https://en.wikipedia.org/wiki/Library_(computing)>`_ 
 and are loaded at runtime by VPP. VPP find plugins by searching the plugin path 
 for libraries, and then dynamically loads each one in turn on startup. 
 A plugin can introduce new graph nodes or rearrange the packet processing graph. 

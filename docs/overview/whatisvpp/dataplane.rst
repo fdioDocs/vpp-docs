@@ -28,14 +28,7 @@ Packet Processing
   * `Cloud Native Infrastructure <https://www.cncf.io/>`_
   * The same binary package for all use cases. 
 
-* Fault-tolerant and upgradable
-
-  * Runs as a standard user-space process for fault tolerance, software crashes seldom require more than a process restart. 
-  * Improved fault-tolerance and upgradability when compared to running similar packet processing in the kernel, software updates never require system reboots. 
-  * Development expierence is easier compared to similar kernel code 
-  * Gardware isolation and protection (`iommu <https://en.wikipedia.org/wiki/Input%E2%80%93output_memory_management_unit>`_)
-
-* `Out of the box production quality <https://wiki.fd.io/view/CSIT#Start_Here>`_. 
+* Out of the box production quality, with thanks to `CSIT <https://wiki.fd.io/view/CSIT#Start_Here>`_. 
 
 For more information, please see :ref:`features` for the complete list.
 
