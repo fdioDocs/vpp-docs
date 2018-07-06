@@ -104,6 +104,9 @@ html_logo = '_static/fd-io_red_white.png'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+def setup(app):
+    app.add_stylesheet('css/rules.css')
+
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
 #

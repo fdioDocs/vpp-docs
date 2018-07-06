@@ -17,7 +17,7 @@ Operating System
 * Tap V2 (FastTap)
 
 Virtualization:
---------------
+---------------
 * SSVM
 * Vhost / VirtIO
 

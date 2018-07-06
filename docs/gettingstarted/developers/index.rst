@@ -9,4 +9,5 @@ I can see writing a VPP pluguin, How to use the python api.
 
 .. toctree::
 
-    swarch/index
+   building/index.rst
+   swarch/index

@@ -4,6 +4,8 @@
 Features
 ========
 
+.. rst-class:: center-align-table
+
 +-------------------------+-----------+-----------+
 | :ref:`sdn`              |           |           |
 +------------+------------+ :ref:`cp` |           |
@@ -17,8 +19,10 @@ Features
 +-------------------------------------------------+
 
 .. toctree::
+   :hidden:
 
    devices.rst
+   integrations.rst
    trafficmanagement.rst
    l2.rst
    l3.rst
@@ -26,4 +30,3 @@ Features
    tunnels.rst
    controlplane.rst
    plugins.rst
-
