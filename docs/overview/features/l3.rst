@@ -4,24 +4,51 @@
 Layer 3
 =======
 
-IPv4/IPv6
-^^^^^^^^^
+IP Layer
+--------
+* ICMP
+* IPv4
+* IPv6
+* IPSEC
+* Link Local Addressing
 
-* 14+ MPPS, single core
-* Multimillion entry FIBs
-* Input Checks
+MultiCast
+---------
+* Multicast FiB
+* IGMP
 
-  * Source RPF
-  * TTL expiration
-  * header checksum
-  * L2 length < IP length
-  * ARP resolution/snooping
-  * ARP proxy
+Virtual Routing and forwarding (VRF)
+------------------------------------
+* VRF scaling, thousands of tables. 
+* Controlled cross-VRF lookups
 
-* Thousands of VRFs
+Multi-path
+----------
+* Equal Cost Multi Path (ECMP)
+* Unequal Cost Multi Path (UCMP)
 
-  * Controlled cross-VRF lookups
+IPv4
+----
+* ARP
+* ARP Proxy
+* ARP Snooping
 
-* Multipath – ECMP and Unequal Cost
-* Multiple million Classifiers - Arbitrary N-tuple
-* VLAN Support – Single/Double tag
+IPv6
+----
+* Neighbour discovery (ND)
+* ND Proxy
+* Router Advertisement
+* Segment Routing
+* Distributed Virtual Routing Resolution
+
+Forwarding Information Base (FIB)
+--------------------------------
+* Hierarchical FIB
+* Memory efficient
+* Multi-million entry scalable
+* Lockless/concurrent updates
+* Recursive lookups
+* Next hop failure detection
+* Shared FIB adjacencies
+* Multicast support
+* MPLS support
