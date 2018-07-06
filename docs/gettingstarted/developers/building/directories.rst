@@ -1,4 +1,4 @@
-.. _directories::
+.. _directories:
 
 .. toctree::
 
