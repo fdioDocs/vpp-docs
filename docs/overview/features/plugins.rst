@@ -1,6 +1,7 @@
 .. _pg:
 
-Need Subtitle Here
-------------------
+=======
+Plugins
+=======
 
 * iOAM
