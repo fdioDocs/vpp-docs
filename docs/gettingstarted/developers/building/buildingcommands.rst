@@ -26,17 +26,23 @@ Before building, make sure there are no FD.io VPP or DPDK packages installed by 
 
 ::
 
-    dpkg -l | grep vpp 
-    dpkg -l | grep DPDK
+    $ dpkg -l | grep vpp 
+    $ dpkg -l | grep DPDK
 
-Run this to install the dependency packages for FD.io VPP. 
-If it hangs during downloading at any point, make sure :ref:`proxies <setupproxies>` were set first.
+There should be no output, or packages showing after each of the above commands.
+
+Run this to install the dependencies for FD.io VPP. 
+If it hangs during downloading at any point, you may need to set up :ref:`proxies for this to work <setupproxies>`.
 
 ::
 
-    # make install-dep
-
-    *Output should look like this*
+    $ make install-dep
+    Hit:1 http://us.archive.ubuntu.com/ubuntu xenial InRelease
+    Get:2 http://us.archive.ubuntu.com/ubuntu xenial-updates InRelease [109 kB]
+    Get:3 http://security.ubuntu.com/ubuntu xenial-security InRelease [107 kB]
+    Get:4 http://us.archive.ubuntu.com/ubuntu xenial-backports InRelease [107 kB]
+    Get:5 http://us.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [803 kB]
+    Get:6 http://us.archive.ubuntu.com/ubuntu xenial-updates/main i386 Packages [732 kB]
     ...
     ...
 
@@ -60,49 +66,58 @@ This build version contains debug symbols which is useful to modify VPP. The com
 This build will come with /build-root/vpp_debug-native.
 
 ::
-
+    $ sudo bash
     # make build
-
-You may ignore the following warning if encountered after running the *make build* command:
-
-::
-
-    libtool: warning: remember to run 'libtool --finish /none'
-
+    make[1]: Entering directory '/home/vagrant/vpp-master/build-root'
+    @@@@ Arch for platform 'vpp' is native @@@@
+    @@@@ Finding source for dpdk @@@@
+    @@@@ Makefile fragment found in /home/vagrant/vpp-master/build-data/packages/dpdk.mk @@@@
+    @@@@ Source found in /home/vagrant/vpp-master/dpdk @@@@
+    @@@@ Arch for platform 'vpp' is native @@@@
+    @@@@ Finding source for vpp @@@@
+    @@@@ Makefile fragment found in /home/vagrant/vpp-master/build-data/packages/vpp.mk @@@@
+    @@@@ Source found in /home/vagrant/vpp-master/src @@@@
+    ...
+    ...
+    make[5]: Leaving directory '/home/vagrant/vpp-master/build-root/build-vpp_debug-native/vpp/vpp-api/java'
+    make[4]: Leaving directory '/home/vagrant/vpp-master/build-root/build-vpp_debug-native/vpp/vpp-api/java'
+    make[3]: Leaving directory '/home/vagrant/vpp-master/build-root/build-vpp_debug-native/vpp'
+    make[2]: Leaving directory '/home/vagrant/vpp-master/build-root/build-vpp_debug-native/vpp'
+    @@@@ Installing vpp: nothing to do @@@@
+    make[1]: Leaving directory '/home/vagrant/vpp-master/build-root'
 
 Build VPP (Release Version)
 ---------------------------
 
-To build release version of VPP.
-This is package is for those who will not be debugging in VPP.
+To build the release version of FD.io VPP.
+This build is optimized and will not create debug symbols.
 This build will come with /build-root/build-vpp-native
 
 ::
 
+    $ sudo bash
     # make release
 
 
+Building Necessary Packages
+---------------------------
+
+To build the debian packages, one of the following commands below depending on the system:
+
 Building Debian Packages
-------------------------
-
-After running the previous commands, it is still necessary to build the debian packages.
-
-Execute one of the two commands below depending on the system:
-
-For most operating systems (including Ubuntu)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    # make pkg-deb 
+    $ make pkg-deb 
 
 
-For CentOS
-^^^^^^^^^^
+Building RPM Packages
+^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    # make pkg-rpm
+    $ make pkg-rpm
 
 .. note::
 

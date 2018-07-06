@@ -5,7 +5,7 @@
 Useful Directories
 ======================
 
-After pulling and building FDIO there are a few directories worth looking at.
+After pulling and building FD.io VPP there are a few directories worth looking at.
 src/vpp/conf
 
 This directory contains default configuration files.
