@@ -24,7 +24,6 @@ Finally it is useful both a software development kit or an appliance out of the 
    overview/index
    gettingstarted/index
    usecases/index
-   gstarteddevel/index
    troubleshooting/index
    guides/index
    reference/index

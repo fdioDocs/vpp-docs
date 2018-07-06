@@ -1,13 +1,10 @@
 .. _gettingstarted:
 
-#######################
-Getting Started (Users)
-#######################
+######################
+Getting Started Guides
+######################
 
 .. toctree::
 
-  installing/index.rst
-  building/index.rst
-  configutil/index.rst
-  writingdocs/index.rst
-  reportingissues/index.rst
+  users/index.rst
+  developers/index.rst
