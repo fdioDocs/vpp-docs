@@ -13,7 +13,7 @@ Set up Proxies
 Depending on the environment, proxies may need to be set. 
 You may run these commands:
 
-::
+.. code-block:: console
 
     $ export http_proxy=http://<proxy-server-name>.com:<port-number>
     $ export https_proxy=https://<proxy-server-name>.com:<port-number>
@@ -24,7 +24,8 @@ Build VPP Dependencies
 
 Before building, make sure there are no FD.io VPP or DPDK packages installed by entering the following commands:
 
-::
+
+.. code-block:: console
 
     $ dpkg -l | grep vpp 
     $ dpkg -l | grep DPDK
@@ -34,7 +35,7 @@ There should be no output, or packages showing after each of the above commands.
 Run this to install the dependencies for FD.io VPP. 
 If it hangs during downloading at any point, you may need to set up :ref:`proxies for this to work <setupproxies>`.
 
-::
+.. code-block:: console
 
     $ make install-dep
     Hit:1 http://us.archive.ubuntu.com/ubuntu xenial InRelease
@@ -45,7 +46,6 @@ If it hangs during downloading at any point, you may need to set up :ref:`proxie
     Get:6 http://us.archive.ubuntu.com/ubuntu xenial-updates/main i386 Packages [732 kB]
     ...
     ...
-
     Update-alternatives: using /usr/lib/jvm/java-8-openjdk-amd64/bin/jmap to provide /usr/bin/jmap (jmap) in auto mode
     Setting up default-jdk-headless (2:1.8-56ubuntu2) ...
     Processing triggers for libc-bin (2.23-0ubuntu3) ...
@@ -65,7 +65,8 @@ Build VPP (Debug Mode)
 This build version contains debug symbols which is useful to modify VPP. The command below will build debug version of VPP. 
 This build will come with /build-root/vpp_debug-native.
 
-::
+.. code-block:: console
+
     $ make build
     make[1]: Entering directory '/home/vagrant/vpp-master/build-root'
     @@@@ Arch for platform 'vpp' is native @@@@
@@ -92,7 +93,7 @@ To build the release version of FD.io VPP.
 This build is optimized and will not create debug symbols.
 This build will come with /build-root/build-vpp-native
 
-::
+.. code-block:: console
 
     $ make release
 
@@ -105,7 +106,7 @@ To build the debian packages, one of the following commands below depending on t
 Building Debian Packages
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-::
+.. code-block:: console
 
     $ make pkg-deb 
 
@@ -113,17 +114,13 @@ Building Debian Packages
 Building RPM Packages
 ^^^^^^^^^^^^^^^^^^^^^
 
-::
+.. code-block:: console
 
     $ make pkg-rpm
 
-.. note::
-
-    Please follow the commands that the Operating System prompts, after running one of the commands above
-
 The packages will be found in the build-root directory.
 
-:: 
+.. code-block:: console
     
     $ ls *.deb
 
@@ -136,7 +133,7 @@ The packages will be found in the build-root directory.
 
 Packages built installed end up in build-root directory. Finally, the command below installs all built packages.
 
-:: 
+.. code-block:: console
 
    $ sudo bash
    # dpkg -i *.deb
