@@ -42,7 +42,8 @@ IPv6
 * Distributed Virtual Routing Resolution
 
 Forwarding Information Base (FIB)
---------------------------------
+---------------------------------
+
 * Hierarchical FIB
 * Memory efficient
 * Multi-million entry scalable
