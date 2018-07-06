@@ -1,46 +1,17 @@
-.. _configtutorial:
+.. _usingvppconfig.rst:
 
 .. toctree::
 
-Purpose of VPP Configuration Utility
--------------------------------------------------
-
-Vpp-config utility allows the user to configure FD.io VPP in a simple and safe manner.
-The utility takes input from the user and then modifies the key configuration files.
-The user can then examine these files to be sure they are correct and then actually
-apply the configuration. The utility also includes an installation utility and some basic tests. 
-
-Installing the vpp-config utility
----------------------------------
-
-The installation and executing of the VPP configuration utility is
-simple. First `install the python pip module <https://pip.pypa.io/en/stable/installing/>`__. Then using pip, 
-
-Run as Root
-^^^^^^^^^^^
-
-Run the terminal as root
-
-::
-
-    $ sudo -H bash
-
-Afterwards, install the vpp-config utility through the pip command.
-
-::
-
-    # pip install vpp-config
-
-
-Using the vpp-config utility
-----------------------------
-
-Configuration Tool Main Menu
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=========================================
+Using the FD.io VPP Configuration Utility
+=========================================
 
 vpp-config utility provides the user with a menu that offers a variety of useful features used
 to configure the devices which will be used by VPP, hugepages, and allowing VPP to be the only
 process running on its specified CPU. 
+
+FD.io VPP Configuration Tool Main Menu
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 It is recommended that these menu options are executed in order.
 
@@ -54,7 +25,7 @@ Target Files
 ^^^^^^^^^^^^
 
 The following files will be modified by VPP config:
-::
+.. code-block:: console
 
     /etc/vpp/startup.conf
     /etc/sysctl.d/80-vpp.conf
@@ -62,7 +33,7 @@ The following files will be modified by VPP config:
 
 Once vpp-config is installed simply type:
 
-::
+.. code-block:: console
 
     # vpp-config 
 
@@ -93,7 +64,7 @@ you may press the ENTER key to select the default options:
 .. _config-command-one:
 
 Command 1. Show System Information
------------------------------------
+==================================
 
 Before Configuration
 ^^^^^^^^^^^^^^^^^^^^
@@ -101,7 +72,7 @@ Before Configuration
 When the utility is first started we can show the basic system
 information.
 
-::
+.. code-block:: console
 
    # vpp-config
 
@@ -115,7 +86,9 @@ information.
    Before we change them, we'll create working copies in /usr/local/vpp/vpp-config/dryrun
    Please inspect them carefully before applying the actual configuration (option 3)!
 
-::
+.. code-block:: console
+
+   # vpp-config
 
    What would you like to do?
 
@@ -186,8 +159,10 @@ When we show the system information after the system is configured
 notice that the VPP workers and the VPP main core is on the correct Numa
 Node. Notice also that VPP is running and the interfaces are shown.
 
-::
+.. code-block:: console
 
+   # vpp-config
+   
    What would you like to do?
 
    1) Show basic system information
@@ -255,7 +230,8 @@ Node. Notice also that VPP is running and the interfaces are shown.
 .. _config-command-two:
 
 Command 2. Dry Run
-----------------------------
+==================================
+
 
 With VPP installed we can now execute a configuration dry run. This
 option will create the configuration files and put them in a dryrun
@@ -265,7 +241,9 @@ directory. This directory is located for **Ubuntu** in
 that they are valid before actually applying the configuration with
 option 3.
 
-::
+.. code-block:: console
+
+   # vpp-config
 
    What would you like to do?
 
@@ -352,14 +330,16 @@ option 3.
 .. _config-command-three:
 
 Command 3. Apply Full Configuration
---------------------------------------
+===================================
 
 After the configuration files have been examined we can apply the
 configuration with option 3. Notice the default is NOT to change the
 grub command line. If the option to change the grub command line is
 selected a reboot will be required.
 
-::
+.. code-block:: console
+
+   # vpp-config
 
    What would you like to do?
 
@@ -434,12 +414,12 @@ selected a reboot will be required.
 .. _config-command-four:
 
 Command 4. List/Install/Uninstall VPP
----------------------------------------
+=====================================
 
 Notice when the basic system information was shown, VPP was not
 installed.
 
-::
+.. code-block:: console
 
    VPP Service Status:
      Not Installed
@@ -448,7 +428,9 @@ installed.
 
 We can now install FD.io VPP with option 4
 
-::
+.. code-block:: console
+   
+   # vpp-config
 
    What would you like to do?
 
@@ -475,7 +457,7 @@ We can now install FD.io VPP with option 4
 .. _config-command-five:
 
 Command 5. Execute Basic tests
-------------------------------
+==================================
 
 Set IPv4 Addresses
 ^^^^^^^^^^^^^^^^^^
@@ -487,7 +469,9 @@ created in */usr/local/vpp/vpp-config/scripts/set_int_ipv4_and_up* for
 **Ubuntu** and */usr/vpp/vpp-config/scripts/set_int_ipv4_and_up *for **Centos**.
 This script can be used to configure the ip addresses in the future.
 
-::
+.. code-block:: console
+
+   # vpp-config
 
    What would you like to do?
 
@@ -535,95 +519,3 @@ This script can be used to configure the ip addresses in the future.
    TenGigabitEthernet86/0/1       40.0.0.2/24          up        
 
    Would you like to keep this configuration [Y/n]? 
-
-
-For Developers
---------------
-
-Modifying the code is reasonable simple. Edit and debug the code from
-the root directory. In order to do this, we need a script that will copy
-or data files to the proper place. This is where they end up with pip
-install. 
-
-On Ubuntu, the root directory is found by:
-
-::
-
-   # cd /usr/local/vpp/vpp-config
-
-On Centos, the root directory is found by:
-
-::
-    
-   # cd /usr/vpp/vpp-config
-
-Script: Clean the Environment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Run this script to clean the environment. 
-
-::
-
-    ./scripts/clean.sh
-    
-.. note:: 
-
-    This allows the developer to start from scratch.
-
-Script: Copying Relevant Files 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Run this script to copy the relevant files correctly: 
-
-::
-
-    ./scripts/cp-data.sh
-
-    
-Steps to Run the Utility
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-These are the steps to run the utility in this environment. 
-The scripts are meant to be run from the *root directory*.
-
-::
-
-    ./scripts/clean.sh
-    ./scripts/cp-data.sh
-    ./vpp_config.py 
-
-When the utility is installed with pip the wrapper scripts/vpp-config is
-written to /usr/local/bin. However, the starting point when debugging
-this script locally is
-
-::
-
-    ./vpp_config.py
-
- Run the utility by executing (from the root directory)
-
- ::
-
-    ./vpp_config.py 
-
-The start point in the code is in vpp_config.py. Most of the work is
-done in the files in ./vpplib
-
-.. _uploading-to-pypi-1:
-
-Uploading to PyPi
-^^^^^^^^^^^^^^^^^
-
-To upload this utility to PyPi, simply do the following: 
-
-.. note::
-    Currently, I have my own account. When we want everyone to contribute we will need to change that. 
-
-::
-
-    $ sudo -H bash
-    # cd vpp_config
-    # python setup.py sdist bdist_wheel
-    # twine upload dist/*
-
-
