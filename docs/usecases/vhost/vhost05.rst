@@ -18,7 +18,7 @@ For all the details on the CSIT VM vhost connection refer to the
 Features
 ^^^^^^^^
 
-These are the feature not supported with FD.io VPP vHost.
+These are the features not supported with FD.io VPP vHost.
 
 * VPP implements vHost in device mode only. VPP is intended to work with Qemu which implements vHost in driver mode, it does not implement vHost driver mode.
 * VPP vHost implementation does not support checksum or transmit segmentation offload.
