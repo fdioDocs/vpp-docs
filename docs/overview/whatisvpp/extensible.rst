@@ -9,8 +9,7 @@ Extensible and Modular Design
 * Full control to reorganize the pipeline
 * Fast, plugins are equal citizens
 
-Modular, Flexible, and Extensible
-***********************************
+**Modular, Flexible, and Extensible**
 
 The FD.io VPP packet processing pipeline is decomposed into a ‘packet processing
 graph’.  This modular approach means that anyone can ‘plugin’ new graph
