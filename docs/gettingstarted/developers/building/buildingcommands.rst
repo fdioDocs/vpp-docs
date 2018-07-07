@@ -13,7 +13,7 @@ Set up Proxies
 Depending on the environment, proxies may need to be set. 
 You may run these commands:
 
-::
+.. code-block:: console
 
     $ export http_proxy=http://<proxy-server-name>.com:<port-number>
     $ export https_proxy=https://<proxy-server-name>.com:<port-number>
@@ -24,22 +24,28 @@ Build VPP Dependencies
 
 Before building, make sure there are no FD.io VPP or DPDK packages installed by entering the following commands:
 
-::
 
-    dpkg -l | grep vpp 
-    dpkg -l | grep DPDK
+.. code-block:: console
 
-Run this to install the dependency packages for FD.io VPP. 
-If it hangs during downloading at any point, make sure :ref:`proxies <setupproxies>` were set first.
+    $ dpkg -l | grep vpp 
+    $ dpkg -l | grep DPDK
 
-::
+There should be no output, or packages showing after each of the above commands.
 
-    # make install-dep
+Run this to install the dependencies for FD.io VPP. 
+If it hangs during downloading at any point, you may need to set up :ref:`proxies for this to work <setupproxies>`.
 
-    *Output should look like this*
+.. code-block:: console
+
+    $ make install-dep
+    Hit:1 http://us.archive.ubuntu.com/ubuntu xenial InRelease
+    Get:2 http://us.archive.ubuntu.com/ubuntu xenial-updates InRelease [109 kB]
+    Get:3 http://security.ubuntu.com/ubuntu xenial-security InRelease [107 kB]
+    Get:4 http://us.archive.ubuntu.com/ubuntu xenial-backports InRelease [107 kB]
+    Get:5 http://us.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [803 kB]
+    Get:6 http://us.archive.ubuntu.com/ubuntu xenial-updates/main i386 Packages [732 kB]
     ...
     ...
-
     Update-alternatives: using /usr/lib/jvm/java-8-openjdk-amd64/bin/jmap to provide /usr/bin/jmap (jmap) in auto mode
     Setting up default-jdk-headless (2:1.8-56ubuntu2) ...
     Processing triggers for libc-bin (2.23-0ubuntu3) ...
@@ -59,60 +65,64 @@ Build VPP (Debug Mode)
 This build version contains debug symbols which is useful to modify VPP. The command below will build debug version of VPP. 
 This build will come with /build-root/vpp_debug-native.
 
-::
+.. code-block:: console
 
-    # make build
-
-You may ignore the following warning if encountered after running the *make build* command:
-
-::
-
-    libtool: warning: remember to run 'libtool --finish /none'
-
+    $ make build
+    make[1]: Entering directory '/home/vagrant/vpp-master/build-root'
+    @@@@ Arch for platform 'vpp' is native @@@@
+    @@@@ Finding source for dpdk @@@@
+    @@@@ Makefile fragment found in /home/vagrant/vpp-master/build-data/packages/dpdk.mk @@@@
+    @@@@ Source found in /home/vagrant/vpp-master/dpdk @@@@
+    @@@@ Arch for platform 'vpp' is native @@@@
+    @@@@ Finding source for vpp @@@@
+    @@@@ Makefile fragment found in /home/vagrant/vpp-master/build-data/packages/vpp.mk @@@@
+    @@@@ Source found in /home/vagrant/vpp-master/src @@@@
+    ...
+    ...
+    make[5]: Leaving directory '/home/vagrant/vpp-master/build-root/build-vpp_debug-native/vpp/vpp-api/java'
+    make[4]: Leaving directory '/home/vagrant/vpp-master/build-root/build-vpp_debug-native/vpp/vpp-api/java'
+    make[3]: Leaving directory '/home/vagrant/vpp-master/build-root/build-vpp_debug-native/vpp'
+    make[2]: Leaving directory '/home/vagrant/vpp-master/build-root/build-vpp_debug-native/vpp'
+    @@@@ Installing vpp: nothing to do @@@@
+    make[1]: Leaving directory '/home/vagrant/vpp-master/build-root'
 
 Build VPP (Release Version)
 ---------------------------
 
-To build release version of VPP.
-This is package is for those who will not be debugging in VPP.
+To build the release version of FD.io VPP.
+This build is optimized and will not create debug symbols.
 This build will come with /build-root/build-vpp-native
 
-::
+.. code-block:: console
 
-    # make release
+    $ make release
 
+
+Building Necessary Packages
+---------------------------
+
+To build the debian packages, one of the following commands below depending on the system:
 
 Building Debian Packages
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-After running the previous commands, it is still necessary to build the debian packages.
+.. code-block:: console
 
-Execute one of the two commands below depending on the system:
-
-For most operating systems (including Ubuntu)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-::
-
-    # make pkg-deb 
+    $ make pkg-deb 
 
 
-For CentOS
-^^^^^^^^^^
+Building RPM Packages
+^^^^^^^^^^^^^^^^^^^^^
 
-::
+.. code-block:: console
 
-    # make pkg-rpm
-
-.. note::
-
-    Please follow the commands that the Operating System prompts, after running one of the commands above
+    $ make pkg-rpm
 
 The packages will be found in the build-root directory.
 
-:: 
+.. code-block:: console
     
-    # ls *.deb
+    $ ls *.deb
 
     If packages built correctly, this should be the Output
 
@@ -123,6 +133,7 @@ The packages will be found in the build-root directory.
 
 Packages built installed end up in build-root directory. Finally, the command below installs all built packages.
 
-:: 
+.. code-block:: console
 
+   $ sudo bash
    # dpkg -i *.deb
