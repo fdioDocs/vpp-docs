@@ -7,7 +7,9 @@ This is the guide to using VPP with Vagrant (in a VM with two containers).
 
 .. toctree::
 
-    installingPrereq
+    vagrantOverview
+    installingVboxVagrant
+    boxSetup
     VagrantVMSetup
     containerCreation
     containerSetup
