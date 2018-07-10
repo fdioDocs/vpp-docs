@@ -5,40 +5,44 @@
 Container prerequisites
 _______________________
 
-Lets go into container *cone* and install prerequisites such as VPP, as well as some additional commands:
+Now we can go into container *cone* and install prerequisites such as VPP, and perform some additional commands:
 
 To enter our container via the shell, type:
 
 .. code-block:: shell
     
-    $ sudo lxc-attach -n cone
-
-Which should output:
-
-.. code-block:: console
-    
+    ~# lxc-attach -n cone
     root@cone:/#
 
 Now run the linux DHCP setup and install VPP: 
 
 .. code-block:: shell
     
-    $ sudo bash
-    $ resolvconf -d eth0
-    $ dhclient
-    $ apt-get install -y wget
-    $ echo "deb [trusted=yes] https://nexus.fd.io/content/repositories/fd.io.ubuntu.xenial.main/ ./" | sudo tee -a /etc/apt/sources.list.d/99fd.io.list
-    $ apt-get update
-    $ apt-get install -y --force-yes vpp
-    $ sh -c 'echo  \"\\ndpdk {\\n   no-pci\\n}\" >> /etc/vpp/startup.conf'
+    root@cone:/# resolvconf -d eth0
+    root@cone:/# dhclient
+    root@cone:/# apt-get install -y wget
+    root@cone:/# echo "deb [trusted=yes] https://nexus.fd.io/content/repositories/fd.io.ubuntu.xenial.main/ ./" | sudo tee -a /etc/apt/sources.list.d/99fd.io.list
+    root@cone:/# apt-get update
+    root@cone:/# apt-get install -y --force-yes vpp
+    root@cone:/# sh -c 'echo  \"\\ndpdk {\\n   no-pci\\n}\" >> /etc/vpp/startup.conf'
 
-And lets start VPP in this container as well:
+After this is done, start VPP in this container:
 
 .. code-block:: shell
     
-    $ service vpp start
+    root@cone:/# service vpp start
 
-Now repeat this process for the second container, ctwo, and also don't forget to "start" it with **sudo lxc-start --name ctwo**.
+Now exit this container with the **exit** command (you *may* need to run **exit** twice):
+
+.. code-block:: shell
+
+    root@cone:/# exit
+    exit
+    root@cone:/# exit
+    exit
+    root@localhost:~#
+
+Repeat the container setup on this page for the second container **ctwo**. Go to the end of the previous page if you forgot how to start a container.
 
 
 

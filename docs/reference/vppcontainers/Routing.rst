@@ -5,17 +5,11 @@
 Routing two Containers
 ______________________
 
-Now lets go through the process of connecting these two linux containers to VPP and pinging between them.
+Now the section you have all been waiting for - connecting these two linux containers to VPP and pinging between them.
 
-In container cone, lets check our current network configuration:
+Enter container cone, and see what the current network configuration is:
 
 .. code-block:: shell
-    
-    $ ip -o a
-
-We can see that we have three network interfaces, *lo, veth0*, and *veth_link1*.
-
-.. code-block:: console
     
     root@cone:/# ip -o a
     1: lo    inet 127.0.0.1/8 scope host lo\       valid_lft forever preferred_lft forever
@@ -24,16 +18,14 @@ We can see that we have three network interfaces, *lo, veth0*, and *veth_link1*.
     30: veth0    inet6 fe80::216:3eff:fee2:d0ba/64 scope link \       valid_lft forever preferred_lft forever
     32: veth_link1    inet6 fe80::2c9d:83ff:fe33:37e/64 scope link \       valid_lft forever preferred_lft forever
 
+You can see that there are three network interfaces, *lo, veth0*, and *veth_link1*.
+
 Notice that *veth_link1* has no assigned IP.
 
-We can also check if our interfaces are down or up:
+Check if the interfaces are down or up:
 
 .. code-block:: shell
-    
-    $ ip link
 
-.. code-block:: console
-    
     root@cone:/# ip link
     1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1
         link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -42,38 +34,23 @@ We can also check if our interfaces are down or up:
     32: veth_link1@if33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default qlen 1000
         link/ether 2e:9d:83:33:03:7e brd ff:ff:ff:ff:ff:ff link-netnsid 0
 
+.. _networkNote:
+
 .. note::
 
-    Take note that **our** network index for veth_link1 is 32, and that its parent index is 33, shown by veth_link1@if33. Yours will probably be different, but take note of these index's.
+    Take note of the network index for **veth_link1**. In our case, it 32, and its parent index (the host machine running the VM, not the container itself) is 33, shown by **veth_link1@if33**. Yours will probably be different, but take note of these index's.
 
-Lets make sure your loopback interface is up, and lets assign an IP and gateway to veth_link1.
+Make sure your loopback interface is up, and assign an IP and gateway to veth_link1.
 
 .. code-block:: shell
     
-    $ ip link set dev lo up
-    $ ip addr add 172.16.1.2/24 dev veth_link1
-    $ ip link set dev veth_link1 up
-    $ ip route add default via 172.16.1.1 dev veth_link1
+    root@cone:/# ip link set dev lo up
+    root@cone:/# ip addr add 172.16.1.2/24 dev veth_link1
+    root@cone:/# ip link set dev veth_link1 up
+    root@cone:/# dhclient -r
+    root@cone:/# ip route add default via 172.16.1.1 dev veth_link1
 
 Here, the IP is 172.16.1.2/24 and the gateway is 172.16.1.1.
-
-When I try to add the gateway, I get an error:
-
-.. code-block:: console
-    
-    root@cone:/# ip route add default via 172.16.1.1 dev veth_link1
-    RTNETLINK answers: File exists
-
-Fix this by renewing the DHCP leases, and then trying again:
-
-.. code-block:: shell
-    
-    root@cone:/# dhclient -r
-    Killed old client process
-    root@cone:/# ip route add default via 172.16.1.1 dev veth_link1
-    root@cone:/#
-
-Now it works! :)
 
 We can run some commands to verify our setup:
 
@@ -85,6 +62,7 @@ We can run some commands to verify our setup:
     30: veth0    inet6 fe80::216:3eff:fee2:d0ba/64 scope link \       valid_lft forever preferred_lft forever
     32: veth_link1    inet 172.16.1.2/24 scope global veth_link1\       valid_lft forever preferred_lft forever
     32: veth_link1    inet6 fe80::2c9d:83ff:fe33:37e/64 scope link \       valid_lft forever preferred_lft forever
+
     root@cone:/# route
     Kernel IP routing table
     Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
@@ -97,17 +75,19 @@ We see that the IP has been assigned, as well as our default gateway.
 Now exit this container and repeat this setup with **ctwo**, except with IP 172.16.2.2/24 and gateway 172.16.2.1.
 
 
-After thats done, if you're still in a container, go back into your VM:
+After thats done for *both* containers, go back into your host VM (unless you're already in root@localhost:~#):
 
 .. code-block:: shell
     
-    $ exit
+    root@ctwo:/# exit
+    exit
+    root@localhost:~#
 
 Now, in the VM, if we run **ip link** we can see the host *veth* network interfaces, and their connection with the container *veth's*.
 
 .. code-block:: shell
     
-    vagrant@localhost:~$ ip link
+    root@localhost:~# ip link
     1: lo: <LOOPBACK> mtu 65536 qdisc noqueue state DOWN mode DEFAULT group default qlen 1
         link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
@@ -127,67 +107,160 @@ Now, in the VM, if we run **ip link** we can see the host *veth* network interfa
     33: vethQL7KOC@if32: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default qlen 1000
         link/ether fe:ed:89:54:47:a2 brd ff:ff:ff:ff:ff:ff link-netnsid 0
 
-Remember our network interface index 32 in *cone*? We can see at the bottom the name of the 33rd index **vethQL7KOC@if32**. Take note of this network interface name for the veth connected to cone, and the other network interface name for ctwo.
+
+Remember our network interface index 32 in *cone* from this :ref:`note <networkNote>`? We can see at the bottom the name of the 33rd index **vethQL7KOC@if32**. Keep note of this network interface name for the veth connected to cone, and the other network interface name for ctwo.
 
 With VPP in our VM, we can show our current VPP interfaces:
 
 .. code-block:: shell
     
-    $ sudo vppctl show inter
+    root@localhost:~# vppctl show inter
+              Name               Idx    State  MTU (L3/IP4/IP6/MPLS)     Counter          Count     
+    local0                        0     down          0/0/0/0  
 
 Which should only show local0.
 
-Based on these names, which are specific to my systems, we can setup the VPP host-interfaces:
+Based on the names of the network interfaces discussed previously, which are specific to my systems, we can setup the VPP host-interfaces:
 
 .. code-block:: shell
     
-    $ sudo vppctl create host-interface name vethQL7K0C
-    $ sudo vppctl create host-interface name veth8NA72P
+    root@localhost:~# vppctl create host-interface name vethQL7K0C
+    root@localhost:~# vppctl create host-interface name veth8NA72P
 
 Verify they have been setup:
 
 .. code-block:: shell
     
-    $ sudo vppctl show inter
+    root@localhost:~# vppctl show inter
+              Name               Idx    State  MTU (L3/IP4/IP6/MPLS)     Counter          Count     
+    host-vethQL7K0C               1     down         9000/0/0/0     
+    host-veth8NA72P               2     down         9000/0/0/0     
+    local0                        0     down          0/0/0/0   
 
-Which should output **three** interfaces, lo, and the other two network interfaces we just set up.
+Which should output **three** interfaces, local0, and the other two host network interfaces we just set up.
 
 
 Change the links state to up:
 
 .. code-block:: shell
     
-    $ sudo vppctl set interface state host-vethQL7K0C up
-    $ sudo vppctl set interface state host-veth8NA72P up
+    root@localhost:~# vppctl set interface state host-vethQL7K0C up
+    root@localhost:~# vppctl set interface state host-veth8NA72P up
+
+Verify they are now up:
+
+.. code-block:: shell
+
+    root@localhost:~# vppctl show inter
+              Name               Idx    State  MTU (L3/IP4/IP6/MPLS)     Counter          Count     
+    host-vethQL7K0C               1      up          9000/0/0/0     
+    host-veth8NA72P               2      up          9000/0/0/0     
+    local0                        0     down          0/0/0/0   
 
 
 Add IP addresses for the other end of each veth link:
 
 .. code-block:: shell
     
-    $ sudo vppctl set interface ip address host-vethQL7K0C 172.16.1.1/24
-    $ sudo vppctl set interface ip address host-veth8NA72P 172.16.2.1/24
+    root@localhost:~# vppctl set interface ip address host-vethQL7K0C 172.16.1.1/24
+    root@localhost:~# vppctl set interface ip address host-veth8NA72P 172.16.2.1/24
 
 
-Verify the interfaces are up with the previous show inter command, or you can also see the L3 table, or FIB by doing:
+Verify the addresses are set properly by looking at the L3 table:
+
+.. code-block:: shell
+
+    root@localhost:~# vppctl show inter addr
+    host-vethQL7K0C (up):
+      L3 172.16.1.1/24
+    host-veth8NA72P (up):
+      L3 172.16.2.1/24
+    local0 (dn):
+
+Or looking at the FIB by doing:
 
 .. code-block:: shell
     
-    $ sudo vppctl show ip fib
+    root@localhost:~# vppctl show ip fib
+    ipv4-VRF:0, fib_index:0, flow hash:[src dst sport dport proto ] locks:[src:plugin-hi:2, src:default-route:1, ]
+    0.0.0.0/0
+      unicast-ip4-chain
+      [@0]: dpo-load-balance: [proto:ip4 index:1 buckets:1 uRPF:0 to:[0:0]]
+        [0] [@0]: dpo-drop ip4
+    0.0.0.0/32
+      unicast-ip4-chain
+      [@0]: dpo-load-balance: [proto:ip4 index:2 buckets:1 uRPF:1 to:[0:0]]
+        [0] [@0]: dpo-drop ip4
+    172.16.1.0/32
+      unicast-ip4-chain
+      [@0]: dpo-load-balance: [proto:ip4 index:10 buckets:1 uRPF:9 to:[0:0]]
+        [0] [@0]: dpo-drop ip4
+    172.16.1.0/24
+      unicast-ip4-chain
+      [@0]: dpo-load-balance: [proto:ip4 index:9 buckets:1 uRPF:8 to:[0:0]]
+        [0] [@4]: ipv4-glean: host-vethQL7K0C: mtu:9000 ffffffffffff02fec953f98c0806
+    172.16.1.1/32
+      unicast-ip4-chain
+      [@0]: dpo-load-balance: [proto:ip4 index:12 buckets:1 uRPF:13 to:[0:0]]
+        [0] [@2]: dpo-receive: 172.16.1.1 on host-vethQL7K0C
+    172.16.1.255/32
+      unicast-ip4-chain
+      [@0]: dpo-load-balance: [proto:ip4 index:11 buckets:1 uRPF:11 to:[0:0]]
+        [0] [@0]: dpo-drop ip4
+    172.16.2.0/32
+      unicast-ip4-chain
+      [@0]: dpo-load-balance: [proto:ip4 index:14 buckets:1 uRPF:15 to:[0:0]]
+        [0] [@0]: dpo-drop ip4
+    172.16.2.0/24
+      unicast-ip4-chain
+      [@0]: dpo-load-balance: [proto:ip4 index:13 buckets:1 uRPF:14 to:[0:0]]
+        [0] [@4]: ipv4-glean: host-veth8NA72P: mtu:9000 ffffffffffff02fe305400e80806
+    172.16.2.1/32
+      unicast-ip4-chain
+      [@0]: dpo-load-balance: [proto:ip4 index:16 buckets:1 uRPF:19 to:[0:0]]
+        [0] [@2]: dpo-receive: 172.16.2.1 on host-veth8NA72P
+    172.16.2.255/32
+      unicast-ip4-chain
+      [@0]: dpo-load-balance: [proto:ip4 index:15 buckets:1 uRPF:17 to:[0:0]]
+        [0] [@0]: dpo-drop ip4
+    224.0.0.0/4
+      unicast-ip4-chain
+      [@0]: dpo-load-balance: [proto:ip4 index:4 buckets:1 uRPF:3 to:[0:0]]
+        [0] [@0]: dpo-drop ip4
+    240.0.0.0/4
+      unicast-ip4-chain
+      [@0]: dpo-load-balance: [proto:ip4 index:3 buckets:1 uRPF:2 to:[0:0]]
+        [0] [@0]: dpo-drop ip4
+    255.255.255.255/32
+      unicast-ip4-chain
+      [@0]: dpo-load-balance: [proto:ip4 index:5 buckets:1 uRPF:4 to:[0:0]]
+        [0] [@0]: dpo-drop ip4
 
 At long last you probably want to see some pings:
 
 .. code-block:: shell
     
-    $ sudo lxc-attach -n cone -- ping -c3 172.16.2.2
-    $ sudo lxc-attach -n ctwo -- ping -c3 172.16.1.2
+    root@localhost:~# lxc-attach -n cone -- ping -c3 172.16.2.2
+    PING 172.16.2.2 (172.16.2.2) 56(84) bytes of data.
+    64 bytes from 172.16.2.2: icmp_seq=1 ttl=63 time=0.102 ms
+    64 bytes from 172.16.2.2: icmp_seq=2 ttl=63 time=0.189 ms
+    64 bytes from 172.16.2.2: icmp_seq=3 ttl=63 time=0.150 ms
+
+    --- 172.16.2.2 ping statistics ---
+    3 packets transmitted, 3 received, 0% packet loss, time 1999ms
+    rtt min/avg/max/mdev = 0.102/0.147/0.189/0.035 ms
+
+    root@localhost:~# lxc-attach -n ctwo -- ping -c3 172.16.1.2
+    PING 172.16.1.2 (172.16.1.2) 56(84) bytes of data.
+    64 bytes from 172.16.1.2: icmp_seq=1 ttl=63 time=0.111 ms
+    64 bytes from 172.16.1.2: icmp_seq=2 ttl=63 time=0.089 ms
+    64 bytes from 172.16.1.2: icmp_seq=3 ttl=63 time=0.096 ms
+
+    --- 172.16.1.2 ping statistics ---
+    3 packets transmitted, 3 received, 0% packet loss, time 1998ms
+    rtt min/avg/max/mdev = 0.089/0.098/0.111/0.014 ms
 
 
 Which should send/recieve three packets for each command.
 
-
-
-
-
-
-
+Great work! You've come this far :)

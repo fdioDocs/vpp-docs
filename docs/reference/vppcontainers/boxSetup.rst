@@ -7,7 +7,7 @@ Box configuration
 =================
 
 
-Looking at the :ref:`vppVagrantfile`, we can see that the default OS is Ubuntu 16.04 (because if there is no ENV distro variable set, the last case - the **else** case - is executed):
+Looking at the :ref:`vppVagrantfile`, we can see that the default OS is Ubuntu 16.04 (since the variable *distro* equals *ubuntu1604* if there is no VPP_VAGRANT_DISTRO variable set - thus the **else** case is executed.)
 
 .. code-block:: ruby
 
@@ -28,25 +28,19 @@ Looking at the :ref:`vppVagrantfile`, we can see that the default OS is Ubuntu 1
       else
         config.vm.box = "puppetlabs/ubuntu-16.04-64-nocm"
 
-As mentioned above, you can specify which OS and VM provider you want on the `Vagrant boxes page <https://app.vagrantup.com/boxes/search>`_.
+As mentioned in the previous page, you can specify which OS and VM provider you want for your Vagrant box from the `Vagrant boxes page <https://app.vagrantup.com/boxes/search>`_, and setting your ENV variable appropriately in *env.sh*.
 
-Next in the Vagrantfile, you can see some *config.vm.provision* commands. As paraphrased from `Basic usage of Provisioners <https://www.vagrantup.com/docs/provisioning/basic_usage.html>`_, by default these are only run one time - during the *first* boot of the box.
+Next in the Vagrantfile, you see some *config.vm.provision* commands. As paraphrased from `Basic usage of Provisioners <https://www.vagrantup.com/docs/provisioning/basic_usage.html>`_, by default these are only run *once* - during the first boot of the box.
 
 .. code-block:: ruby
 
     config.vm.provision :shell, :path => File.join(File.dirname(__FILE__),"update.sh")
     config.vm.provision :shell, :path => File.join(File.dirname(__FILE__),"build.sh"), :args => "/vpp vagrant"
 
-The Vagrantfile sets the box to run two scripts during the first bootup: an update script *update.sh* that does basic updating and installation of some useful tools, as well as a *build.sh* script that builds (but does **not** install) VPP for your box.
+The two lines above set the VM to run two scripts during its first bootup: an update script *update.sh* that does basic updating and installation of some useful tools, as well as *build.sh* that builds VPP (but does **not** install) in the VM.
 
-.. _manualCmds:
 
-.. note::
-  
-  If you prefer to update your box and build VPP on it manually, you can remove the two lines above from the Vagrantfile. To build VPP, refer to these commands that you would perform once you have ssh'ed into your box:
-  :ref:`building VPP commands section <buildingcommands>`
-
-Looking further in the :ref:`vppVagrantfile` you can see more of the ENV's being used (and a default value if they're not set):
+Looking further in the :ref:`vppVagrantfile` you can see more of the ENV's being set to variables (or their default value if the ENV variable is not set):
 
 .. code-block:: ruby
 
@@ -67,11 +61,11 @@ Looking further in the :ref:`vppVagrantfile` you can see more of the ENV's being
     vmram=(ENV['VPP_VAGRANT_VMRAM'] || 4096)
 
 
-You can see how the box is configured, such as the amount of NICs (defaults to 3 NICs: 1 x NAT - host access and 2 x VPP DPDK enabled), CPUs (defaults to 2), and RAM (defaults to 4096 MB).
+You can see how the box or VM is configured, such as the amount of NICs (defaults to 3 NICs: 1 x NAT - host access and 2 x VPP DPDK enabled), CPUs (defaults to 2), and RAM (defaults to 4096 MB).
 
 
-Box provisioning
-________________
+Box bootup
+__________
 
 
 Once you're satisfied with your **Vagrantfile**, to boot the box run:
@@ -80,9 +74,9 @@ Once you're satisfied with your **Vagrantfile**, to boot the box run:
 
     $ vagrant up
 
-Doing this above command may take quite some time, since you are installing a VM. Take a break and get some scooby snacks.
+Doing this above command will take quite some time, since you are installing a VM and building VPP. Take a break and get some scooby snacks while you wait.
 
-To confirm it is up, we can do: 
+To confirm it is up, we can show the status of our Vagrant boxes with: 
 
 .. code-block:: shell
 
@@ -92,7 +86,7 @@ You will have only one machine running, but I have multiple as shown below:
 
 .. code-block:: console
 
-  [centos@dskl09 vpp-userdemo]$ vagrant global-status
+  $ vagrant global-status
   id       name    provider   state    directory                                           
   -----------------------------------------------------------------------------------------
   d90a17b  default virtualbox poweroff /home/centos/andrew-vpp/vppsb/vpp-userdemo          
@@ -121,4 +115,4 @@ You will have only one machine running, but I have multiple as shown below:
 
      $ vagrant destroy <id>
 
-  For other commands, visit the `Vagrant CLI Page <https://www.vagrantup.com/docs/cli/>`_.
+  Note that destroying a VM does not erase the box, but rather destroys all resources allocated for that VM. For other Vagrant commands, such as destroying a box, refer to the `Vagrant CLI Page <https://www.vagrantup.com/docs/cli/>`_.

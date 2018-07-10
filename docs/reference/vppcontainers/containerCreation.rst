@@ -5,82 +5,107 @@
 Creating Containers
 ___________________
 
+Now that we have **lxc** installed from the previous page, we now want to start creating containers to be used by our VM.
 
-The system configuration is located at /etc/lxc/lxc.conf or ~/.config/lxc/lxc.conf for unprivileged containers.
+From the `lxc.conf manpage <https://linuxcontainers.org/it/lxc/manpages/man5/lxc.conf.5.html>`_,  "The container configuration is held in the config stored in the container's directory.
+A basic configuration is generated at container creation time with the default's recommended for the chosen template as well as extra default keys coming from the default.conf file."
 
-This configuration file is used to set values such as default lookup paths and storage backend settings for LXC. It can be found in each container's **/sys/class/net** directory.
+That *default.conf* file is either located at /etc/lxc/default.conf or for unprivileged containers at ~/.config/lxc/default.conf."
 
-The command below configures the LXC (Linux container) networks to create an interface for a Linux bridge and an unconsumed second interface to be used by each container.
+Since we want to ping between two containers, we'll need to add to this file.
 
-For more information on linux containers with Ubuntu, visit the `lxc server guide <https://help.ubuntu.com/lts/serverguide/lxc.html>`_.
+Lets look at the contents of *default.conf*, which should initially look like this:
+
+.. code-block:: shell
+    
+    ~# cat /etc/lxc/default.conf 
+    lxc.network.type = veth
+    lxc.network.link = lxcbr0
+    lxc.network.flags = up
+    lxc.network.hwaddr = 00:16:3e:xx:xx:xx
+
+As you can see, by default there is a veth interface.
+
+Now we need to add to this file so each container will have an interface for a Linux bridge and an unconsumed second interface.
 
 .. code-block:: shell
 
-    echo -e "lxc.network.name = veth0\nlxc.network.type = veth\nlxc.network.name = veth_link1"  | sudo tee -a /etc/lxc/default.conf
+    ~# echo -e "lxc.network.name = veth0\nlxc.network.type = veth\nlxc.network.name = veth_link1"  | sudo tee -a cat /etc/lxc/default.conf
 
-
-This next command will create an Ubuntu Xenial container named "cone".
+We can inspect the contents again to verify the file was changed:
 
 .. code-block:: shell
 
-      $ sudo lxc-create -t download -n cone -- --dist ubuntu --release xenial --arch amd64 --keyserver hkp://p80.pool.sks-keyservers.net:80
+    ~# cat default.conf 
+    lxc.network.type = veth
+    lxc.network.link = lxcbr0
+    lxc.network.flags = up
+    lxc.network.hwaddr = 00:16:3e:xx:xx:xx
+    lxc.network.name = veth0
+    lxc.network.type = veth
+    lxc.network.name = veth_link1
+
+
+After this, we're ready to create the containers.
+
+This command creates an Ubuntu Xenial container named "cone".
+
+.. code-block:: shell
+
+      ~# lxc-create -t download -n cone -- --dist ubuntu --release xenial --arch amd64 --keyserver hkp://p80.pool.sks-keyservers.net:80
 
 
 If successful, you'll get an output similar to this:
 
 .. code-block:: console
     
-    root@localhost:~# You just created an Ubuntu xenial amd64 (20180625_07:42) container.
+    You just created an Ubuntu xenial amd64 (20180625_07:42) container.
 
     To enable SSH, run: apt install openssh-server
     No default root or user password are set by LXC.
 
 
-You can make another container "ctwo".
+Make another container "ctwo".
 
 .. code-block:: shell
 
-     $ sudo lxc-create -t download -n ctwo -- --dist ubuntu --release xenial --arch amd64 --keyserver hkp://p80.pool.sks-keyservers.net:80
+     ~# lxc-create -t download -n ctwo -- --dist ubuntu --release xenial --arch amd64 --keyserver hkp://p80.pool.sks-keyservers.net:80
 
 
-Afterwards, you can list your containers:
-
-
-.. code-block:: shell
-
-     $ sudo lxc-ls
-
-.. code-block:: console
-
-    root@localhost:~# cone ctwo
-
-
-Here are some `lxc container commands <https://help.ubuntu.com/lts/serverguide/lxc.html.en-GB#lxc-basic-usage>`_ you may find useful:
+Afterwards, you can list your containers to verify they exist:
 
 
 .. code-block:: shell
 
-      sudo lxc-ls --fancy
-      sudo lxc-start --name u1 --daemon
-      sudo lxc-info --name u1
-      sudo lxc-stop --name u1
-      sudo lxc-destroy --name u1
+     ~# lxc-ls
+     cone ctwo
+
+
+.. note::
+
+    Here are some `lxc container commands <https://help.ubuntu.com/lts/serverguide/lxc.html.en-GB#lxc-basic-usage>`_ you may find useful:
+
+
+    .. code-block:: shell
+
+          sudo lxc-ls --fancy
+          sudo lxc-start --name u1 --daemon
+          sudo lxc-info --name u1
+          sudo lxc-stop --name u1
+          sudo lxc-destroy --name u1
 
 
 Lets start the first container:
 
 .. code-block:: shell
     
-    $ sudo lxc-start --name cone
+    ~# lxc-start --name cone
 
-Verify its running:
+And verify its running:
 
 .. code-block:: shell
     
-    $ sudo lxc-ls --fancy
-
-.. code-block:: console
-
+    ~# lxc-ls --fancy
     NAME STATE   AUTOSTART GROUPS IPV4 IPV6 
     cone RUNNING 0         -      -    -    
     ctwo STOPPED 0         -      -    -  
