@@ -3,13 +3,13 @@
 .. toctree::
 
 
-Setting your ENV(Environment) Variables
-=======================================
+Setting your ENV Variables
+==========================
 
 
-The :ref:`vppVagrantfile` used in the VPP repo sets the configuration options based on your ENV variables (or to default at some value if you did not set them).
+The :ref:`vppVagrantfile` used in the VPP repo sets the configuration options based on your ENV (environment) variables, or to default the configuration at specified values if your ENV variables are not initialized (if you did not run the *env.sh* script found below). 
 
-Below is the *env.sh* script found in *vpp/extras/vagrant* that sets ENV variables using the **export** command.
+This is the *env.sh* script found in *vpp/extras/vagrant*. When run, the script sets ENV variables using the **export** command.
 
 .. code-block:: bash
 
@@ -20,9 +20,9 @@ Below is the *env.sh* script found in *vpp/extras/vagrant* that sets ENV variabl
 
 In the :ref:`vppVagrantfile`, you can see these same ENV variables used (discussed on the next page).
 
-Adding your own ENV variable is easy. For example, if you wanted to setup proxies for your VM, you would add lines in this script containing the **export** commands found in the :ref:`building VPP commands section <buildingcommands>`. Note that this only works if the ENV variable is defined in the :ref:`vppVagrantfile`.
+Adding your own ENV variables is easy. For example, if you wanted to setup proxies for your VM, you would add to this file the **export** commands found in the :ref:`building VPP commands section <buildingcommands>`. Note that this only works if the ENV variable is defined in the :ref:`vppVagrantfile`.
 
-Once you're finished with your *env.sh* script, and you're in the directory containing the script, *run* the script to define the ENV variables with:
+Once you're finished with *env.sh* script, and you are in the directory containing *env.sh*, run the script to set the ENV variables with:
 
 .. code-block:: shell
    

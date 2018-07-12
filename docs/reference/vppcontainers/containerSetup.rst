@@ -2,8 +2,8 @@
 
 .. toctree::
 
-Container prerequisites
-_______________________
+Container packages
+__________________
 
 Now we can go into container *cone* and install prerequisites such as VPP, and perform some additional commands:
 

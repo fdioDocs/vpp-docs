@@ -12,7 +12,7 @@ A basic configuration is generated at container creation time with the default's
 
 That *default.conf* file is either located at /etc/lxc/default.conf or for unprivileged containers at ~/.config/lxc/default.conf."
 
-Since we want to ping between two containers, we'll need to add to this file.
+Since we want to ping between two containers, we'll need to **add to this file**.
 
 Lets look at the contents of *default.conf*, which should initially look like this:
 
@@ -24,7 +24,7 @@ Lets look at the contents of *default.conf*, which should initially look like th
     lxc.network.flags = up
     lxc.network.hwaddr = 00:16:3e:xx:xx:xx
 
-As you can see, by default there is a veth interface.
+As you can see, by default there is one veth interface.
 
 Now we need to add to this file so each container will have an interface for a Linux bridge and an unconsumed second interface.
 
@@ -32,7 +32,7 @@ Now we need to add to this file so each container will have an interface for a L
 
     ~# echo -e "lxc.network.name = veth0\nlxc.network.type = veth\nlxc.network.name = veth_link1"  | sudo tee -a cat /etc/lxc/default.conf
 
-We can inspect the contents again to verify the file was changed:
+We can inspect the contents again to verify the file was indeed modified:
 
 .. code-block:: shell
 
@@ -81,20 +81,6 @@ Afterwards, you can list your containers to verify they exist:
      cone ctwo
 
 
-.. note::
-
-    Here are some `lxc container commands <https://help.ubuntu.com/lts/serverguide/lxc.html.en-GB#lxc-basic-usage>`_ you may find useful:
-
-
-    .. code-block:: shell
-
-          sudo lxc-ls --fancy
-          sudo lxc-start --name u1 --daemon
-          sudo lxc-info --name u1
-          sudo lxc-stop --name u1
-          sudo lxc-destroy --name u1
-
-
 Lets start the first container:
 
 .. code-block:: shell
@@ -109,3 +95,17 @@ And verify its running:
     NAME STATE   AUTOSTART GROUPS IPV4 IPV6 
     cone RUNNING 0         -      -    -    
     ctwo STOPPED 0         -      -    -  
+
+
+.. note::
+
+    Here are some `lxc container commands <https://help.ubuntu.com/lts/serverguide/lxc.html.en-GB#lxc-basic-usage>`_ you may find useful:
+
+
+    .. code-block:: shell
+
+          sudo lxc-ls --fancy
+          sudo lxc-start --name u1 --daemon
+          sudo lxc-info --name u1
+          sudo lxc-stop --name u1
+          sudo lxc-destroy --name u1

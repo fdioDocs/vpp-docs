@@ -5,12 +5,9 @@
 Overview
 ^^^^^^^^
 
-This section will describe how to install a Virtual Machine (VM) for Vagrant, and install containers inside that VM. Finally, it will conclude with connecting these two containers together and pinging between them. 
+In finer detail, this guide shows how the VPP :ref:`vppVagrantfile` interacts with shell scripts to configure a `Vagrant box <https://www.vagrantup.com/docs/boxes.html>`_ that boots a VM with VPP *built*. Once inside the VM, VPP is installed and ran, along with *lxc* to manage the two linux containers. The containers are then accessed individually, so VPP can be installed and their network interface settings can be viewed. Finally, the last section connects these containers with VPP and sends pings from one container to the other.
 
-Containers are environments similar to VM's, but are known to be faster since they do not simulate  separate kernels and hardware, as VM's do. You can read more about `Linux containers here <https://linuxcontainers.org/>`_.
-
-
-In this section, we'll use Vagrant to run our VirtualBox VM. **Vagrant** automates the configuration of virtual environments by giving you the ability to create and destroy VM's (wrapped in *Vagrant boxes*) quick and seemlessly.
+A container is essentially a more efficient and faster VM, due to the fact that a container does not simulate a separate kernel and hardware. You can read more about `Linux containers here <https://linuxcontainers.org/>`_.
 
 .. _prereqlabel:
 
@@ -22,9 +19,6 @@ You have the `Git VPP repo <https://github.com/FDio/vpp>`_ cloned locally on you
 
 This guide will refer to the following files from that repo: *Vagrantfile, build.sh, env.sh, and update.sh*.
 
-.. note::
-
-   While you *can* just blindly run every command/script, understanding how the Vagrantfile and scripts interact with each other are vital to customizing your own VM's that have your specific configuration options and packages installed.
 
 
 

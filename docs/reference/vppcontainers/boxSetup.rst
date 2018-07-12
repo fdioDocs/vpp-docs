@@ -3,8 +3,20 @@
 .. toctree::
 
 
+Vagrantfiles
+============
+
+A `Vagrantfile <https://www.vagrantup.com/docs/vagrantfile/>`_ contains the box and provision configuration settings for your VM. The syntax of Vagrantfiles is Ruby (Ruby experience is not necessary).
+
+The command **vagrant up** creates a *Vagrant Box* based on your Vagrantfile. A Vagrant box is one of the motivations for using Vagrant - its a "development-ready box" that can be copied to other machines to recreate the same environment. 
+
+It's common for people to think that a Vagrant box *is* the VM. But rather, the VM is *inside* a Vagrant box, with the box containing additional configuration options you can set, such as VM options, scripts to run on boot, etc.
+
+This `Vagrant website for boxes <https://app.vagrantup.com/boxes/search>`_  shows you how to configure a basic Vagrantfile for your specific OS and VM software.
+
+
 Box configuration 
-=================
+_________________
 
 
 Looking at the :ref:`vppVagrantfile`, we can see that the default OS is Ubuntu 16.04 (since the variable *distro* equals *ubuntu1604* if there is no VPP_VAGRANT_DISTRO variable set - thus the **else** case is executed.)
@@ -37,10 +49,10 @@ Next in the Vagrantfile, you see some *config.vm.provision* commands. As paraphr
     config.vm.provision :shell, :path => File.join(File.dirname(__FILE__),"update.sh")
     config.vm.provision :shell, :path => File.join(File.dirname(__FILE__),"build.sh"), :args => "/vpp vagrant"
 
-The two lines above set the VM to run two scripts during its first bootup: an update script *update.sh* that does basic updating and installation of some useful tools, as well as *build.sh* that builds VPP (but does **not** install) in the VM.
+The two lines above set the VM to run two scripts during its first bootup: an update script *update.sh* that does basic updating and installation of some useful tools, as well as *build.sh* that builds VPP (but does **not** install) in the VM. You can view these scripts on your own for more detail on the commands used.
 
 
-Looking further in the :ref:`vppVagrantfile` you can see more of the ENV's being set to variables (or their default value if the ENV variable is not set):
+Looking further in the :ref:`vppVagrantfile`, you can see more Ruby variables being set to ENV's or to a default value:
 
 .. code-block:: ruby
 
@@ -68,7 +80,7 @@ Box bootup
 __________
 
 
-Once you're satisfied with your **Vagrantfile**, to boot the box run:
+Once you're satisfied with your *Vagrantfile*, boot the box with:
 
 .. code-block:: shell
 
@@ -76,7 +88,7 @@ Once you're satisfied with your **Vagrantfile**, to boot the box run:
 
 Doing this above command will take quite some time, since you are installing a VM and building VPP. Take a break and get some scooby snacks while you wait.
 
-To confirm it is up, we can show the status of our Vagrant boxes with: 
+To confirm it is up, show the status and information of Vagrant boxes with: 
 
 .. code-block:: shell
 
@@ -115,4 +127,4 @@ You will have only one machine running, but I have multiple as shown below:
 
      $ vagrant destroy <id>
 
-  Note that destroying a VM does not erase the box, but rather destroys all resources allocated for that VM. For other Vagrant commands, such as destroying a box, refer to the `Vagrant CLI Page <https://www.vagrantup.com/docs/cli/>`_.
+  Note that "destroying" a VM does not erase the box, but rather destroys all resources allocated for that VM. For other Vagrant commands, such as destroying a box, refer to the `Vagrant CLI Page <https://www.vagrantup.com/docs/cli/>`_.

@@ -2,8 +2,8 @@
 
 .. toctree::
 
-Installation and setup
-======================
+Installing Vbox and Vagrant
+===========================
 
 Installing VirtualBox
 _____________________
@@ -22,8 +22,6 @@ If you're on Ubuntu, perform:
 Installing Vagrant
 __________________
 
-Now its time to install Vagrant.
-
 Here we are on a 64-bit version of CentOS, downloading and installing Vagrant 2.1.2:
 
 .. code-block:: shell
@@ -38,14 +36,3 @@ This is a similar command, but on a 64-bit version of Debian:
 
 
 If you want to download a newer version of Vagrant or one specific to your OS and architecture, go to the Vagrant `download page <https://www.vagrantup.com/downloads.html>`_, right-click and copy the link address for your specified version, and replace the above install command for your respective OS and architechure.
-
-Vagrantfiles
-____________
-
-A *Vagrantfile* contains the box configuration settings for your VM. The syntax of Vagrantfiles is Ruby (Ruby experience is not necessary).
-
-The command **vagrant up** creates a *Vagrant Box* based on your Vagrantfile. A Vagrant box is one of the motivations for using Vagrant - its a "development-ready box" that can be copied to other machines to recreate the same environment. 
-
-It's common for people to think that a Vagrant box *is* the VM. But rather, the VM is *inside* a Vagrant box, with the box containing additional configuration options you can set, such as VM options, scripts to run on boot, etc.
-
-This `Vagrant website for boxes <https://app.vagrantup.com/boxes/search>`_  shows you how to configure a basic Vagrantfile for your specific OS and VM software.

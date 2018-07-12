@@ -40,7 +40,7 @@ Now we want to install some packages for using our containers, such as lxc:
   ~# apt-get install bridge-utils lxc
 
 
-After this is done, we now want to *install* VPP in the VM. Keep in mind that VPP has been built based on the commands in *build.sh*, but not yet installed.
+After this is done, we now want to *install* VPP in the VM. Keep in mind that VPP is already built (but not yet installed) at this point based on the commands from the provisioned script *build.sh*. 
 
 When you ssh into your Vagrant box you will be placed in the directory */home/vagrant*. Change directories to */vpp/build-root*, and run these commands to install VPP based on your OS and architechture:
 

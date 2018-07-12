@@ -7,7 +7,7 @@ ______________________
 
 Now the section you have all been waiting for - connecting these two linux containers to VPP and pinging between them.
 
-Enter container cone, and see what the current network configuration is:
+Enter container *cone*, and see what the current network configuration is:
 
 .. code-block:: shell
     
@@ -38,7 +38,7 @@ Check if the interfaces are down or up:
 
 .. note::
 
-    Take note of the network index for **veth_link1**. In our case, it 32, and its parent index (the host machine running the VM, not the container itself) is 33, shown by **veth_link1@if33**. Yours will probably be different, but take note of these index's.
+    Take note of the network index for **veth_link1**. In our case, it 32, and its parent index (the host machine running the VM, not the container itself) is 33, shown by **veth_link1@if33**. Yours will most likely be different, but **please take note of these index's**.
 
 Make sure your loopback interface is up, and assign an IP and gateway to veth_link1.
 
@@ -72,7 +72,7 @@ We can run some commands to verify our setup:
 
 We see that the IP has been assigned, as well as our default gateway.
 
-Now exit this container and repeat this setup with **ctwo**, except with IP 172.16.2.2/24 and gateway 172.16.2.1.
+Now exit this container and repeat this process with container *ctwo*, except with IP 172.16.2.2/24 and gateway 172.16.2.1.
 
 
 After thats done for *both* containers, go back into your host VM (unless you're already in root@localhost:~#):
@@ -83,7 +83,7 @@ After thats done for *both* containers, go back into your host VM (unless you're
     exit
     root@localhost:~#
 
-Now, in the VM, if we run **ip link** we can see the host *veth* network interfaces, and their connection with the container *veth's*.
+In the VM, run **ip link** to see the host *veth* network interfaces, and their link with their respective *container veth's*.
 
 .. code-block:: shell
     
@@ -108,9 +108,9 @@ Now, in the VM, if we run **ip link** we can see the host *veth* network interfa
         link/ether fe:ed:89:54:47:a2 brd ff:ff:ff:ff:ff:ff link-netnsid 0
 
 
-Remember our network interface index 32 in *cone* from this :ref:`note <networkNote>`? We can see at the bottom the name of the 33rd index **vethQL7KOC@if32**. Keep note of this network interface name for the veth connected to cone, and the other network interface name for ctwo.
+Remember our network interface index 32 in *cone* from this :ref:`note <networkNote>`? We can see at the bottom the name of the 33rd index **vethQL7KOC@if32**. Keep note of this network interface name for the veth connected to *cone* (ex. vethQL7KOC), and the other network interface name for *ctwo*.
 
-With VPP in our VM, we can show our current VPP interfaces:
+With VPP in the VM, show current VPP interfaces:
 
 .. code-block:: shell
     
@@ -118,16 +118,16 @@ With VPP in our VM, we can show our current VPP interfaces:
               Name               Idx    State  MTU (L3/IP4/IP6/MPLS)     Counter          Count     
     local0                        0     down          0/0/0/0  
 
-Which should only show local0.
+Which should only output local0.
 
-Based on the names of the network interfaces discussed previously, which are specific to my systems, we can setup the VPP host-interfaces:
+Based on the names of the network interfaces discussed previously, which are specific to my systems, we can create VPP host-interfaces:
 
 .. code-block:: shell
     
     root@localhost:~# vppctl create host-interface name vethQL7K0C
     root@localhost:~# vppctl create host-interface name veth8NA72P
 
-Verify they have been setup:
+Verify they have been set up properly:
 
 .. code-block:: shell
     
@@ -137,10 +137,10 @@ Verify they have been setup:
     host-veth8NA72P               2     down         9000/0/0/0     
     local0                        0     down          0/0/0/0   
 
-Which should output **three** interfaces, local0, and the other two host network interfaces we just set up.
+Which should output *three network interfaces*, local0, and the other two host network interfaces linked to the container veth's.
 
 
-Change the links state to up:
+Set their state to up:
 
 .. code-block:: shell
     
@@ -263,4 +263,4 @@ At long last you probably want to see some pings:
 
 Which should send/recieve three packets for each command.
 
-Great work! You've come this far :)
+This is the end of this guide. Great work! 
