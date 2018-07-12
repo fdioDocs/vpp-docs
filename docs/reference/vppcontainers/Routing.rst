@@ -2,8 +2,8 @@
 
 .. toctree::
 
-Routing two Containers
-______________________
+Connecting the two Containers
+_____________________________
 
 Time for the section you've all been waiting for - connecting these two linux containers to VPP and pinging between them.
 
