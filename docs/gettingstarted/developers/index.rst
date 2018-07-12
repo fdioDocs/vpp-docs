@@ -5,6 +5,7 @@
 Getting Started (Developers)
 ############################
 
+
 This chapter describes how developers can get started using FD.io VPP. This chapter covers the following information:
 
 * Identifies and describes the different layers that VPP operates on
@@ -19,4 +20,5 @@ This chapter describes how developers can get started using FD.io VPP. This chap
 
 .. toctree::
 
-    swarch/index
+   building/index.rst
+   swarch/index
