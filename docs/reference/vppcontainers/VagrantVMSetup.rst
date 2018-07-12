@@ -4,13 +4,13 @@
 
 Accessing your VM
 ^^^^^^^^^^^^^^^^^
-ssh into your newly created box:
+ssh into the newly created box:
 
 .. code-block:: shell
 
     $ vagrant ssh <id>
 
-Now you're in your VM.
+Sample output looks like:
 
 .. code-block:: console
 
@@ -24,7 +24,7 @@ Now you're in your VM.
 
 .. note::
   
-  Type **exit** if you want to exit your VM, or container (which we'll get to soon.)
+  Type **exit** if you want to exit the VM, or container (which we'll get to soon.)
 
 Become the root with:
 
@@ -33,7 +33,7 @@ Become the root with:
     $ sudo bash
 
 
-Now we want to install some packages for using our containers, such as lxc:
+Install some packages for using containers, such as lxc:
 
 .. code-block:: shell
 
@@ -57,7 +57,7 @@ For CentOS systems:
     ~# rpm -Uvh *.rpm
 
 
-Since VPP is now installed, we can start running VPP on our "host" VM with:
+Since VPP is now installed, start running VPP on the "host" VM with:
 
 .. code-block:: shell
   

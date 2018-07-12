@@ -5,16 +5,16 @@
 Creating Containers
 ___________________
 
-Now that we have **lxc** installed from the previous page, we now want to start creating containers to be used by our VM.
+Now that **lxc** is installed from the previous page, we now want to start creating containers to be used by our VM.
 
 From the `lxc.conf manpage <https://linuxcontainers.org/it/lxc/manpages/man5/lxc.conf.5.html>`_,  "The container configuration is held in the config stored in the container's directory.
 A basic configuration is generated at container creation time with the default's recommended for the chosen template as well as extra default keys coming from the default.conf file."
 
-That *default.conf* file is either located at /etc/lxc/default.conf or for unprivileged containers at ~/.config/lxc/default.conf."
+"That *default.conf* file is either located at /etc/lxc/default.conf or for unprivileged containers at ~/.config/lxc/default.conf."
 
 Since we want to ping between two containers, we'll need to **add to this file**.
 
-Lets look at the contents of *default.conf*, which should initially look like this:
+Look at the contents of *default.conf*, which should initially look like this:
 
 .. code-block:: shell
     
@@ -26,13 +26,13 @@ Lets look at the contents of *default.conf*, which should initially look like th
 
 As you can see, by default there is one veth interface.
 
-Now we need to add to this file so each container will have an interface for a Linux bridge and an unconsumed second interface.
+*Add to this file* so each container will have an interface for a Linux bridge and an unconsumed second interface with:
 
 .. code-block:: shell
 
     ~# echo -e "lxc.network.name = veth0\nlxc.network.type = veth\nlxc.network.name = veth_link1"  | sudo tee -a cat /etc/lxc/default.conf
 
-We can inspect the contents again to verify the file was indeed modified:
+Inspect the contents again to verify the file was indeed modified:
 
 .. code-block:: shell
 
@@ -48,7 +48,7 @@ We can inspect the contents again to verify the file was indeed modified:
 
 After this, we're ready to create the containers.
 
-This command creates an Ubuntu Xenial container named "cone".
+Creates an Ubuntu Xenial container named "cone".
 
 .. code-block:: shell
 
@@ -72,7 +72,7 @@ Make another container "ctwo".
      ~# lxc-create -t download -n ctwo -- --dist ubuntu --release xenial --arch amd64 --keyserver hkp://p80.pool.sks-keyservers.net:80
 
 
-Afterwards, you can list your containers to verify they exist:
+List your containers to verify they exist:
 
 
 .. code-block:: shell
@@ -81,7 +81,7 @@ Afterwards, you can list your containers to verify they exist:
      cone ctwo
 
 
-Lets start the first container:
+Start the first container:
 
 .. code-block:: shell
     

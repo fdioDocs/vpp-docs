@@ -5,9 +5,9 @@
 Routing two Containers
 ______________________
 
-Now the section you have all been waiting for - connecting these two linux containers to VPP and pinging between them.
+Time for the section you've all been waiting for - connecting these two linux containers to VPP and pinging between them.
 
-Enter container *cone*, and see what the current network configuration is:
+Enter container *cone*, and check the current network configuration:
 
 .. code-block:: shell
     
@@ -52,7 +52,7 @@ Make sure your loopback interface is up, and assign an IP and gateway to veth_li
 
 Here, the IP is 172.16.1.2/24 and the gateway is 172.16.1.1.
 
-We can run some commands to verify our setup:
+Run some commands to verify the changes:
 
 .. code-block:: shell
     

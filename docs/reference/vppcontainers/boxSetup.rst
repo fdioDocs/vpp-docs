@@ -49,7 +49,7 @@ Next in the Vagrantfile, you see some *config.vm.provision* commands. As paraphr
     config.vm.provision :shell, :path => File.join(File.dirname(__FILE__),"update.sh")
     config.vm.provision :shell, :path => File.join(File.dirname(__FILE__),"build.sh"), :args => "/vpp vagrant"
 
-The two lines above set the VM to run two scripts during its first bootup: an update script *update.sh* that does basic updating and installation of some useful tools, as well as *build.sh* that builds VPP (but does **not** install) in the VM. You can view these scripts on your own for more detail on the commands used.
+The two lines above set the VM to run two scripts during its first bootup: an update script *update.sh* that does basic updating and installation of some useful tools, as well as *build.sh* that builds (but does **not** install) VPP in the VM. You can view these scripts on your own for more detail on the commands used.
 
 
 Looking further in the :ref:`vppVagrantfile`, you can see more Ruby variables being set to ENV's or to a default value:
@@ -90,12 +90,6 @@ Doing this above command will take quite some time, since you are installing a V
 
 To confirm it is up, show the status and information of Vagrant boxes with: 
 
-.. code-block:: shell
-
-  $ vagrant global-status
-
-You will have only one machine running, but I have multiple as shown below:
-
 .. code-block:: console
 
   $ vagrant global-status
@@ -106,6 +100,7 @@ You will have only one machine running, but I have multiple as shown below:
   c1c8952  default virtualbox poweroff /home/centos/andrew-vpp/testingVPPSB/extras/vagrant 
   c199140  default virtualbox running  /home/centos/andrew-vpp/vppsb3/vpp-userdemo 
 
+  You will have only one machine running, but I have multiple as shown above.
 
 .. note::
 

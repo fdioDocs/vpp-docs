@@ -14,7 +14,7 @@ To enter our container via the shell, type:
     ~# lxc-attach -n cone
     root@cone:/#
 
-Now run the linux DHCP setup and install VPP: 
+Run the linux DHCP setup and install VPP: 
 
 .. code-block:: shell
     
@@ -32,7 +32,7 @@ After this is done, start VPP in this container:
     
     root@cone:/# service vpp start
 
-Now exit this container with the **exit** command (you *may* need to run **exit** twice):
+Exit this container with the **exit** command (you *may* need to run **exit** twice):
 
 .. code-block:: shell
 
