@@ -1,0 +1,402 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started (Users) &mdash; Vector Packet Processor 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Installing VPP Binaries from Packages" href="installing/index.html" />
+    <link rel="prev" title="Features" href="../overview/features.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Vector Packet Processor
+          
+
+          
+            
+            <img src="../_static/fd-io_red_white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started (Users)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installing/index.html">Installing VPP Binaries from Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="writingdocs/index.html">Writing VPP Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reportingissues/index.html">How to Report an Issue</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usecases/index.html">Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gstarteddevel/index.html">Getting Started (Developers)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">User Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Vector Packet Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting Started (Users)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/gettingstarted/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started-users">
+<span id="gettingstarted"></span><h1>Getting Started (Users)<a class="headerlink" href="#getting-started-users" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installing/index.html">Installing VPP Binaries from Packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installing/index.html#package-descriptions">Package Descriptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installing/packages.html">Packages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="installing/packages.html#vpp">vpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installing/packages.html#vpp-lib">vpp-lib</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installing/packages.html#vpp-plugins">vpp-plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installing/packages.html#vpp-dbg">vpp-dbg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installing/packages.html#vpp-dev">vpp-dev</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installing/packages.html#vpp-api-java">vpp-api-java</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installing/packages.html#vpp-api-python">vpp-api-python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installing/packages.html#vpp-api-lua">vpp-api-lua</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installing/index.html#installing-on-ubuntu">Installing on Ubuntu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installing/ubuntu.html">Ubuntu 16.04 - Setup the fd.io Repository</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="installing/ubuntu.html#update-the-os">Update the OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installing/ubuntu.html#point-to-the-repository">Point to the Repository</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="installing/ubuntu.html#vpp-latest-release">VPP latest Release</a></li>
+<li class="toctree-l5"><a class="reference internal" href="installing/ubuntu.html#vpp-stable-1804-branch">VPP stable/1804 Branch</a></li>
+<li class="toctree-l5"><a class="reference internal" href="installing/ubuntu.html#vpp-master-branch">VPP master Branch</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="installing/ubuntu.html#install-the-mandatory-packages">Install the Mandatory Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installing/ubuntu.html#install-the-optional-packages">Install the Optional Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installing/ubuntu.html#uninstall-the-packages">Uninstall the Packages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installing/index.html#installing-on-centos">Installing on Centos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installing/centos.html">Setup the fd.io Repository (Centos 7.3)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="installing/centos.html#update-the-os">Update the OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installing/centos.html#point-to-the-repository">Point to the Repository</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="installing/centos.html#vpp-latest-release">VPP latest Release</a></li>
+<li class="toctree-l5"><a class="reference internal" href="installing/centos.html#vpp-stable-1804-branch">VPP stable/1804 Branch</a></li>
+<li class="toctree-l5"><a class="reference internal" href="installing/centos.html#vpp-master-branch">VPP master Branch</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="installing/centos.html#install-vpp-rpms">Install VPP RPMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installing/centos.html#install-the-optional-rpms">Install the optional RPMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installing/centos.html#uninstall-the-vpp-rpms">Uninstall the VPP RPMs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installing/index.html#installing-on-opensuse">Installing on openSUSE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installing/opensuse.html">Installing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="installing/opensuse.html#opensuse-tumbleweed-rolling-release">openSUSE Tumbleweed (rolling release)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installing/opensuse.html#opensuse-leap-42-3">openSUSE Leap 42.3</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="installing/opensuse.html#uninstall">Uninstall</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="installing/opensuse.html#id1">openSUSE Tumbleweed (rolling release)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installing/opensuse.html#id2">openSUSE Leap 42.3</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="installing/opensuse.html#for-more-information">For More Information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="writingdocs/index.html">Writing VPP Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="writingdocs/buildingrst.html">Building VPP Documents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="writingdocs/buildingrst.html#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="writingdocs/buildingrst.html#create-a-virtual-environment-using-virtualenv">Create a Virtual Environment using virtualenv</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="writingdocs/buildingrst.html#get-the-documents">Get the Documents</a></li>
+<li class="toctree-l5"><a class="reference internal" href="writingdocs/buildingrst.html#install-the-virtual-environment">Install the virtual environment</a></li>
+<li class="toctree-l5"><a class="reference internal" href="writingdocs/buildingrst.html#build-the-html-files">Build the html files</a></li>
+<li class="toctree-l5"><a class="reference internal" href="writingdocs/buildingrst.html#view-the-results">View the results</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="writingdocs/buildingrst.html#install-sphinx-manually">Install Sphinx manually</a></li>
+<li class="toctree-l4"><a class="reference internal" href="writingdocs/buildingrst.html#using-read-the-docs">Using Read the Docs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="writingdocs/pushingapatch.html">Pushing your changes to the VPP Docs Repository</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="writingdocs/pushingapatch.html#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="writingdocs/pushingapatch.html#forking-your-own-branch">Forking your own branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="writingdocs/pushingapatch.html#creating-a-local-repository">Creating a local repository</a></li>
+<li class="toctree-l4"><a class="reference internal" href="writingdocs/pushingapatch.html#keeping-your-files-in-sync-with-the-main-repo">Keeping your files in sync with the main repo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="writingdocs/pushingapatch.html#create-a-branch">Create a Branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="writingdocs/pushingapatch.html#pushing-to-your-branch">Pushing to your branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="writingdocs/pushingapatch.html#initiating-a-pull-request-code-review">Initiating a pull request (Code review)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="writingdocs/pushingapatch.html#additional-git-commands">Additional Git commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="writingdocs/styleguide/index.html">reStructured Text Style Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="writingdocs/styleguide/styleguide.html">Heading 1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="writingdocs/styleguide/styleguide.html#heading-2">Heading 2</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="writingdocs/styleguide/styleguide.html#heading-3">Heading 3</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="writingdocs/styleguide/styleguide.html#heading-4">Heading 4</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="writingdocs/styleguide/styleguide.html#heading-5">Heading 5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="writingdocs/styleguide/styleguide02.html">Bullets, Bold and Italics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="writingdocs/styleguide/styleguide02.html#notes">Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="writingdocs/styleguide/styleguide02.html#code-blocks">Code Blocks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="writingdocs/styleguide/styleguide03.html">Labels, References</a></li>
+<li class="toctree-l3"><a class="reference internal" href="writingdocs/styleguide/styleguide03.html#external-links">External Links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="writingdocs/styleguide/styleguide03.html#images">Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="writingdocs/styleguide/styleguide04.html">Including a file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="writingdocs/styleguide/xmlexample.html">An XML File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="writingdocs/styleguide/styleguide05.html">Raw HTML</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="writingdocs/styleguide/rawhtml.html">Raw HTML Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="writingdocs/styleguidemd/index.html">Markdown Style Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="writingdocs/styleguidemd/styleguide.html">Heading 1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="writingdocs/styleguidemd/styleguide.html#heading-2">Heading 2</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="writingdocs/styleguidemd/styleguide.html#heading-3">Heading 3</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="writingdocs/styleguidemd/styleguide.html#heading-4">Heading 4</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="writingdocs/styleguidemd/styleguide.html#heading-5">Heading 5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="writingdocs/styleguidemd/styleguide02.html">Bullets, Bold and Italics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="writingdocs/styleguidemd/styleguide02.html#code-blocks">Code Blocks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="writingdocs/styleguidemd/styleguide03.html">Labels, References</a></li>
+<li class="toctree-l3"><a class="reference internal" href="writingdocs/styleguidemd/styleguide03.html#external-links">External Links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="writingdocs/styleguidemd/styleguide03.html#images">Images</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reportingissues/index.html">How to Report an Issue</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reportingissues/reportingissues.html">Reporting Bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reportingissues/reportingissues.html#data-to-include-in-bug-reports">Data to include in bug reports</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reportingissues/reportingissues.html#image-version-and-operating-environment">Image version and operating environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reportingissues/reportingissues.html#show-command-output">“Show” command output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reportingissues/reportingissues.html#network-topology">Network Topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reportingissues/reportingissues.html#packet-tracer-output">Packet Tracer Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reportingissues/reportingissues.html#capturing-post-mortem-data">Capturing post-mortem data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reportingissues/reportingissues.html#syslog-output">Syslog Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reportingissues/reportingissues.html#binary-api-trace">Binary API Trace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reportingissues/reportingissues.html#core-files">Core Files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installing/index.html" class="btn btn-neutral float-right" title="Installing VPP Binaries from Packages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../overview/features.html" class="btn btn-neutral" title="Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, John DeNisco.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

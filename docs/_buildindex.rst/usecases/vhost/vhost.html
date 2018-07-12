@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Prerequisites &mdash; Vector Packet Processor 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Creating the Virtual Machine" href="vhost02.html" />
+    <link rel="prev" title="FD.io VPP with Virtual Machines" href="index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Vector Packet Processor
+          
+
+          
+            
+            <img src="../../_static/fd-io_red_white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gettingstarted/index.html">Getting Started (Users)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Use Cases</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">FD.io VPP with Virtual Machines</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#topology">Topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-the-virtual-interface">Creating The Virtual Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vhost02.html">Creating the Virtual Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vhost03.html">Bridge the Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vhost03.html#bring-the-interfaces-up">Bring the Interfaces Up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vhost03.html#ping-from-the-vm">Ping from the VM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vhost04.html">Cleanup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xmlexample.html">The XML File</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../homegateway.html">Using VPP as a Home Gateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uc_vSwitchvRouter.html">vSwitch/vRouter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../gstarteddevel/index.html">Getting Started (Developers)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/index.html">User Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Vector Packet Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Use Cases</a> &raquo;</li>
+        
+          <li><a href="index.html">FD.io VPP with Virtual Machines</a> &raquo;</li>
+        
+      <li>Prerequisites</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/usecases/vhost/vhost.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="prerequisites">
+<span id="vhost01"></span><h1>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h1>
+<p>For this use case we will assume FD.io VPP is installed. We will also assume the user can create and start
+basic virtual machines. This use case will use the linux virsh commands. For more information on virsh
+refer to <a class="reference external" href="https://linux.die.net/man/1/virsh">virsh man page</a>.</p>
+<p>The image that we use is based on an Ubuntu cloud image downloaded from:
+<a class="reference external" href="https://cloud-images.ubuntu.com/xenial/current">Ubuntu Cloud Images</a>.</p>
+<p>All FD.io VPP commands are being run from a su shell.</p>
+</div>
+<div class="section" id="topology">
+<h1>Topology<a class="headerlink" href="#topology" title="Permalink to this headline">¶</a></h1>
+<p>In this case we will use 2 systems. One system we will be running standard linux, the other will
+be running FD.io VPP.</p>
+<div class="figure" id="id1">
+<img alt="" src="../../_images/vhost-topo.png" />
+<p class="caption"><span class="caption-text">Vhost Use Case Topology</span></p>
+</div>
+</div>
+<div class="section" id="creating-the-virtual-interface">
+<h1>Creating The Virtual Interface<a class="headerlink" href="#creating-the-virtual-interface" title="Permalink to this headline">¶</a></h1>
+<p>We will start on the system running FD.io VPP and show that no Virtual interfaces have been created.
+We do this using the <a class="reference internal" href="../../reference/cmdreference/interface/interface.html#showintcommand"><span class="std std-ref">Show Interface</span></a> command.</p>
+<p>Notice we do not have any virtual interfaces. We do have an interface (TenGigabitEthernet86/0/0) that
+is up. This interface is connected  to a system running, in our example standard linux. We will use
+this system to verify our connectivity to our VM with ping.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo bash
+<span class="gp">#</span> vppctl
+<span class="go">    _______    _        _   _____  ___</span>
+<span class="go"> __/ __/ _ \  (_)__    | | / / _ \/ _ \</span>
+<span class="go"> _/ _// // / / / _ \   | |/ / ___/ ___/</span>
+<span class="go"> /_/ /____(_)_/\___/   |___/_/  /_/</span>
+
+<span class="go">vpp# clear interfaces</span>
+<span class="go">vpp# show int</span>
+<span class="go">              Name               Idx       State          Counter          Count</span>
+<span class="go">TenGigabitEthernet86/0/0          1         up</span>
+<span class="go">TenGigabitEthernet86/0/1          2        down</span>
+<span class="go">local0                            0        down</span>
+<span class="go">vpp#</span>
+</pre></div>
+</div>
+<p>For more information on the interface commands refer to: <a class="reference internal" href="../../reference/cmdreference/interface/interface.html#intcommands"><span class="std std-ref">Interface Commands</span></a></p>
+<p>The next step will be to create the virtual port using the <a class="reference internal" href="../../reference/cmdreference/vhost/vhostuser.html#createvhostuser"><span class="std std-ref">Create Vhost-User</span></a> command.
+This command will create the virtual port in VPP and create a linux socket that the VM will
+use to connect to VPP.</p>
+<p>The port can be created using VPP as the socket server or client.</p>
+<p>Creating the VPP port:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vpp# create vhost socket /tmp/vm00.sock</span>
+<span class="go">VirtualEthernet0/0/0</span>
+<span class="go">vpp# show int</span>
+<span class="go">              Name               Idx       State          Counter          Count</span>
+<span class="go">TenGigabitEthernet86/0/0          1         up</span>
+<span class="go">TenGigabitEthernet86/0/1          2        down</span>
+<span class="go">VirtualEthernet0/0/0              3        down</span>
+<span class="go">local0                            0        down</span>
+<span class="go">vpp#</span>
+</pre></div>
+</div>
+<p>Notice the interface <strong>VirtualEthernet0/0/0</strong>. In this example we created the virtual interface as
+a client.</p>
+<p>We can get more detail on the vhost connection with the <a class="reference internal" href="../../reference/cmdreference/vhost/vhostuser.html#showvhost"><span class="std std-ref">Show Vhost-User</span></a> command.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vpp# show vhost</span>
+<span class="go">Virtio vhost-user interfaces</span>
+<span class="go">Global:</span>
+<span class="go">  coalesce frames 32 time 1e-3</span>
+<span class="go">  number of rx virtqueues in interrupt mode: 0</span>
+<span class="go">Interface: VirtualEthernet0/0/0 (ifindex 3)</span>
+<span class="go">virtio_net_hdr_sz 12</span>
+<span class="go"> features mask (0xffffffffffffffff):</span>
+<span class="go"> features (0x58208000):</span>
+<span class="go">   VIRTIO_NET_F_MRG_RXBUF (15)</span>
+<span class="go">   VIRTIO_NET_F_GUEST_ANNOUNCE (21)</span>
+<span class="go">   VIRTIO_F_ANY_LAYOUT (27)</span>
+<span class="go">   VIRTIO_F_INDIRECT_DESC (28)</span>
+<span class="go">   VHOST_USER_F_PROTOCOL_FEATURES (30)</span>
+<span class="go">  protocol features (0x3)</span>
+<span class="go">   VHOST_USER_PROTOCOL_F_MQ (0)</span>
+<span class="go">   VHOST_USER_PROTOCOL_F_LOG_SHMFD (1)</span>
+
+<span class="go"> socket filename /tmp/vm00.sock type client errno &quot;No such file or directory&quot;</span>
+
+<span class="go"> rx placement:</span>
+<span class="go"> tx placement: spin-lock</span>
+<span class="go">   thread 0 on vring 0</span>
+<span class="go">   thread 1 on vring 0</span>
+
+<span class="go"> Memory regions (total 0)</span>
+</pre></div>
+</div>
+<p>Notice <strong>No such file or directory</strong> and <strong>Memory regions (total 0)</strong>. This is because the
+VM has not been created yet.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="vhost02.html" class="btn btn-neutral float-right" title="Creating the Virtual Machine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="FD.io VPP with Virtual Machines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, John DeNisco.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

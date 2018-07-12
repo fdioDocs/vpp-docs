@@ -1,0 +1,427 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reporting Bugs &mdash; Vector Packet Processor 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Use Cases" href="../../usecases/index.html" />
+    <link rel="prev" title="How to Report an Issue" href="index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Vector Packet Processor
+          
+
+          
+            
+            <img src="../../_static/fd-io_red_white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Getting Started (Users)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../installing/index.html">Installing VPP Binaries from Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writingdocs/index.html">Writing VPP Documentation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">How to Report an Issue</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Reporting Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-to-include-in-bug-reports">Data to include in bug reports</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#image-version-and-operating-environment">Image version and operating environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#show-command-output">“Show” command output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#network-topology">Network Topology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#packet-tracer-output">Packet Tracer Output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#capturing-post-mortem-data">Capturing post-mortem data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#syslog-output">Syslog Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#binary-api-trace">Binary API Trace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#core-files">Core Files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../usecases/index.html">Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gstarteddevel/index.html">Getting Started (Developers)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/index.html">User Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Vector Packet Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Getting Started (Users)</a> &raquo;</li>
+        
+          <li><a href="index.html">How to Report an Issue</a> &raquo;</li>
+        
+      <li>Reporting Bugs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/gettingstarted/reportingissues/reportingissues.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound" id="reportingbugs">
+</div>
+<div class="section" id="reporting-bugs">
+<h1>Reporting Bugs<a class="headerlink" href="#reporting-bugs" title="Permalink to this headline">¶</a></h1>
+<p>Although every situation is different, this page describes how to
+collect data which will help make efficient use of everyone’s time
+when dealing with vpp bugs.</p>
+<p>Before you press the Jira button to create a bug report - or email
+<a class="reference external" href="mailto:vpp-dev&#37;&#52;&#48;lists&#46;fd&#46;io">vpp-dev<span>&#64;</span>lists<span>&#46;</span>fd<span>&#46;</span>io</a> - please ask yourself whether there’s enough
+information for someone else to understand and possibly to reproduce
+the issue given a reasonable amount of effort. <strong>Unicast emails to
+maintainers, committers, and the project PTL are strongly discouraged.</strong></p>
+<p>A good strategy for clear-cut bugs: file a detailed Jira ticket, and
+then send a short description of the issue to <a class="reference external" href="mailto:vpp-dev&#37;&#52;&#48;lists&#46;fd&#46;io">vpp-dev<span>&#64;</span>lists<span>&#46;</span>fd<span>&#46;</span>io</a>,
+perhaps from the Jira ticket description. It’s fine to send email to
+<a class="reference external" href="mailto:vpp-dev&#37;&#52;&#48;lists&#46;fd&#46;io">vpp-dev<span>&#64;</span>lists<span>&#46;</span>fd<span>&#46;</span>io</a> to ask a few questions <strong>before</strong> filing Jira tickets.</p>
+</div>
+<div class="section" id="data-to-include-in-bug-reports">
+<h1>Data to include in bug reports<a class="headerlink" href="#data-to-include-in-bug-reports" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="image-version-and-operating-environment">
+<h2>Image version and operating environment<a class="headerlink" href="#image-version-and-operating-environment" title="Permalink to this headline">¶</a></h2>
+<p>Please make sure to include the vpp image version.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo bash
+<span class="gp">#</span> vppctl show version verbose
+
+<span class="go">vpp v1.0.0-188~geef4d99 built by vagrant on localhost at Wed Feb 24 08:52:13 PST 2016</span>
+<span class="go">Built in /home/vagrant/git/vpp</span>
+<span class="go">Compiled with GCC 4.8.4</span>
+<span class="go">DPDK version is RTE 2.2.0</span>
+<span class="go">DPDK EAL init arguments: -c 1 -n 4 --socket-mem 1024 --huge-dir /run/vpp/hugepages</span>
+<span class="go">--file-prefix vpp -b 0000:02:00.0 -b 0000:02:01.0 --master-lcore 0</span>
+</pre></div>
+</div>
+<p>With respect to the operating environment: if misbehavior involving a
+specific VM / container / bare-metal environment is involved, please
+describe the environment in detail:</p>
+<ul class="simple">
+<li>Linux Distro (e.g. Ubuntu 14.04.3 LTS, CentOS-7, etc.)</li>
+<li>NIC type(s) (ixgbe, i40e, enic, etc. etc.), vhost-user, tuntap</li>
+<li>NUMA configuration if applicable</li>
+</ul>
+<p>Please note the CPU architecture (x86_86, aarch64), and hardware platform.</p>
+<p>When practicable, please report issues against released software, or
+unmodified master/latest software.</p>
+</div>
+<div class="section" id="show-command-output">
+<h2>“Show” command output<a class="headerlink" href="#show-command-output" title="Permalink to this headline">¶</a></h2>
+<p>Every situation is different. If the issue involves a sequence of debug CLI command, please enable CLI command logging, and send the sequence involved. Note that the debug CLI is a developer’s tool - <strong>no warranty express or implied</strong> - and that we may choose not to fix debug CLI bugs.</p>
+<p>Please include “show error” [error counter] output. It’s often helpful to “clear error”, send a bit of traffic, then “show error” particularly when running vpp on a noisy networks.</p>
+<p>Please include ip4 / ip6 / mpls FIB contents (“show ip fib”, “show ip6 fib”, “show mpls fib”, “show mpls tunnel”).</p>
+<p>Please include “show hardware”, “show interface”, and “show interface address” output</p>
+<p>Here is a consolidated set of commands that are generally useful before/after sending traffic.  Before sending traffic.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vppctl clear hardware</span>
+<span class="go">vppctl clear interface</span>
+<span class="go">vppctl clear error</span>
+<span class="go">vppctl clear run</span>
+</pre></div>
+</div>
+<p>Send some traffic and then issue the following commands.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vppctl show version verbose</span>
+<span class="go">vppctl show hardware</span>
+<span class="go">vppctl show hardware address</span>
+<span class="go">vppctl show interface</span>
+<span class="go">vppctl show run</span>
+<span class="go">vppctl show error</span>
+</pre></div>
+</div>
+<p>Here are some protocol specific show commands that may also make
+sense.  Only include those features which have been configured.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vppctl show l2fib</span>
+<span class="go">vppctl show bridge-domain</span>
+
+<span class="go">vppctl show ip fib</span>
+<span class="go">vppctl show ip arp</span>
+
+<span class="go">vppctl show ip6 fib</span>
+<span class="go">vppctl show ip6 neighbors</span>
+
+<span class="go">vppctl show mpls fib</span>
+<span class="go">vppctl show mpls tunnel</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="network-topology">
+<h2>Network Topology<a class="headerlink" href="#network-topology" title="Permalink to this headline">¶</a></h2>
+<p>Please include a crisp description of the network topology, including
+L2 / IP / MPLS / segment-routing addressing details. If you expect
+folks to reproduce and debug issues, this is a must.</p>
+<p>At or above a certain level of topological complexity, it becomes
+problematic to reproduce the original setup.</p>
+</div>
+<div class="section" id="packet-tracer-output">
+<h2>Packet Tracer Output<a class="headerlink" href="#packet-tracer-output" title="Permalink to this headline">¶</a></h2>
+<p>If you capture packet tracer output which seems relevant, please include it.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vppctl trace add dpdk-input 100  # or similar</span>
+</pre></div>
+</div>
+<p>send-traffic</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vppctl show trace</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="capturing-post-mortem-data">
+<h1>Capturing post-mortem data<a class="headerlink" href="#capturing-post-mortem-data" title="Permalink to this headline">¶</a></h1>
+<p>It should go without saying, but anyhow: <strong>please put post-mortem data
+in obvious, accessible places.</strong> Time wasted trying to acquire
+accounts, credentials, and IP addresses simply delays problem
+resolution.</p>
+<p>Please remember to add post-mortem data location information to Jira
+tickets.</p>
+<div class="section" id="syslog-output">
+<h2>Syslog Output<a class="headerlink" href="#syslog-output" title="Permalink to this headline">¶</a></h2>
+<p>The vpp signal handler typically writes a certain amount of data in
+/var/log/syslog before exiting. Make sure to check for evidence, e.g
+via “grep /usr/bin/vpp /var/log/syslog” or similar.</p>
+</div>
+<div class="section" id="binary-api-trace">
+<h2>Binary API Trace<a class="headerlink" href="#binary-api-trace" title="Permalink to this headline">¶</a></h2>
+<p>If the issue involves a sequence of control-plane API messages - even
+a very long sequence - please enable control-plane API
+tracing. Control-plane API post-mortem traces end up in
+/tmp/api_post_mortem.&lt;pid&gt;.</p>
+<p>Please remember to put post-mortem binary api traces in accessible
+places.</p>
+<p>These API traces are especially helpful in cases where the vpp engine
+is throwing traffic on the floor, e.g. for want of a default route or
+similar.</p>
+<p>Make sure to leave the default stanza “… api-trace { on } … ” in
+the vpp startup configuration file /etc/vpp/startup.conf, or to
+include it in the command line arguments passed by orchestration
+software.</p>
+</div>
+<div class="section" id="core-files">
+<h2>Core Files<a class="headerlink" href="#core-files" title="Permalink to this headline">¶</a></h2>
+<p>Production systems, as well as long-running pre-production soak-test
+systems, <strong>must</strong> arrange to collect core images. There are various
+ways to configure core image capture, including e.g. the Ubuntu
+“corekeeper” package. In a pinch, the following very basic sequence
+will capture usable vpp core files in /tmp/dumps.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> mkdir -p /tmp/dumps
+<span class="gp">#</span> sysctl -w debug.exception-trace<span class="o">=</span><span class="m">1</span>
+<span class="gp">#</span> sysctl -w kernel.core_pattern<span class="o">=</span><span class="s2">&quot;/tmp/dumps/%e-%t&quot;</span>
+<span class="gp">#</span> <span class="nb">ulimit</span> -c unlimited
+<span class="gp">#</span> <span class="nb">echo</span> <span class="m">2</span> &gt; /proc/sys/fs/suid_dumpable
+</pre></div>
+</div>
+<p>Vpp core files often appear enormous. Gzip typically compresses them
+to manageable sizes. A multi-GByte corefile often compresses to 10-20
+Mbytes.</p>
+<p>Please remember to put compressed core files in accessible places.</p>
+<p>Make sure to leave the default stanza “… unix { … full-coredump
+… } … ” in the vpp startup configuration file
+/etc/vpp/startup.conf, or to include it in the command line arguments
+passed by orchestration software.</p>
+<p>Core files from private, modified images are discouraged. If it’s
+necessary to go that route, please copy the <strong>exact</strong> Debian
+packages (or RPMs) corresponding to the core file to the same public
+place as the core file. In particular.</p>
+<ul class="simple">
+<li>vpp_&lt;version&gt;_&lt;arch&gt;.deb         # the vpp executable</li>
+<li>vpp-dbg_&lt;version&gt;_&lt;arch&gt;.deb     # debug symbols</li>
+<li>vpp-dev_&lt;version&gt;_&lt;arch&gt;.deb     # development package</li>
+<li>vpp-lib_&lt;version&gt;_&lt;arch&gt;.deb     # shared libraries</li>
+<li>vpp-plugins_&lt;version&gt;_&lt;arch&gt;.deb # plugins</li>
+</ul>
+<p>Please include the full commit-ID the Jira ticket.</p>
+<p>If we go through the setup process only to discover that the image and
+core files don’t match, it will simply delay resolution of the
+issue. And it will annoy the heck out of the engineer who just wasted
+their time. Exact means <strong>exact</strong>, not “oh, gee, I added a few lines
+of debug scaffolding since then…”</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../usecases/index.html" class="btn btn-neutral float-right" title="Use Cases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="How to Report an Issue" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, John DeNisco.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

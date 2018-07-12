@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Network Stack Layer (src/vnet) &mdash; Vector Packet Processor 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Application Shell (src/vpp)" href="Application_Shell.html" />
+    <link rel="prev" title="Infrastructure" href="Infrastructure.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Vector Packet Processor
+          
+
+          
+            
+            <img src="../../_static/fd-io_red_white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gettingstarted/index.html">Getting Started (Users)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usecases/index.html">Use Cases</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Getting Started (Developers)</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Overview</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Infrastructure.html">Infrastructure</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Network Stack Layer (src/vnet)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#vnet">Vnet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Application_Shell.html">Application Shell (src/vpp)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Plug-ins.html">Plug-ins (src/plugins)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="featurearcs.html">Feature Arcs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bihash.html">Bounded-index Extensible Hashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bihash.html#bihash-cookbook">Bihash Cookbook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bihash.html#creating-a-new-template-instance">Creating a new template instance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/index.html">User Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Vector Packet Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Getting Started (Developers)</a> &raquo;</li>
+        
+          <li><a href="index.html">Overview</a> &raquo;</li>
+        
+      <li>Network Stack Layer (src/vnet)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/gstarteddevel/swarch/Network_Stack_Layer.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="network-stack-layer-src-vnet">
+<h1>Network Stack Layer (src/vnet)<a class="headerlink" href="#network-stack-layer-src-vnet" title="Permalink to this headline">¶</a></h1>
+<p>The Network Stack Layer has a vnet library that provides vectorized layer-2 and 3 networking graph
+nodes, a packet generator, and a packet tracer. The files for this function are located in the …/src/vnet folder.</p>
+<div class="section" id="vnet">
+<h2>Vnet<a class="headerlink" href="#vnet" title="Permalink to this headline">¶</a></h2>
+<p>In terms of building a packet processing application, vnet provides a
+platform-independent subgraph to which one connects a couple of
+device-driver nodes.</p>
+<p>Typical RX connections include “ethernet-input” [full software
+classification, feeds ipv4-input, ipv6-input, arp-input etc.] and
+“ipv4-input-no-checksum” [if hardware can classify, perform ipv4
+header checksum].</p>
+<div class="section" id="effective-graph-dispatch-function-coding">
+<h3>Effective graph dispatch function coding<a class="headerlink" href="#effective-graph-dispatch-function-coding" title="Permalink to this headline">¶</a></h3>
+<p>Over the 15 years, two distinct styles have emerged: a
+single/dual/quad loop coding model and a fully-pipelined coding
+model. We seldom use the fully-pipelined coding model, so we won’t
+describe it in any detail.</p>
+</div>
+<div class="section" id="single-dual-loops">
+<h3>Single/dual loops<a class="headerlink" href="#single-dual-loops" title="Permalink to this headline">¶</a></h3>
+<p>The single/dual/quad loop model is the only way to conveniently solve
+problems where the number of items to process is not known in advance:
+typical hardware RX-ring processing. This coding style is also very
+effective when a given node will not need to cover a complex set of
+dependent reads.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Application_Shell.html" class="btn btn-neutral float-right" title="Application Shell (src/vpp)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Infrastructure.html" class="btn btn-neutral" title="Infrastructure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, John DeNisco.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

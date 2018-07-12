@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Create Sub-Interfaces &mdash; Vector Packet Processor 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Vhost User Commands" href="../vhost/index.html" />
+    <link rel="prev" title="Interface Commands" href="interface.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Vector Packet Processor
+          
+
+          
+            
+            <img src="../../../_static/fd-io_red_white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gettingstarted/index.html">Getting Started (Users)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usecases/index.html">Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gstarteddevel/index.html">Getting Started (Developers)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/index.html">User Guides</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Command Line Reference</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Interface Commands</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="hardware.html">Show Hardware-Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hardware.html#clear-hardware-interfaces">Clear Hardware-Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="interface.html">Interface Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="interface.html#show-interface">Show Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="interface.html#clear-interfaces">Clear Interfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="interface.html#set-interface-mac-address">Set Interface Mac Address</a></li>
+<li class="toctree-l4"><a class="reference internal" href="interface.html#set-interface-mtu">Set Interface Mtu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="interface.html#set-interface-promiscuous">Set Interface Promiscuous</a></li>
+<li class="toctree-l4"><a class="reference internal" href="interface.html#set-interface-state">Set Interface State</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Create Sub-Interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../vhost/index.html">Vhost User Commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Vector Packet Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Reference</a> &raquo;</li>
+        
+          <li><a href="../index.html">Command Line Reference</a> &raquo;</li>
+        
+          <li><a href="index.html">Interface Commands</a> &raquo;</li>
+        
+      <li>Create Sub-Interfaces</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/reference/cmdreference/interface/subinterface.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound" id="subinterfacecommands">
+</div>
+<div class="section" id="create-sub-interfaces">
+<h1>Create Sub-Interfaces<a class="headerlink" href="#create-sub-interfaces" title="Permalink to this headline">¶</a></h1>
+<p>This command is used to add VLAN IDs to interfaces, also known as
+subinterfaces. The primary input to this command is the ‘<em>interface</em>’
+and ‘<em>subId</em>’ (subinterface Id) parameters. If no additional VLAN ID is
+provide, the VLAN ID is assumed to be the ‘<em>subId</em>’. The VLAN ID and
+‘<em>subId</em>’ can be different, but this is not recommended.</p>
+<p>This command has several variations:</p>
+<ul class="simple">
+<li><strong>create sub-interfaces &lt;interface&gt; &lt;subId&gt;</strong> - Create a subinterface
+to process packets with a given 802.1q VLAN ID (same value as the
+‘<em>subId</em>’).</li>
+<li><strong>create sub-interfaces &lt;interface&gt; &lt;subId&gt; default</strong> - Adding the
+‘<em>default</em>’ parameter indicates that packets with VLAN IDs that do
+not match any other subinterfaces should be sent to this
+subinterface.</li>
+<li><strong>create sub-interfaces &lt;interface&gt; &lt;subId&gt; untagged</strong> - Adding the
+‘<em>untagged</em>’ parameter indicates that packets no VLAN IDs should be
+sent to this subinterface.</li>
+<li><strong>create sub-interfaces &lt;interface&gt; &lt;subId&gt;-&lt;subId&gt;</strong> - Create a
+range of subinterfaces to handle a range of VLAN IDs.</li>
+<li><strong>create sub-interfaces &lt;interface&gt; &lt;subId&gt; dot1q|dot1ad &lt;vlanId&gt;|any
+[exact-match]</strong> - Use this command to specify the outer VLAN ID, to
+either be explicited or to make the VLAN ID different from the
+‘<em>subId</em>’.</li>
+<li><strong>create sub-interfaces &lt;interface&gt; &lt;subId&gt; dot1q|dot1ad &lt;vlanId&gt;|any
+inner-dot1q &lt;vlanId&gt;|any [exact-match]</strong> - Use this command to
+specify the outer VLAN ID and the innner VLAN ID.</li>
+</ul>
+<p>When ‘<em>dot1q</em>’ or ‘<em>dot1ad</em>’ is explictly entered, subinterfaces can be
+configured as either exact-match or non-exact match. Non-exact match is
+the CLI default. If ‘<em>exact-match</em>’ is specified, packets must have the
+same number of VLAN tags as the configuration. For non-exact-match,
+packets must at least that number of tags. L3 (routed) interfaces must
+be configured as exact-match. L2 interfaces are typically configured as
+non-exact-match. If ‘<em>dot1q</em>’ or ‘<em>dot1ad</em>’ is NOT entered, then the
+default behavior is exact-match.</p>
+<p>Use the ‘<em>show interface</em>’ command to display all subinterfaces.</p>
+<div class="section" id="summary-usage">
+<h2>Summary/Usage<a class="headerlink" href="#summary-usage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>create sub-interfaces &lt;interface&gt; <span class="o">{</span>&lt;subId&gt; <span class="o">[</span>default<span class="p">|</span>untagged<span class="o">]}</span> <span class="p">|</span> <span class="o">{</span>&lt;subId&gt;-&lt;subId&gt;<span class="o">}</span> <span class="p">|</span> <span class="o">{</span>&lt;subId&gt; dot1q<span class="p">|</span>dot1ad &lt;vlanId&gt;<span class="p">|</span>any <span class="o">[</span>inner-dot1q &lt;vlanId&gt;<span class="p">|</span>any<span class="o">]</span> <span class="o">[</span>exact-match<span class="o">]}</span>.
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Example of how to create a VLAN subinterface 11 to process packets on 802.1q VLAN ID 11:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vpp# create sub-interfaces GigabitEthernet2/0/0 11</span>
+</pre></div>
+</div>
+<p>The previous example is shorthand and is equivalent to:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vpp# create sub-interfaces GigabitEthernet2/0/0 11 dot1q 11 exact-match</span>
+</pre></div>
+</div>
+<p>Example of how to create a subinterface number that is different from the VLAN ID:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vpp# create sub-interfaces GigabitEthernet2/0/0 11 dot1q 100</span>
+</pre></div>
+</div>
+<p>Examples of how to create q-in-q and q-in-any subinterfaces:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vpp# create sub-interfaces GigabitEthernet2/0/0 11 dot1q 100 inner-dot1q 200</span>
+<span class="go">vpp# create sub-interfaces GigabitEthernet2/0/0 12 dot1q 100 inner-dot1q any</span>
+</pre></div>
+</div>
+<p>Examples of how to create dot1ad interfaces:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vpp# create sub-interfaces GigabitEthernet2/0/0 11 dot1ad 11</span>
+<span class="go">vpp# create sub-interfaces GigabitEthernet2/0/0 12 dot1ad 100 inner-dot1q 200</span>
+</pre></div>
+</div>
+<p>Examples of ‘<em>exact-match</em>’ versus non-exact match. A packet with outer VLAN 100 and inner VLAN 200 would match this interface, because the default is non-exact match:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vpp# create sub-interfaces GigabitEthernet2/0/0 5 dot1q 100</span>
+</pre></div>
+</div>
+<p>However, the same packet would NOT match this interface because ‘<em>exact-match</em>’ is specified and only one VLAN is configured, but packet contains two VLANs:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vpp# create sub-interfaces GigabitEthernet2/0/0 5 dot1q 100 exact-match</span>
+</pre></div>
+</div>
+<p>Example of how to created a subinterface to process untagged packets:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vpp# create sub-interfaces GigabitEthernet2/0/0 5 untagged</span>
+</pre></div>
+</div>
+<p>Example of how to created a subinterface to process any packet with a VLAN ID that does not match any other subinterface:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vpp# create sub-interfaces GigabitEthernet2/0/0 7 default</span>
+</pre></div>
+</div>
+<p>When subinterfaces are created, they are in the down state. Example of how to enable a newly created subinterface:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vpp# set interface GigabitEthernet2/0/0.7 up</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../vhost/index.html" class="btn btn-neutral float-right" title="Vhost User Commands" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="interface.html" class="btn btn-neutral" title="Interface Commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, John DeNisco.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CPU Load/Usage &mdash; Vector Packet Processor 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User Guides" href="../guides/index.html" />
+    <link rel="prev" title="Troubleshooting" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Vector Packet Processor
+          
+
+          
+            
+            <img src="../_static/fd-io_red_white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/index.html">Getting Started (Users)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usecases/index.html">Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gstarteddevel/index.html">Getting Started (Developers)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Troubleshooting</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">CPU Load/Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#linux-top-htop">Linux top/htop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vpp-memory-usage">VPP Memory Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vpp-cpu-load">VPP CPU Load</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">User Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Vector Packet Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Troubleshooting</a> &raquo;</li>
+        
+      <li>CPU Load/Usage</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/troubleshooting/cpuusage.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cpu-load-usage">
+<span id="cpuusage"></span><h1>CPU Load/Usage<a class="headerlink" href="#cpu-load-usage" title="Permalink to this headline">¶</a></h1>
+<p>There are various commands and tools that can help users see FD.io VPP CPU and memory usage at runtime.</p>
+<div class="section" id="linux-top-htop">
+<h2>Linux top/htop<a class="headerlink" href="#linux-top-htop" title="Permalink to this headline">¶</a></h2>
+<p>The Linux top and htop are decent tools to look at FD.io VPP cpu and memory usage, but they will only show
+preallocated memory and total CPU usage. These commands can be useful to show which cores VPP is running on.</p>
+<p>This is an example of VPP instance that is running on cores 8 and 9. For this output type <strong>top</strong> and then
+type <strong>1</strong> when the tool starts.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> top
+
+<span class="go">top - 11:04:04 up 35 days,  3:16,  5 users,  load average: 2.33, 2.23, 2.16</span>
+<span class="go">Tasks: 435 total,   2 running, 432 sleeping,   1 stopped,   0 zombie</span>
+<span class="gp">%</span>Cpu0  :  <span class="m">1</span>.0 us,  <span class="m">0</span>.7 sy,  <span class="m">0</span>.0 ni, <span class="m">98</span>.0 id,  <span class="m">0</span>.0 wa,  <span class="m">0</span>.0 hi,  <span class="m">0</span>.3 si,  <span class="m">0</span>.0 st
+<span class="gp">%</span>Cpu1  :  <span class="m">2</span>.0 us,  <span class="m">0</span>.3 sy,  <span class="m">0</span>.0 ni, <span class="m">97</span>.7 id,  <span class="m">0</span>.0 wa,  <span class="m">0</span>.0 hi,  <span class="m">0</span>.0 si,  <span class="m">0</span>.0 st
+<span class="gp">%</span>Cpu2  :  <span class="m">0</span>.7 us,  <span class="m">1</span>.0 sy,  <span class="m">0</span>.0 ni, <span class="m">98</span>.3 id,  <span class="m">0</span>.0 wa,  <span class="m">0</span>.0 hi,  <span class="m">0</span>.0 si,  <span class="m">0</span>.0 st
+<span class="gp">%</span>Cpu3  :  <span class="m">1</span>.7 us,  <span class="m">0</span>.7 sy,  <span class="m">0</span>.0 ni, <span class="m">97</span>.7 id,  <span class="m">0</span>.0 wa,  <span class="m">0</span>.0 hi,  <span class="m">0</span>.0 si,  <span class="m">0</span>.0 st
+<span class="gp">%</span>Cpu4  :  <span class="m">2</span>.0 us,  <span class="m">0</span>.7 sy,  <span class="m">0</span>.0 ni, <span class="m">97</span>.4 id,  <span class="m">0</span>.0 wa,  <span class="m">0</span>.0 hi,  <span class="m">0</span>.0 si,  <span class="m">0</span>.0 st
+<span class="gp">%</span>Cpu5  :  <span class="m">3</span>.0 us,  <span class="m">0</span>.3 sy,  <span class="m">0</span>.0 ni, <span class="m">96</span>.7 id,  <span class="m">0</span>.0 wa,  <span class="m">0</span>.0 hi,  <span class="m">0</span>.0 si,  <span class="m">0</span>.0 st
+<span class="gp">%</span>Cpu6  :  <span class="m">2</span>.3 us,  <span class="m">0</span>.7 sy,  <span class="m">0</span>.0 ni, <span class="m">97</span>.0 id,  <span class="m">0</span>.0 wa,  <span class="m">0</span>.0 hi,  <span class="m">0</span>.0 si,  <span class="m">0</span>.0 st
+<span class="gp">%</span>Cpu7  :  <span class="m">2</span>.6 us,  <span class="m">0</span>.3 sy,  <span class="m">0</span>.0 ni, <span class="m">97</span>.0 id,  <span class="m">0</span>.0 wa,  <span class="m">0</span>.0 hi,  <span class="m">0</span>.0 si,  <span class="m">0</span>.0 st
+<span class="gp">%</span>Cpu8  : <span class="m">96</span>.0 us,  <span class="m">0</span>.3 sy,  <span class="m">0</span>.0 ni,  <span class="m">3</span>.6 id,  <span class="m">0</span>.0 wa,  <span class="m">0</span>.0 hi,  <span class="m">0</span>.0 si,  <span class="m">0</span>.0 st
+<span class="gp">%</span>Cpu9  :100.0 us,  <span class="m">0</span>.0 sy,  <span class="m">0</span>.0 ni,  <span class="m">0</span>.0 id,  <span class="m">0</span>.0 wa,  <span class="m">0</span>.0 hi,  <span class="m">0</span>.0 si,  <span class="m">0</span>.0 st
+<span class="gp">%</span>Cpu10 :  <span class="m">1</span>.0 us,  <span class="m">0</span>.3 sy,  <span class="m">0</span>.0 ni, <span class="m">98</span>.7 id,  <span class="m">0</span>.0 wa,  <span class="m">0</span>.0 hi,  <span class="m">0</span>.0 si,  <span class="m">0</span>.0 st
+<span class="go">....</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="vpp-memory-usage">
+<h2>VPP Memory Usage<a class="headerlink" href="#vpp-memory-usage" title="Permalink to this headline">¶</a></h2>
+<p>For details on VPP memory usage you can use the <strong>show memory</strong> command</p>
+<p>This is the example VPP memory usage on 2 cores.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> vppctl show memory verbose
+<span class="go">Thread 0 vpp_main</span>
+<span class="go">22043 objects, 17878k of 20826k used, 2426k free, 2396k reclaimed, 346k overhead, 1048572k capacity</span>
+<span class="go">  alloc. from small object cache: 22875 hits 39973 attempts (57.23%) replacements 5143</span>
+<span class="go">  alloc. from free-list: 44732 attempts, 26017 hits (58.16%), 528461 considered (per-attempt 11.81)</span>
+<span class="go">  alloc. from vector-expand: 3430</span>
+<span class="go">  allocs: 52324 2027.84 clocks/call</span>
+<span class="go">  frees: 30280 594.38 clocks/call</span>
+<span class="go">Thread 1 vpp_wk_0</span>
+<span class="go">22043 objects, 17878k of 20826k used, 2427k free, 2396k reclaimed, 346k overhead, 1048572k capacity</span>
+<span class="go">  alloc. from small object cache: 22881 hits 39984 attempts (57.23%) replacements 5148</span>
+<span class="go">  alloc. from free-list: 44736 attempts, 26021 hits (58.17%), 528465 considered (per-attempt 11.81)</span>
+<span class="go">  alloc. from vector-expand: 3430</span>
+<span class="go">  allocs: 52335 2027.54 clocks/call</span>
+<span class="go">  frees: 30291 594.36 clocks/call</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="vpp-cpu-load">
+<h2>VPP CPU Load<a class="headerlink" href="#vpp-cpu-load" title="Permalink to this headline">¶</a></h2>
+<p>To find the VPP CPU load or how busy VPP is use the <strong>show runtime</strong> command.</p>
+<p>With at least one interface in polling mode, the VPP CPU utilization is always 100%.</p>
+<p>A good indicator of CPU load is <strong>“average vectors/node”</strong>. A bigger number means VPP
+is more busy but also more efficient. The Maximum value is 255 (unless you change VLIB_FRAME_SIZE in code).
+It basically means how many packets are processed in batch.</p>
+<p>If VPP is not loaded it will likely poll so fast that it will just get one or few
+packets from the rx queue. This is the case shown below on Thread 1. As load goes up vpp
+will have more work to do, so it will poll less frequently, and that will result in more
+packets waiting in rx queue. More packets will result in more efficient execution of the
+code so number of clock cycles / packet will go down. When “average vectors/node” goes up
+close to 255, you will likely start observing rx queue tail drops.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> vppctl show run
+<span class="go">Thread 0 vpp_main (lcore 8)</span>
+<span class="go">Time 6152.9, average vectors/node 0.00, last 128 main loops 0.00 per node 0.00</span>
+<span class="go">  vector rates in 0.0000e0, out 0.0000e0, drop 0.0000e0, punt 0.0000e0</span>
+<span class="go">             Name                 State         Calls          Vectors        Suspends         Clocks       Vectors/Call</span>
+<span class="go">acl-plugin-fa-cleaner-process  event wait                0               0               1          3.66e4            0.00</span>
+<span class="go">admin-up-down-process          event wait                0               0               1          2.54e3            0.00</span>
+<span class="go">....</span>
+<span class="go">---------------</span>
+<span class="go">Thread 1 vpp_wk_0 (lcore 9)</span>
+<span class="go">Time 6152.9, average vectors/node 1.00, last 128 main loops 0.00 per node 0.00</span>
+<span class="go">  vector rates in 1.3073e2, out 1.3073e2, drop 6.5009e-4, punt 0.0000e0</span>
+<span class="go">             Name                 State         Calls          Vectors        Suspends         Clocks       Vectors/Call</span>
+<span class="go">TenGigabitEthernet86/0/0-outpu   active             804395          804395               0          6.17e2            1.00</span>
+<span class="go">TenGigabitEthernet86/0/0-tx      active             804395          804395               0          7.29e2            1.00</span>
+<span class="go">arp-input                        active                  2               2               0          3.82e4            1.00</span>
+<span class="go">dpdk-input                       polling       24239296364          804398               0          1.59e7            0.00</span>
+<span class="go">error-drop                       active                  4               4               0          4.65e3            1.00</span>
+<span class="go">ethernet-input                   active                  2               2               0          1.08e4            1.00</span>
+<span class="go">interface-output                 active                  1               1               0          3.78e3            1.00</span>
+<span class="go">ip4-glean                        active                  1               1               0          6.98e4            1.00</span>
+<span class="go">ip4-icmp-echo-request            active             804394          804394               0          5.02e2            1.00</span>
+<span class="go">ip4-icmp-input                   active             804394          804394               0          4.63e2            1.00</span>
+<span class="go">ip4-input-no-checksum            active             804394          804394               0          8.51e2            1.00</span>
+<span class="go">ip4-load-balance                 active             804394          804394               0          5.46e2            1.00</span>
+<span class="go">ip4-local                        active             804394          804394               0          5.79e2            1.00</span>
+<span class="go">ip4-lookup                       active             804394          804394               0          5.71e2            1.00</span>
+<span class="go">ip4-rewrite                      active             804393          804393               0          5.69e2            1.00</span>
+<span class="go">ip6-input                        active                  2               2               0          5.72e3            1.00</span>
+<span class="go">ip6-not-enabled                  active                  2               2               0          1.56e4            1.00</span>
+<span class="go">unix-epoll-input                 polling            835722               0               0         3.03e-3            0.00</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../guides/index.html" class="btn btn-neutral float-right" title="User Guides" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, John DeNisco.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

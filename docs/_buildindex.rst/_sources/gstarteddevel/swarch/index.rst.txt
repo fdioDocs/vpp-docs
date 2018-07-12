@@ -1,0 +1,17 @@
+.. _swarch:
+
+********
+Overview
+********
+
+Describe the software architecture here.
+
+.. toctree::
+
+   software_architecture
+   Infrastructure
+   Network_Stack_Layer
+   Application_Shell
+   Plug-ins
+   featurearcs
+   bihash

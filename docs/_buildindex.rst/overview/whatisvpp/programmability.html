@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Programmability &mdash; Vector Packet Processor 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Primary Characteristics of FD.io VPP" href="primarycharacteristicsofvpp.html" />
+    <link rel="prev" title="Modular, Flexible, and Extensible" href="modularflexibleextensible.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Vector Packet Processor
+          
+
+          
+            
+            <img src="../../_static/fd-io_red_white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">What is VPP?</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="whyisitcalled.html">What is vector packet processing?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10000feet.html">FD.io VPP at 10,000 Feet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modularflexibleextensible.html">Modular, Flexible, and Extensible</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Programmability</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#local-programmability">Local Programmability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remote-programmability">Remote Programmability</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="primarycharacteristicsofvpp.html">Primary Characteristics of FD.io VPP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../performance/index.html">Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supported.html">Architectures and Operating Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../gettingstarted/index.html">Getting Started (Users)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usecases/index.html">Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gstarteddevel/index.html">Getting Started (Developers)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/index.html">User Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Vector Packet Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Overview</a> &raquo;</li>
+        
+          <li><a href="index.html">What is VPP?</a> &raquo;</li>
+        
+      <li>Programmability</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/overview/whatisvpp/programmability.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound" id="programmability">
+</div>
+<div class="section" id="id1">
+<h1>Programmability<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="local-programmability">
+<h2>Local Programmability<a class="headerlink" href="#local-programmability" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-right" id="id2">
+<img alt="VPP Communication Through Low Level API" src="../../_images/VPP_App_as_vSwitch_with_local_programmability_x260.jpg" />
+<p class="caption"><span class="caption-text">FD.io VPP Communication Through Low Level API</span></p>
+</div>
+<p>One approach is to implement a FD.io VPP application to communicate with an
+external application within a local environment (Linux host or
+container). The communication would occur through a low level API. This
+approach offers a complete, feature rich solution that is simple yet
+high performance. For example, it is reasonable to expect performance
+yields of 500k routes/second.</p>
+<p>This approach takes advantage of using a shared memory/message queue.
+The implementation is on a local on a box or container. All CLI tasks
+can be done through API calls.</p>
+<p>The current implementation of the FD.io VPP platform generates Low Level
+Bindings for C, Java, and Python clients. It’s possible for future
+support to be provided for bindings for other programming languages.</p>
+</div>
+<div class="section" id="remote-programmability">
+<h2>Remote Programmability<a class="headerlink" href="#remote-programmability" title="Permalink to this headline">¶</a></h2>
+<p>Another approach is to use a Data Plane Management Agent through a High
+Level API. As shown in the figure, a Data Plane Management Agent can
+speak through a low level API to the FD.io VPP App (engine). This can run
+locally in a box (or VM or container). The box (or container) would
+expose higher level APIs through some form of binding.</p>
+<div class="figure" id="id3">
+<img alt="Figure: API Through Data Plane Management Agent" src="../../_images/VPP_as_vSwitch_or_vRouter_supporting_remote_programmability_x260.jpg" />
+<p class="caption"><span class="caption-text">Figure: API Through Data Plane Management Agent</span></p>
+</div>
+<p>This is a particularly flexible approach because the FD.io VPP platform does
+not force a particular Data Plane Management Agent. Furthermore, the FD.io VPP
+platform does not restrict communication to only *one* high level API.
+Anybody can bring a Data Plane Management Agent. This allows you to
+match the high level API/Data Plane Management Agent and implementation
+to the specific needs of the FD.io VPP app.</p>
+<div class="section" id="odl-honeycomb-agent">
+<h3>ODL Honeycomb Agent<a class="headerlink" href="#odl-honeycomb-agent" title="Permalink to this headline">¶</a></h3>
+<p>One example of using a high hevel API is to implement the FD.io VPP platform
+as an app on a box that is running a local ODL instance (Honeycomb). You
+could use a low level API over generated Java Bindings to talk to the
+FD.io VPP App, and expose Yang Models over netconf/restconf NB.</p>
+<div class="figure" id="id4">
+<img alt="VPP Using ODL Honeycomb as a Data Plane Management Agent" src="../../_images/VPP_sample_data_plane_management_agent_x260.jpg" />
+<p class="caption"><span class="caption-text">FD.io VPP Using ODL Honeycomb as a Data Plane Management Agent</span></p>
+</div>
+<p>This would be one way to implement Bridge Domains.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="primarycharacteristicsofvpp.html" class="btn btn-neutral float-right" title="Primary Characteristics of FD.io VPP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="modularflexibleextensible.html" class="btn btn-neutral" title="Modular, Flexible, and Extensible" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, John DeNisco.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>What is VPP? &mdash; Vector Packet Processor 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="What is vector packet processing?" href="whyisitcalled.html" />
+    <link rel="prev" title="Overview" href="../index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Vector Packet Processor
+          
+
+          
+            
+            <img src="../../_static/fd-io_red_white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Overview</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">What is VPP?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="whyisitcalled.html">What is vector packet processing?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10000feet.html">FD.io VPP at 10,000 Feet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modularflexibleextensible.html">Modular, Flexible, and Extensible</a></li>
+<li class="toctree-l3"><a class="reference internal" href="programmability.html">Programmability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="primarycharacteristicsofvpp.html">Primary Characteristics of FD.io VPP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../performance/index.html">Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supported.html">Architectures and Operating Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../features.html">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../gettingstarted/index.html">Getting Started (Users)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usecases/index.html">Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gstarteddevel/index.html">Getting Started (Developers)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/index.html">User Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Vector Packet Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Overview</a> &raquo;</li>
+        
+      <li>What is VPP?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/overview/whatisvpp/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="what-is-vpp">
+<span id="whatisvpp"></span><h1>What is VPP?<a class="headerlink" href="#what-is-vpp" title="Permalink to this headline">¶</a></h1>
+<p>The FD.io VPP platform is an extensible framework that provides out-of-the-box
+production quality switch/router functionality. The FD.io’s Vector Packet Processing (VPP)
+technology is a high performance, packet-processing stack that can run on commodity CPUs.</p>
+<p>The benefits of this implementation of FD.io VPP are its high performance,
+proven technology, its modularity and flexibility, and rich feature set.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Todo: Will add more detail on vendors later, line that was ommitted: “FD.io VPP is a productized commercial-grade network stack that has been use in products since 2002,
+by a number of vendors including Cisco and ZTE.”</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Todo: Have a short definition of a graph node</p>
+</div>
+<p>It is a modular design. The framework allows anyone to “plug in” new graph nodes without the need to change core code.</p>
+<div class="figure" id="id1">
+<img alt="" src="../../_images/VPP_Packet_Processing_Layer_In_Network_Stack_Overview.jpg" />
+<p class="caption"><span class="caption-text">Packet Processing Layer in High Level Overview of Networking Stack</span></p>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="whyisitcalled.html">What is vector packet processing?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10000feet.html">FD.io VPP at 10,000 Feet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modularflexibleextensible.html">Modular, Flexible, and Extensible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programmability.html">Programmability</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="programmability.html#local-programmability">Local Programmability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programmability.html#remote-programmability">Remote Programmability</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="programmability.html#odl-honeycomb-agent">ODL Honeycomb Agent</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="primarycharacteristicsofvpp.html">Primary Characteristics of FD.io VPP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="primarycharacteristicsofvpp.html#improved-fault-tolerance-and-issu">Improved fault-tolerance and ISSU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="primarycharacteristicsofvpp.html#runs-as-a-linux-user-space-process">Runs as a Linux user-space process:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="primarycharacteristicsofvpp.html#integrated-with-the-dpdk-fd-io-vpp-supports-existing-nic-devices-including">Integrated with the DPDK, FD.io VPP supports existing NIC devices including:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="primarycharacteristicsofvpp.html#security-issues-considered">Security issues considered:</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="whyisitcalled.html" class="btn btn-neutral float-right" title="What is vector packet processing?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, John DeNisco.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

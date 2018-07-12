@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Progressive VPP Tutorial &mdash; Vector Packet Processor 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Introduction" href="vagrant.html" />
+    <link rel="prev" title="User Guides" href="../index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Vector Packet Processor
+          
+
+          
+            
+            <img src="../../_static/fd-io_red_white.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gettingstarted/index.html">Getting Started (Users)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usecases/index.html">Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gstarteddevel/index.html">Getting Started (Developers)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">User Guides</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Progressive VPP Tutorial</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#exercise-setting-up-your-environment">Exercise: Setting up your environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#vagrant-set-up">Vagrant Set Up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#exercise-install-vpp">Exercise: Install VPP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#exercise-vpp-basics">Exercise: VPP basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#vpp-command-learned-in-this-exercise">VPP command learned in this exercise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#action-remove-dpdk-plugin">Action: Remove dpdk plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#action-run-vpp">Action: Run VPP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#action-send-commands-to-vpp-using-vppctl">Action: Send commands to VPP using vppctl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#action-start-a-vpp-shell-using-vppctl">Action: Start a VPP shell using vppctl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#exercise-create-an-interface">Exercise: Create an interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#exercise-connecting-two-vpp-instances">Exercise: Connecting two vpp instances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#exercise-routing">Exercise: Routing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#exercise-switching">Exercise: Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#source-nat">Source NAT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/index.html">API User Guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Vector Packet Processor</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">User Guides</a> &raquo;</li>
+        
+      <li>Progressive VPP Tutorial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/progressivevpp/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="progressive-vpp-tutorial">
+<span id="progressivevpp"></span><h1>Progressive VPP Tutorial<a class="headerlink" href="#progressive-vpp-tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html#exercise-setting-up-your-environment">Exercise: Setting up your environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html#vagrant-set-up">Vagrant Set Up</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-install-virtualbox">Action: Install Virtualbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-install-vagrant">Action: Install Vagrant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-create-a-vagrant-directory">Action: Create a Vagrant Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#create-a-vagrantfile">Create a Vagrantfile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-vagrant-up">Action: Vagrant Up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-ssh-to-vagrant-vm">Action: ssh to Vagrant VM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html#exercise-install-vpp">Exercise: Install VPP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html#exercise-vpp-basics">Exercise: VPP basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html#vpp-command-learned-in-this-exercise">VPP command learned in this exercise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html#action-remove-dpdk-plugin">Action: Remove dpdk plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html#action-run-vpp">Action: Run VPP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html#action-send-commands-to-vpp-using-vppctl">Action: Send commands to VPP using vppctl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html#action-start-a-vpp-shell-using-vppctl">Action: Start a VPP shell using vppctl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html#exercise-create-an-interface">Exercise: Create an interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#skills-to-be-learned">Skills to be Learned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#id2">VPP command learned in this exercise</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#topology">Topology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#initial-state">Initial State</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#action-create-veth-interfaces-on-host">Action: Create veth interfaces on host</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#action-create-vpp-host-interface">Action: Create vpp host- interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#action-add-trace">Action: Add trace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#action-ping-from-host-to-vpp">Action: Ping from host to vpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#action-examine-trace-of-ping-from-host-to-vpp">Action: Examine Trace of ping from host to vpp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#action-clear-trace-buffer">Action: Clear trace buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#action-ping-from-vpp-to-host">Action: ping from vpp to host</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#action-examine-trace-of-ping-from-vpp-to-host">Action: Examine Trace of ping from vpp to host</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#action-examine-arp-tables">Action: Examine arp tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vagrant.html#action-examine-routing-table">Action: Examine routing table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html#exercise-connecting-two-vpp-instances">Exercise: Connecting two vpp instances</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#skills-to-be-learned-1">Skills to be Learned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#topology-1">Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#initial-state-1">Initial state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-running-a-second-vpp-instances">Action: Running a second vpp instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-create-memif-interface-on-vpp1">Action: Create memif interface on vpp1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-create-memif-interface-on-vpp2">Action: Create memif interface on vpp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-ping-from-vpp1-to-vpp2">Action: Ping from vpp1 to vpp2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html#exercise-routing">Exercise: Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#id6">Skills to be Learned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#id7">vpp command learned in this exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#id8">Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#id9">Initial State</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-setup-host-route">Action: Setup host route</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#setup-return-route-on-vpp2">Setup return route on vpp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#ping-from-host-through-vpp1-to-vpp2">Ping from host through vpp1 to vpp2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html#exercise-switching">Exercise: Switching</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#id10">Skills to be Learned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#id11">vpp command learned in this exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#id12">Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#id13">Initial state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-run-vpp-instances">Action: Run vpp instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-connect-vpp1-to-host">Action: Connect vpp1 to host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-connect-vpp1-to-vpp2">Action: Connect vpp1 to vpp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-configure-bridge-domain-on-vpp1">Action: Configure Bridge Domain on vpp1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-configure-loopback-interface-on-vpp2">Action: Configure loopback interface on vpp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-configure-bridge-domain-on-vpp2">Action: Configure bridge domain on vpp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-ping-from-host-to-vpp-and-vpp-to-host">Action: Ping from host to vpp and vpp to host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-examine-l2-fib">Action: Examine l2 fib</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html#source-nat">Source NAT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#id14">Skills to be Learned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#id15">vpp command learned in this exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#id16">Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#id17">Initial state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-install-vpp-plugins">Action: Install vpp-plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-create-vpp-instance">Action: Create vpp instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-create-veth-interfaces">Action: Create veth interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-configure-vpp-outside-interface">Action: Configure vpp outside interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-configure-snat">Action: Configure snat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-prepare-to-observe-snat">Action: Prepare to Observe Snat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-ping-via-snat">Action: Ping via snat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vagrant.html#action-confirm-snat">Action: Confirm snat</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="vagrant.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="User Guides" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, John DeNisco.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>
