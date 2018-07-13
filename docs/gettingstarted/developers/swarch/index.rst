@@ -3,10 +3,10 @@
 
 .. toctree::
    
-   software_architecture
+   software_architecture2
    Infrastructure2
+   vlib_application_mgmt
    Network_Stack_Layer
-   Application_Shell
-   Plug-ins
+   Plugins
    featurearcs
    bihash

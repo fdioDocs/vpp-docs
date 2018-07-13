@@ -2,15 +2,12 @@
 
 .. toctree::
 
-####################
-Network Stack Layer
-####################
+###############################
+VNET VPP Network Stack Layer
+###############################
 
-The files associated with the network stack layer are located in the …/src/vnet folder. The Network Stack Layer has a vnet library that provides vectorized layer-2 and 3 networking graph
-nodes, a packet generator, and a packet tracer. 
+The files associated with the VPP network stack layer are located in the …/src/vnet folder. The Network Stack Layer has a vnet library that provides vectorized layer-2 and 3 networking graph nodes, a packet generator, and a packet tracer. 
 
-Vnet
-====
 
 In terms of building a packet processing application, vnet provides a
 platform-independent subgraph to which one connects a couple of

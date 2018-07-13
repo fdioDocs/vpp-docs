@@ -1,16 +1,13 @@
-.. _Plug-ins:
+.. _Plugins:
 
 .. toctree::
 
 ###############
-Plug-ins Layer
+Plugins Layer
 ###############
 
-The files associated with the application shell layer are located in the …/src/plugins folder. 
-vlib implements a straightforward plug-in DLL
-mechanism. VLIB client applications specify a directory to search for
-plug-in .DLLs, and a name filter to apply (if desired). VLIB needs to
-load plug-ins very early.
+The files associated with the plugins shell layer are located in the …/src/plugins folder. 
+vlib implements a straightforward plug-in DLL mechanism. VLIB client applications specify a directory to search for plug-in .DLLs, and a name filter to apply (if desired). VLIB needs to load plug-ins very early.
 
 Once loaded, the plug-in DLL mechanism uses dlsym to find and verify
 a vlib_plugin_registration data structure in the newly-loaded

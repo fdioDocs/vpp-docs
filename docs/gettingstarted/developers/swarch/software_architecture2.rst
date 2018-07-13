@@ -1,4 +1,4 @@
-.. _software_architecture:
+.. _software_architecture2:
 
 .. toctree::
 
@@ -23,18 +23,22 @@ Depending on the scenario at hand, we often spin up multiple worker
 threads which process ingress-hashes packets from multiple queues using
 identical forwarding graph replicas. 
 
-Implementation Taxonomy
-=======================
+VPP Layers - Implementation Taxonomy
+=====================================
 
 The vpp dataplane consists of four distinct layers: 
 
-* An infrastructure layer comprising vppinfra, vlib, svm, and binary api libraries. See .../src/{vppinfra, vlib, vlibapi, vlibmemory, svm}
+.. image:: /_images/VPP_Layering.png
 
-* A generic network stack layer: vnet. See .../src/vnet
 
-* An application shell: vpp. See .../src/vpp
+* VPP Infra - Is the VPP infrastructure layer, which contains the core library source code. This layer  performs memory functions, works with vectors and rings, performs key lookups in hash tables, and works with timers for dispatching graph nodes.
 
-* An increasingly rich set of data-plane plugins: see .../src/plugins
+* VLIB - performs various application management functions, such as managing buffers and graph nodes, working with counters an threading, performs tracing, and works with the CLI (command line interface).
+
+* VNET - works with VPP's networking interface (layers 2, 3, and 4) performs session and traffic management, and works with devices and the data control plane.
+
+
+* Plugins - Contains an increasingly rich set of data-plane plugins, as noted in the above diagram.
 
 It's important to understand each of these layers in a certain amount
 of detail. Much of the implementation is best dealt with at the API
