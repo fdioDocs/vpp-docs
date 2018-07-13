@@ -91,7 +91,7 @@ html_theme_path = ["_themes", ]
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = '_static/fdio_logo.png'
+html_logo = '_static/fd-io_red_white.png'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -103,6 +103,9 @@ html_logo = '_static/fdio_logo.png'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+def setup(app):
+    app.add_stylesheet('css/rules.css')
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
