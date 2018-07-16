@@ -6,7 +6,7 @@
 VNET VPP Network Stack Layer
 ###############################
 
-The files associated with the VPP network stack layer are located in the …/src/vnet folder. The Network Stack Layer has a vnet library that provides vectorized layer-2 and 3 networking graph nodes, a packet generator, and a packet tracer. 
+The files associated with the VPP network stack layer are located in the …/src/vnet folder. The Network Stack Layer is basically an instantiation of the code in the other layers. This layer has a vnet library that provides vectorized layer-2 and 3 networking graph nodes, a packet generator, and a packet tracer. 
 
 
 In terms of building a packet processing application, vnet provides a
@@ -35,3 +35,6 @@ typical hardware RX-ring processing. This coding style is also very
 effective when a given node will not need to cover a complex set of
 dependent reads.
 
+Below is a list of features and layer areas that VNET works with:
+
+.. image:: /_images/VNET_Features.png
