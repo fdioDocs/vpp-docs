@@ -24,7 +24,7 @@ Sample output looks like:
 
 .. note::
   
-  Type **exit** if you want to exit the VM, or container (which we'll get to soon.)
+  Type **exit** in the command-line if you want to exit the VM.
 
 Become the root with:
 
@@ -32,15 +32,7 @@ Become the root with:
 
     $ sudo bash
 
-
-Install some packages for using containers, such as lxc:
-
-.. code-block:: shell
-
-  ~# apt-get install bridge-utils lxc
-
-
-After this is done, we now want to *install* VPP in the VM. Keep in mind that VPP is already built (but not yet installed) at this point based on the commands from the provisioned script *build.sh*. 
+Now *install* VPP in the VM. Keep in mind that VPP is already built (but not yet installed) at this point based on the commands from the provisioned script *build.sh*. 
 
 When you ssh into your Vagrant box you will be placed in the directory */home/vagrant*. Change directories to */vpp/build-root*, and run these commands to install VPP based on your OS and architechture:
 
@@ -57,7 +49,7 @@ For CentOS systems:
     ~# rpm -Uvh *.rpm
 
 
-Since VPP is now installed, start running VPP on the "host" VM with:
+Since VPP is now installed, you can start running VPP with:
 
 .. code-block:: shell
   

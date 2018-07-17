@@ -8,7 +8,9 @@ This chapter contains a sample of the many ways FD.io VPP can be used. It is by 
 extensive list, but should give a sampling of the many features contained in FD.io VPP.
 
 .. toctree::
+  
+   vhost/index.rst
+   homegateway
+   uc_vSwitchvRouter
+   containers
 
-    vhost/index.rst
-    homegateway
-    uc_vSwitchvRouter

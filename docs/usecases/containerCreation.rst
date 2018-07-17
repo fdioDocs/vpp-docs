@@ -5,9 +5,19 @@
 Creating Containers
 ___________________
 
-Now that **lxc** is installed from the previous page, we now want to start creating containers to be used by our VM.
+First you should have root privileges:
 
-From the `lxc.conf manpage <https://linuxcontainers.org/it/lxc/manpages/man5/lxc.conf.5.html>`_,  "The container configuration is held in the config stored in the container's directory.
+.. code-block:: shell
+
+  ~$ sudo bash
+
+Then install packages for containers such as lxc:
+
+.. code-block:: shell
+
+  ~# apt-get install bridge-utils lxc
+
+As quoted from the `lxc.conf manpage <https://linuxcontainers.org/it/lxc/manpages/man5/lxc.conf.5.html>`_,  "container configuration is held in the config stored in the container's directory.
 A basic configuration is generated at container creation time with the default's recommended for the chosen template as well as extra default keys coming from the default.conf file."
 
 "That *default.conf* file is either located at /etc/lxc/default.conf or for unprivileged containers at ~/.config/lxc/default.conf."
@@ -26,17 +36,19 @@ Look at the contents of *default.conf*, which should initially look like this:
 
 As you can see, by default there is one veth interface.
 
-*Add to this file* so each container will have an interface for a Linux bridge and an unconsumed second interface with:
+Now you will *append to this file* so that each container you create will have an interface for a Linux bridge and an unconsumed second interface.
+
+You can do this by piping *echo* output into *tee*, where each line is separated with a newline character *\\n* as shown below. Alternatively, you can manually add to this file with a text editor such as **vi**, but make sure you have root privileges. 
 
 .. code-block:: shell
 
-    ~# echo -e "lxc.network.name = veth0\nlxc.network.type = veth\nlxc.network.name = veth_link1"  | sudo tee -a cat /etc/lxc/default.conf
+    ~# echo -e "lxc.network.name = veth0\nlxc.network.type = veth\nlxc.network.name = veth_link1"  | sudo tee -a /etc/lxc/default.conf
 
 Inspect the contents again to verify the file was indeed modified:
 
 .. code-block:: shell
 
-    ~# cat default.conf 
+    ~# cat /etc/lxc/default.conf 
     lxc.network.type = veth
     lxc.network.link = lxcbr0
     lxc.network.flags = up

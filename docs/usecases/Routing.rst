@@ -5,7 +5,7 @@
 Connecting the two Containers
 _____________________________
 
-Time for the section you've all been waiting for - connecting these two linux containers to VPP and pinging between them.
+Now for connecting these two linux containers to VPP and pinging between them.
 
 Enter container *cone*, and check the current network configuration:
 
@@ -38,7 +38,7 @@ Check if the interfaces are down or up:
 
 .. note::
 
-    Take note of the network index for **veth_link1**. In our case, it 32, and its parent index (the host machine running the VM, not the container itself) is 33, shown by **veth_link1@if33**. Yours will most likely be different, but **please take note of these index's**.
+    Take note of the network index for **veth_link1**. In our case, it 32, and its parent index (the host machine, not the containers) is 33, shown by **veth_link1@if33**. Yours will most likely be different, but **please take note of these index's**.
 
 Make sure your loopback interface is up, and assign an IP and gateway to veth_link1.
 
@@ -75,7 +75,7 @@ We see that the IP has been assigned, as well as our default gateway.
 Now exit this container and repeat this process with container *ctwo*, except with IP 172.16.2.2/24 and gateway 172.16.2.1.
 
 
-After thats done for *both* containers, go back into your host VM (unless you're already in root@localhost:~#):
+After thats done for *both* containers, exit from the container if you're in one:
 
 .. code-block:: shell
     
@@ -83,7 +83,7 @@ After thats done for *both* containers, go back into your host VM (unless you're
     exit
     root@localhost:~#
 
-In the VM, run **ip link** to see the host *veth* network interfaces, and their link with their respective *container veth's*.
+In the machine running the containers, run **ip link** to see the host *veth* network interfaces, and their link with their respective *container veth's*.
 
 .. code-block:: shell
     
@@ -110,7 +110,7 @@ In the VM, run **ip link** to see the host *veth* network interfaces, and their 
 
 Remember our network interface index 32 in *cone* from this :ref:`note <networkNote>`? We can see at the bottom the name of the 33rd index **vethQL7KOC@if32**. Keep note of this network interface name for the veth connected to *cone* (ex. vethQL7KOC), and the other network interface name for *ctwo*.
 
-With VPP in the VM, show current VPP interfaces:
+With VPP in the host machine, show current VPP interfaces:
 
 .. code-block:: shell
     
