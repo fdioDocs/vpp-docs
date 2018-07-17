@@ -14,6 +14,8 @@ The image that we use is based on an Ubuntu cloud image downloaded from:
 
 All FD.io VPP commands are being run from a su shell. 
 
+.. _vhosttopo:
+
 Topology 
 ---------
 
