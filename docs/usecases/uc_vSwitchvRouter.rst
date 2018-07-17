@@ -2,6 +2,8 @@
 
 .. toctree::
 
+.. _vswitchrtr:
+
 vSwitch/vRouter
 ===============
 

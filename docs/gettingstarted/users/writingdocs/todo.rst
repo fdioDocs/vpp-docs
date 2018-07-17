@@ -6,7 +6,12 @@ To Do
 
 This section describes pieces of these documents that need some work.
 
-.. toctree::
+All Sections
+============
+
+All the sections need to be spell checked.
+
+Checked for guidelines.
 
 :ref:`vhost`
 ============
@@ -27,5 +32,44 @@ It is mentioned that a queue size of 256 is not large enough. Come up wit a proc
 to change the queue size.
 
 
+:ref:`reportingissues`
+======================
 
+Move the reporting issues section to troublshooting
+
+:ref:`writingdocs`
+==================
+
+Move the writing docs section out of getting started user guides.
+
+Basic Configuration
+===================
+
+Create a Basic configuration section and put startup.conf and huge pages in it.
+
+:ref:`users`
+============
+
+The getting started users guide needs an overview
+
+:ref:`cmdreference`
+===================
+
+This section should be references to the doxygen links. The doxygen links will need to be cleaned up.
+This section could be a quick reference only using commands we have tested.
+
+:ref:`progressivevpp`
+=====================
+
+This section needs work. It needs to be split up and tested.
+
+:ref:`vswitchrtr`
+=================
+
+Needs some instructions or be removed.
+
+:ref:`jvppjar`
+==============
+
+Not sure what value this provides.
 
