@@ -26,19 +26,23 @@ Data to include in bug reports
 Image version and operating environment
 ---------------------------------------
 
-Please make sure to include the vpp image version.
+Please make sure to include the vpp image version and command-line arguments.
 
 .. code-block:: console
 
     $ sudo bash
-    # vppctl show version verbose
- 
-    vpp v1.0.0-188~geef4d99 built by vagrant on localhost at Wed Feb 24 08:52:13 PST 2016
-    Built in /home/vagrant/git/vpp
-    Compiled with GCC 4.8.4
-    DPDK version is RTE 2.2.0
-    DPDK EAL init arguments: -c 1 -n 4 --socket-mem 1024 --huge-dir /run/vpp/hugepages 
-    --file-prefix vpp -b 0000:02:00.0 -b 0000:02:01.0 --master-lcore 0 
+    # vppctl show version verbose cmdline
+    Version:                  v18.07-rc0~509-gb9124828
+    Compiled by:              vppuser
+    Compile host:             vppbuild
+    Compile date:             Fri Jul 13 09:05:37 EDT 2018
+    Compile location:         /scratch/vpp-showversion
+    Compiler:                 GCC 7.3.0
+    Current PID:              5211
+    Command line arguments:  
+      /scratch/vpp-showversion/build-root/install-vpp_debug-native/vpp/bin/vpp
+      unix
+      interactive
 
 With respect to the operating environment: if misbehavior involving a
 specific VM / container / bare-metal environment is involved, please
