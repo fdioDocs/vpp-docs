@@ -1,7 +1,7 @@
 .. _vppVagrantfile:
 
-Vagrantfile
-===========
+Vagrant File
+============
 
 This is the Vagrantfile provided in the `Git VPP repo <https://github.com/FDio/vpp/blob/master/extras/vagrant/Vagrantfile>`_.
 
