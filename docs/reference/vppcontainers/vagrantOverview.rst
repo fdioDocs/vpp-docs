@@ -5,7 +5,7 @@
 Overview
 ^^^^^^^^
 
-In finer detail, this guide shows how the VPP :ref:`vppVagrantfile` interacts with shell scripts to configure a `Vagrant box <https://www.vagrantup.com/docs/boxes.html>`_ that boots a VM with VPP *built*. 
+This guide shows how the VPP :ref:`vppVagrantfile` interacts with shell scripts to configure a `Vagrant box <https://www.vagrantup.com/docs/boxes.html>`_ that boots a VM with VPP. 
 
 .. _prereqlabel:
 
