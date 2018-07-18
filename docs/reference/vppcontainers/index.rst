@@ -1,16 +1,17 @@
 .. _vppcontainers:
 
-VPP with Containers
-===================
+VM's with Vagrant
+=================
 
-This is the guide to using VPP with Vagrant (in a VM with two containers).
+This reference guide will cover using Vagrant to boot a VM (virtual machine).
 
 .. toctree::
 
-    installingPrereq
+    vagrantOverview
+    installingVboxVagrant
+    settingENV
+    boxSetup
     VagrantVMSetup
-    containerCreation
-    containerSetup
-    Routing
+    vppVagrantfile
 
 
