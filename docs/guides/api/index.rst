@@ -8,6 +8,7 @@ API User Guides
 
 This chapter describes how to use the C, Python and java APIs.
 
+.. _jvppjar:
 
 Downloading the jvpp jar
 ------------------------
