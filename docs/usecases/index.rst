@@ -9,8 +9,7 @@ extensive list, but should give a sampling of the many features contained in FD.
 
 .. toctree::
   
+   containers
    vhost/index.rst
    homegateway
    uc_vSwitchvRouter
-   containers
-
