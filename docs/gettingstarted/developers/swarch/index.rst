@@ -1,13 +1,12 @@
 .. _swarch:
 
-********
-Overview
-********
-
-Describe the software archetecture here.
 
 .. toctree::
-
-   softwarearchitecture
+   
+   software_architecture2
+   Infrastructure2
+   vlib_application_mgmt
+   Network_Stack_Layer
+   Plugins
    featurearcs
    bihash
