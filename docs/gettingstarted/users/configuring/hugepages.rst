@@ -1,12 +1,7 @@
-.. prerequisites:
+.. _hugepages:
 
-Prerequisites
-=============
-
-.. toctree::
-
-hugepages
----------
+Huge Pages
+----------
 
 VPP requires *'hugepages'* to run. VPP will overwrite existing hugepage
 settings when VPP is installed. By default, VPP sets the number of hugepages on
