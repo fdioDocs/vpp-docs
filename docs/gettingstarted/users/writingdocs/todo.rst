@@ -13,6 +13,8 @@ All the sections need to be spell checked.
 
 Checked for guidelines.
 
+<< In Progress, being performed by Scott >>
+
 :ref:`vhost`
 ============
 
@@ -20,6 +22,8 @@ Checked for guidelines.
 ----------------
 
 Get a better topology picture.
+
+<< DONE: Scott has created/inserted better diagram >>
 
 :ref:`vhost02`
 --------------
@@ -42,6 +46,8 @@ Move the reporting issues section to troublshooting
 
 Move the writing docs section out of getting started user guides.
 
+<< Where do you want this section moved to? >>
+
 Basic Configuration
 ===================
 
@@ -51,6 +57,8 @@ Create a Basic configuration section and put startup.conf and huge pages in it.
 ============
 
 The getting started users guide needs an overview
+
+<< In progress: Scott is creating >>
 
 :ref:`cmdreference`
 ===================
