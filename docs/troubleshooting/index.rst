@@ -9,4 +9,5 @@ problem with FD.io VPP implementations.
 
 .. toctree::
 
+    reportingissues/index.rst
     cpuusage
