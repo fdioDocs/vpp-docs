@@ -2,25 +2,29 @@
 
 .. toctree::
 
-==============================================
-Installing the FD.io VPP Configuration Utility
-==============================================
+**********
+Installing
+**********
 
-The installation and executing of the FD.io VPP Configuration Utility, or vpp-config, is
-simple. First `install the python pip module <https://pip.pypa.io/en/stable/installing/>`__. Then using pip, 
+The FD.io VPP configuration utility uses the `Python Package Index <https://pypi.org>`__
+or "pypi".
 
-Run as Root
-^^^^^^^^^^^
+To install FD.io vpp-config first install python pip.
 
-Run the terminal as root
-
-.. code-block:: console
-
-    $ sudo -H bash
-
-Afterwards, install the vpp-config utility through the pip command.
+For Ubuntu execute:
 
 .. code-block:: console
 
-    # pip install vpp-config
+    $ sudo apt-get install python-pip
 
+For Centos execute:
+
+.. code-block:: console
+
+    $ sudo yum install install python-pip
+
+Then install the config utility itself.
+
+.. code-block:: console
+
+    $ sudo -H pip install vpp-config
