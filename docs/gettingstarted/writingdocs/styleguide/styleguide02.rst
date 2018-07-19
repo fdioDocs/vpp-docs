@@ -9,6 +9,9 @@ Bold text can be show with **Bold Text**, Italics with *Italic text*. Bullets li
 * Bullet 1
 * Bullet 2
 
+#. Numbered Bullet 1
+#. Numbered Bullet 2
+
 *****
 Notes
 *****

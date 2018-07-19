@@ -1,10 +1,11 @@
 .. _gettingstarted:
 
-######################
-Getting Started Guides
-######################
+###############
+Getting Started
+###############
 
 .. toctree::
 
   users/index.rst
   developers/index.rst
+  writingdocs/index.rst

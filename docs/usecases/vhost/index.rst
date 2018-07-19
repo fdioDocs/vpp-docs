@@ -1,5 +1,3 @@
-.. toctree::
-
 .. _vhost:
 
 FD.io VPP with Virtual Machines
