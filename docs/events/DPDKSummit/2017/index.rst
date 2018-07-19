@@ -2,9 +2,9 @@
 
 .. toctree::
 
-===========
-2017 Events
-===========
+###########################
+November 2017 - DPDK Summit
+###########################
 
 DPDK Summit is a DPDK community event held around the world. 
 

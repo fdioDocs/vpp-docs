@@ -2,9 +2,9 @@
 
 .. toctree::
 
-###################
-Open Network Summit
-###################
+################################
+March 2016 - Open Network Summit
+################################
 
 .. toctree::
     :maxdepth: 1

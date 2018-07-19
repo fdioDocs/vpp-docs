@@ -2,14 +2,14 @@
 
 .. toctree::
 
-#########################################
-
-#########################################
+##############
+VPP Host Stack	
+##############
 
 Event
 -----
 
-This presentation was held during the on  th, 201.
+This presentation was held during the FD.io Mini Summit at KubeCon 2017 on December 5th, 2017.
 
 Speakers
 --------

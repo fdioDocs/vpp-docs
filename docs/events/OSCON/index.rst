@@ -2,9 +2,9 @@
 
 .. toctree::
 
-#####
-OSCON
-#####
+################
+May 2017 - OSCON
+################
 
 .. toctree::
     :maxdepth: 1

@@ -10,3 +10,4 @@ FD.io Mini Summit
     :maxdepth: 2
 
     KubeCon/index.rst
+    atOSS/index.rst
