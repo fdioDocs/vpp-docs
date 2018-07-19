@@ -1,8 +1,8 @@
 .. _configutil:
 
-###############################
-FD.io VPP Configuration Utility
-###############################
+#########################
+VPP Configuration Utility
+#########################
 
 This guide provides instructions on how to install and use the vpp configuration
 utility.
