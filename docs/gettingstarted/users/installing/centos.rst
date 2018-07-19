@@ -235,7 +235,7 @@ Then to enable VPP to start on system reboot:
 
 
 Outside of running VPP as a systemd service, VPP can be started manually or
-made to run within GDB for debugging. See :ref:`runvpp` for more details and
+made to run within GDB for debugging. See :ref:`running` for more details and
 ways to tailor VPP to a specific system.
 
 

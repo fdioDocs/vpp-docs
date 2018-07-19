@@ -6,7 +6,7 @@ Users
 
 .. toctree::
 
-  configutil/index.rst
   installing/index.rst
-  writingdocs/index.rst
-  reportingissues/index.rst
+  configuring/index.rst
+  running/index.rst
+  configutil/index.rst
