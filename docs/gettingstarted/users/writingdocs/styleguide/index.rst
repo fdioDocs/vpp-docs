@@ -24,6 +24,7 @@ in a nicely in the generated documents.
 
   styleguide.rst
   styleguide02.rst
+  styleguide02table.rst
   styleguide03.rst
   styleguide04.rst
   styleguide05.rst
