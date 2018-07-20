@@ -1,9 +1,11 @@
-.. _buildingcommands:
+.. _building:
 
 .. toctree::
 
-Building VPP Commands
-=====================
+Building VPP
+============
+
+To get started developing with VPP you need to get the sources and build the packages.
 
 .. _setupproxies:
 
@@ -19,11 +21,21 @@ You may run these commands:
     $ export https_proxy=https://<proxy-server-name>.com:<port-number>
 
 
+Get the VPP Sources
+-------------------
+
+To get the VPP sources and get ready to build execute the following:
+
+.. code-block:: console
+
+    $ git clone https://gerrit.fd.io/r/vpp
+    $ cd vpp
+
 Build VPP Dependencies
 ----------------------
 
-Before building, make sure there are no FD.io VPP or DPDK packages installed by entering the following commands:
-
+Before building, make sure there are no FD.io VPP or DPDK packages installed by entering the following
+commands:
 
 .. code-block:: console
 

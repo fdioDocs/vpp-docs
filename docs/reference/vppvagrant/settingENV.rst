@@ -20,7 +20,7 @@ This is the *env.sh* script found in *vpp/extras/vagrant*. When run, the script 
 
 In the :ref:`vppVagrantfile`, you can see these same ENV variables used (discussed on the next page).
 
-Adding your own ENV variables is easy. For example, if you wanted to setup proxies for your VM, you would add to this file the **export** commands found in the :ref:`building VPP commands section <buildingcommands>`. Note that this only works if the ENV variable is defined in the :ref:`vppVagrantfile`.
+Adding your own ENV variables is easy. For example, if you wanted to setup proxies for your VM, you would add to this file the **export** commands found in the :ref:`building VPP commands section <building>`. Note that this only works if the ENV variable is defined in the :ref:`vppVagrantfile`.
 
 Once you're finished with *env.sh* script, and you are in the directory containing *env.sh*, run the script to set the ENV variables with:
 
