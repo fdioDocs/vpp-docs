@@ -20,7 +20,7 @@ Topology
 In this case we will use 2 systems. One system we will be running standard linux, the other will
 be running FD.io VPP.
 
-.. figure:: /_images/vhost-topo.png
+.. figure:: /_images/vhost-topo2.png
    :alt:
 
    Vhost Use Case Topology
