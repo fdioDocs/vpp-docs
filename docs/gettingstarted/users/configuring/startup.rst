@@ -115,55 +115,59 @@ parameter block named "foo": "foo { arg1 arg2 arg3 ... }".
 The following parameters should only be set by those that are familiar with the
 interworkings of VPP and the ACL Plugin.
 
+The first three parameters, *connection hash buckets*, *connection hash memory*, and *connection count max*, set the **connection table per-interface parameters** for modifying how the two bounded-index extensible hash tables for IPv6 (40\*8 bit key and 8\*8 bit value pairs) and IPv4 (16\*8 bit key and 8\*8 bit value pairs) **ACL plugin FA interface sessions** are initialized.
+
  * **connection hash buckets <n>**
-     TBD
+     Sets the number of hash buckets (rounded up to a power of 2) in each of the two bi-hash tables. Defaults to 64\*1024 (65536) hash buckets.
      
-     **Example:** TBD
+     **Example:** connection hash buckets 65536
      
  * **connection hash memory <n>**
-     TBD
+     Sets the number of bytes used for “backing store” allocation in each of the two bi-hash tables. Defaults to 1073741824 bytes.
      
-     **Example:** TBD
+     **Example:** connection hash memory 1073741824
      
  * **connection count max <n>**
-     TBD
+     Sets the maximum number of pool elements when allocating each per-worker pool of sessions for both bi-hash tables. Defaults to 500000 elements in each pool.
      
-     **Example:** TBD
+     **Example:** connection count max 500000
      
  * **main heap size <n>G|<n>M|<n>K|<n>**
-     TBD
+     Sets the size of the main memory heap that holds all the ACL module related allocations (other than hash.) Default size is 0, but during ACL heap initialization is equal to *per_worker_size_with_slack * tm->n_vlib_mains + bihash_size + main_slack*. Note that these variables are partially based on the **connection table per-interface parameters** mentioned above.
      
-     **Example:** TBD
+     **Example:** main heap size 3G
+
+The next three parameters, *hash lookup heap size*, *hash lookup hash buckets*, and *hash lookup hash memory*, modify the initialization of the bi-hash lookup table used by the ACL plugin. This table is initialized when attempting to apply an ACL to the existing vector of ACLs looked up during packet processing (but it is found that the table does not exist / has not been initialized yet.)
      
  * **hash lookup heap size  <n>G|<n>M|<n>K|<n>**
-     TBD
+     Sets the size of the memory heap that holds all the miscellaneous allocations related to hash-based lookups. Default size is 67108864 bytes.
      
-     **Example:** TBD
+     **Example:** hash lookup heap size 70M
      
  * **hash lookup hash buckets <n>**
-     TBD
+     Sets the number of hash buckets (rounded up to a power of 2) in the bi-hash lookup table. Defaults to 65536 hash buckets.
      
-     **Example:** TBD
+     **Example:** hash lookup hash buckets 65536
      
  * **hash lookup hash memory <n>**
-     TBD
+     Sets the number of bytes used for “backing store” allocation in the bi-hash lookup table. Defaults to 67108864 bytes.
      
-     **Example:** TBD
+     **Example:** hash lookup hash memory 67108864
      
  * **use tuple merge <n>**
-     TBD
+     Sets a boolean value indicating whether or not to use TupleMerge for hash ACL's. Defaults to 1 (true), meaning the default implementation of hashing ACL's **does use** TupleMerge.
      
-     **Example:** TBD
+     **Example:** use tuple merge 1
      
  * **tuple merge split threshold <n>**
-     TBD
+     Sets the maximum amount of rules (ACE's) that can collide in a bi-hash lookup table before the table is split into two new tables. Splitting ensures less rule collisions by hashing colliding rules based on their common tuple (usually their maximum common tuple.) Splitting occurs when the *length of the colliding rules vector* is greater than this threshold amount. Defaults to a maximum of 39 rule collisions per table.
      
-     **Example:** TBD
+     **Example:** tuple merge split threshold 30
      
  * **reclassify sessions <n>**
-     TBD
+     Sets a boolean value indicating whether or not to take the epoch of the session into account when dealing with re-applying ACL's or changing already applied ACL's. Defaults to 0 (false), meaning the default implementation **does NOT** take the epoch of the session into account.
      
-     **Example:** TBD
+     **Example:** reclassify sessions 1
 
 
 "api-queue" Parameters
