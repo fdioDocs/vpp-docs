@@ -1,5 +1,5 @@
-Bounded-index Extensible Hashing
-================================
+Bounded-index Extensible Hashing (bihash)
+=========================================
 
 Vpp uses bounded-index extensible hashing to solve a variety of
 exact-match (key, value) lookup problems. Benefits of the current
@@ -86,10 +86,9 @@ We often use cpu intrinsic functions - think crc32 - to rapidly
 compute a hash code which has decent statistics.
 
 Bihash Cookbook
-===============
+---------------
 
-Using current (key,value) template instance types
--------------------------------------------------
+### Using current (key,value) template instance types
 
 It's quite easy to use one of the template instance types. As of this
 writing, .../src/vppinfra provides pre-built templates for 8, 16, 20,
@@ -143,8 +142,7 @@ In fact, if you #include multiple template instances in a single
 source file, you **must** use fully-enumerated type names. The macros
 stand no chance of working.
 
-Initializing a bihash table
----------------------------
+### Initializing a bihash table
 
 Call the init function as shown. As a rough guide, pick a number of
 buckets which is approximately
@@ -169,8 +167,7 @@ For example:
                            (uword) memory_size);
 ```
 
-Add or delete a key/value pair
-------------------------------
+### Add or delete a key/value pair
 
 Use BV(clib_bihash_add_del), or the explicit type variant:
 
@@ -190,8 +187,7 @@ Use BV(clib_bihash_add_del), or the explicit type variant:
 In the delete case, kv.value is irrelevant. To change the value associated
 with an existing (key,value) pair, simply re-add the [new] pair.
 
-Simple search
--------------
+### Simple search
 
 The simplest possible (key, value) search goes like so:
 
@@ -218,8 +214,7 @@ Note that it's perfectly fine to collect the lookup result
    etc.
 ```
 
-Bihash vector processing
-------------------------
+### Bihash vector processing
 
 When processing a vector of packets which need a certain lookup
 performed, it's worth the trouble to compute the key hash, and
@@ -244,8 +239,7 @@ vnet_buffer(b) metadata, or to use local variables.
 Single-loop:
 * Use simple search as shown above.
 
-Walking a bihash table
-----------------------
+### Walking a bihash table
 
 A fairly common scenario to build "show" commands involves walking a
 bihash table. It's simple enough:
@@ -263,8 +257,7 @@ To nobody's great surprise: clib_bihash_foreach_key_value_pair
 iterates across the entire table, calling callback_fn with active
 entries.
 
-Creating a new template instance
-================================
+### Creating a new template instance
 
 Creating a new template is easy. Use one of the existing templates as
 a model, and make the obvious changes. The hash and key_compare
