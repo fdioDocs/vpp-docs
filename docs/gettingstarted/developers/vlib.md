@@ -1,9 +1,9 @@
 
-VLIB (Application Management Layer)
-===================================
+VLIB (Vector Processing Library)
+================================
 
-The files associated with vlib are located in the ./src/{Vlib,
-Vlibapi, Vlibmemory} folders. These libraries provide vector
+The files associated with vlib are located in the ./src/{vlib,
+vlibapi, vlibmemory} folders. These libraries provide vector
 processing support including graph-node scheduling, reliable multicast
 support, ultra-lightweight cooperative multi-tasking threads, a CLI,
 plug in .DLL support, physical memory and Linux epoll support. Parts of
