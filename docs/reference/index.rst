@@ -5,5 +5,5 @@ Reference
 
 .. toctree::
 
+    vppvagrant/index.rst
     cmdreference/index.rst
-    vppcontainers/index.rst
