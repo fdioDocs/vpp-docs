@@ -24,6 +24,5 @@ Slideshow
 Video
 -----
 
-`Video Presentation <>`_
 
 

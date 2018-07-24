@@ -3,7 +3,7 @@
 .. toctree::
 
 ##############
-Intro to fd.io	
+Intro to fd.io
 ##############
 
 Event
@@ -18,10 +18,5 @@ Speakers
 Slideshow
 ---------
 
-`Presentation Powerpoint <>`_
-
 Video
 -----
-
-`Video Presentation <>`_
-

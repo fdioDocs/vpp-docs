@@ -1,4 +1,4 @@
-.. _2016_03_15_introfdio::
+.. _2016_03_15_introfdio:
 
 .. toctree:
 

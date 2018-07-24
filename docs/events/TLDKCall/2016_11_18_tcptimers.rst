@@ -1,4 +1,4 @@
-.. _:
+.. _2016_11_18_tcptimers:
 
 .. toctree::
 
@@ -18,10 +18,6 @@ Speakers
 Slideshow
 ---------
 
-`Presentation Powerpoint <>`_
-
 Video
 -----
-
-`Video Presentation <>`_
 

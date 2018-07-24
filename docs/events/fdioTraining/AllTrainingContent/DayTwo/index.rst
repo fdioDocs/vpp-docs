@@ -1,7 +1,5 @@
 .. _DayTwo:
 
-.. toctree::
-
 =======
 Day Two
 =======
