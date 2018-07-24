@@ -2,9 +2,9 @@
 
 .. toctree::
 
-#########################################
-
-#########################################
+##################
+DPDK Optimizations
+##################
 
 Event
 -----
@@ -18,11 +18,7 @@ Speakers
 Slideshow
 ---------
 
-`Presentation Powerpoint <>`_
-
 Video
 -----
-
-`Video Presentation <>`_
 
 

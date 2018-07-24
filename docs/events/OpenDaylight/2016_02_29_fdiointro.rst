@@ -1,4 +1,4 @@
-.. _2016_02_29_fdiointro::
+.. _2016_02_29_fdiointro:
 
 .. toctree:
 

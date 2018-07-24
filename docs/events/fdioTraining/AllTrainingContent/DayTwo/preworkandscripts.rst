@@ -14,10 +14,10 @@ This presentation was held on April, 2016.
 Preparing for Day 2
 -------------------
 
-#. :ref:`Set up your repo/ dev environment <reference/vppcontainers/installingVboxVagrant>`
+#. :ref:`vppcontainers`
 #. Build vagrant environment
 
-.. code-block:: python
+.. code-block:: console
     
     $ vagrant ssh 
     $ sudo su
@@ -25,8 +25,10 @@ Preparing for Day 2
     $ wget -O /vagrant/macswap.conf "https://tinyurl.com/devboot-macswap-conf"
     $ wget -O ~/.gdbinit "https://tinyurl.com/devboot-gdbinit"
 
-For Init section:
-Breakpoints
-High-level chicken-scrawl of init
+.. note::
+
+    For Init section:
+    Breakpoints
+    High-level chicken-scrawl of init
 
 
