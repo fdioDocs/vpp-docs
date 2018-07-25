@@ -1,4 +1,4 @@
-.. _2016_03_15_fdiofuture::
+.. _2016_03_15_fdiofuture:
 
 .. toctree:
 

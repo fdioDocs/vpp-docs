@@ -18,11 +18,6 @@ Speakers
 Slideshow
 ---------
 
-`Presentation Powerpoint <>`_
-
 Video
 -----
-
-`Video Presentation <>`_
-
 

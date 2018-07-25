@@ -1,4 +1,4 @@
-.. _events::
+.. _events:
 
 .. toctree::
 
@@ -28,10 +28,10 @@ Summits
     FDioMiniSummit/KubeCon/index.rst
     DPDKSummit/2017/index.rst
     OpensourceSummit/index.rst
-    FDioMiniSummit/atOSS/index.rst
+    FDioMiniSummit/index.rst
     UKNO/index.rst
-    OpNFV/OPNFVCSIT/index.rst
-    DPDKSummit/2016/index.rst  
+    OpNFV/index.rst
+    DPDKSummit/index.rst  
     OpNFV/OpNFVtechnicalwork/index.rst
     OpenNetworkSummit/index.rst
     OpNFV/OPNFVSummit/index.rst

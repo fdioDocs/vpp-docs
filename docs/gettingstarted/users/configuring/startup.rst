@@ -1,7 +1,13 @@
 .. _startup:
 
+
+.. toctree::
+
+
+=======================================
 VPP Configuration File - 'startup.conf'
----------------------------------------
+=======================================
+
 
 After a successful installation, VPP installs a startup config file named
 *'startup.conf'* in the *'/etc/vpp/'*' directory. This file can be tailored to
@@ -9,14 +15,16 @@ make VPP run as desired, but contains default values for typical installations.
 Below are more details about this file and parameter and values it contains.
 
 Introduction
-^^^^^^^^^^^^
+------------
+
 The VPP network stack comes with several configuration options that can be
 provided either on the command line when VPP is started, or in a configuration
 file. Specific applications built on the stack have been known to require a dozen
 arguments, depending on requirements.
 
 Command-line Arguments
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
+
 Parameters are grouped by a section name. When providing more than one
 parameter to a section, all parameters for that section must be wrapped in
 curly braces. For example, to start VPP with configuration data via the
@@ -43,7 +51,8 @@ like this:
     (gdb) run unix interactive
 
 Configuration File
-^^^^^^^^^^^^^^^^^^
+------------------
+
 It is also possible to supply the configuration parameters in a startup
 configuration. The path of the file is provided to the VPP application on its
 command line. The format of the configuration file is a simple text file with
@@ -98,7 +107,8 @@ CentOS: /usr/lib/systemd/system/vpp.service). See *'ExecStart'* below:
 
 
 Configuration Parameters
-^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------
+
 Below is the list of section names and their associated parameters. This is not
 an exhaustive list of parameters available. The command-line argument parsers
 can be found in the source code by searching for instances of the
@@ -109,336 +119,178 @@ cause the function *'foo_config'* to receive all parameters given in a
 parameter block named "foo": "foo { arg1 arg2 arg3 ... }". 
 
 
-"acl-plugin" Parameters
-"""""""""""""""""""""""
+List of Basic Parameters:
+-------------------------
 
-The following parameters should only be set by those that are familiar with the
-interworkings of VPP and the ACL Plugin.
+| unix_ 
+| dpdk_ 
+| cpu_  
 
- * **connection hash buckets <n>**
-     TBD
-     
-     **Example:** TBD
-     
- * **connection hash memory <n>**
-     TBD
-     
-     **Example:** TBD
-     
- * **connection count max <n>**
-     TBD
-     
-     **Example:** TBD
-     
- * **main heap size <n>G|<n>M|<n>K|<n>**
-     TBD
-     
-     **Example:** TBD
-     
- * **hash lookup heap size  <n>G|<n>M|<n>K|<n>**
-     TBD
-     
-     **Example:** TBD
-     
- * **hash lookup hash buckets <n>**
-     TBD
-     
-     **Example:** TBD
-     
- * **hash lookup hash memory <n>**
-     TBD
-     
-     **Example:** TBD
-     
- * **use tuple merge <n>**
-     TBD
-     
-     **Example:** TBD
-     
- * **tuple merge split threshold <n>**
-     TBD
-     
-     **Example:** TBD
-     
- * **reclassify sessions <n>**
-     TBD
-     
-     **Example:** TBD
+List of Advanced Parameters:
+----------------------------
 
+| acl-plugin_ 
+| api-queue_
+| api-segment_
+| api-trace_
+| buffers_
+| cj_
+| dns_
+| heapsize_
+| ip_
+| ip6_
+| l2learn_
+| l2tp_
+| logging_
+| mactime_
+| map_
+| mc_
+| nat_
+| oam_
+| plugins_
+| plugin_path_
+| punt_
+| session_
+| socketsvr_
+| stats_
+| statseg_
+| tapcli_
+| tcp_
+| tls_
+| tuntap_
+| vhost-user_
+| vlib_
 
-"api-queue" Parameters
-""""""""""""""""""""""
+.. _unix:
 
-The following parameters should only be set by those that are familiar with the
-interworkings of VPP.
+"unix" Parameters
+_________________
 
- * **length  <n>**
-     Sets the api queue length. Minimum valid queue length is 1024, which is
-     also the default.
+Configure VPP startup and behavior type attributes, as well and any OS based
+attributes.
+
+ * **interactive**
+     Attach CLI to stdin/out and provide a debugging command line interface.
+     Implies nodaemon.
      
-     **Example:** length 2048
-
-
-"api-segment" Parameters
-""""""""""""""""""""""""
-
-These values control various aspects of the binary API interface to VPP.
-
- * **prefix <path>**
-     Sets the prefix prepended to the name used for shared memory (SHM)
-     segments. The default is empty, meaning shared memory segments are created
-     directly in the SHM directory *'/dev/shm'*. It is worth noting that on
-     many systems *'/dev/shm'* is a symbolic link to somewhere else in the file
-     system; Ubuntu links it to *'/run/shm'*.
+     **Example:** interactive
      
-     **Example:** prefix /run/shm
+ * **nodaemon**
+     Do not fork / background the vpp process. Typical when invoking VPP
+     applications from a process monitor. Set by default in the default
+     *'startup.conf'* file.
+     
+     **Example:** nodaemon
+     
+ * **log <filename>**
+     Logs the startup configuration and all subsequent CLI commands in filename.
+     Very useful in situations where folks don't remember or can't be bothered
+     to include CLI commands in bug reports. The default *'startup.conf'* file
+     is to write to *'/var/log/vpp/vpp.log'*.
+     
+     In VPP 18.04, the default log file location was moved from '/tmp/vpp.log'
+     to '/var/log/vpp/vpp.log' . The VPP code is indifferent to the file location.
+     However, if SELinux is enabled, then the new location is required for the file
+     to be properly labeled. Check your local *'startup.conf'* file for the log file
+     location on your system.
+     
+     **Example:** log /var/log/vpp/vpp-debug.log
+     
+ * **exec|startup-config <filename>**
+     Read startup operational configuration from filename. The contents of the file
+     will be performed as though entered at the CLI. The two keywords are aliases
+     for the same function; if both are specified, only the last will have an effect.
+     The file contains CLI commands, for example:
 
- * **uid <number|name>**
-     Sets the user ID or name that should be used to set the ownership of the
-     shared memory segments. Defaults to the same user that VPP is started
-     with, probably root.
-
-     **Example:** uid root
-
- * **gid <number|name>**
-     Sets the group ID or name that should be used to set the ownership of the
-     shared memory segments. Defaults to the same group that VPP is started
-     with, probably root.
+     | $ cat /usr/share/vpp/scripts/interface-up.txt
+     | set interface state TenGigabitEthernet1/0/0 up
+     | set interface state TenGigabitEthernet1/0/1 up
+     
+     **Example:** startup-config /usr/share/vpp/scripts/interface-up.txt
+     
+ * **gid number|name>**
+     Sets the effective group ID to the input group ID or group name of the calling
+     process.
      
      **Example:** gid vpp
-
-The following parameters should only be set by those that are familiar with the
-interworkings of VPP.
-
- * **baseva <x>**
-     Set the base address for SVM global region. If not set, on AArch64, the
-     code will try to determine the base address. All other default to
-     0x30000000.
      
-     **Example:** baseva 0x20000000
-
- * **global-size <n>G|<n>M|<n>**
-     Set the global memory size, memory shared across all router instances,
-     packet buffers, etc. If not set, defaults to 64M. The input value can be
-     set in GB, MB or bytes.
+ * **full-coredump**
+     Ask the Linux kernel to dump all memory-mapped address regions, instead of
+     just text+data+bss.
      
-     **Example:** global-size 2G
-
- * **global-pvt-heap-size <n>M|size <n>**
-     Set the size of the global VM private mheap. If not set, defaults to 128k.
-     The input value can be set in MB or bytes.
+     **Example:** full-coredump
      
-     **Example:** global-pvt-heap-size size 262144
-
- * **api-pvt-heap-size <n>M|size <n>**
-     Set the size of the api private mheap. If not set, defaults to 128k.
-     The input value can be set in MB or bytes.
+ * **coredump-size unlimited|<n>G|<n>M|<n>K|<n>**
+     Set the maximum size of the coredump file. The input value can be set in
+     GB, MB, KB or bytes, or set to *'unlimited'*.
      
-     **Example:** api-pvt-heap-size 1M
-
- * **api-size <n>M|<n>G|<n>**
-     Set the size of the API region. If not set, defaults to 16M. The input
-     value can be set in GB, MB or bytes.
+     **Example:** coredump-size unlimited
      
-     **Example:** api-size 64M
-
-
-"api-trace" Parameters
-""""""""""""""""""""""
-
-The ability to trace, dump, and replay control-plane API traces makes all the
-difference in the world when trying to understand what the control-plane has
-tried to ask the forwarding-plane to do.
-
- * **on|enable**
-     Enable API trace capture from the beginning of time, and arrange for a
-     post-mortem dump of the API trace if the application terminates abnormally.
-     By default, the (circular) trace buffer will be configured to capture
-     256K traces. The default *'startup.conf'* file has trace enabled by default,
-     and unless there is a very strong reason, it should remain enabled.
+ * **cli-listen <ipaddress:port>|<socket-path>**
+     Bind the CLI to listen at address localhost on TCP port 5002. This will
+     accept an ipaddress:port pair or a filesystem path; in the latter case a
+     local Unix socket is opened instead. The default *'startup.conf'* file
+     is to open the socket *'/run/vpp/cli.sock'*.
      
-     **Example:** on
-
- * **nitems <n>**
-     Configure the circular trace buffer to contain the last <n> entries. By
-     default, the trace buffer captures the last 256K API messages received.
+     **Example:** cli-listen localhost:5002
+     **Example:** cli-listen /run/vpp/cli.sock
      
-     **Example:** nitems 524288
-
- * **save-api-table <filename>**
-     Dumps the API message table to /tmp/<filename>.
+ * **cli-line-mode**
+     Disable character-by-character I/O on stdin. Useful when combined with,
+     for example, emacs M-x gud-gdb.
      
-     **Example:** save-api-table apiTrace-07-04.txt
-
-Typically, one simply enables the API message trace scheme:
-
-     api-trace { on }
-
-
-"buffers" Parameters
-""""""""""""""""""""
-
-Command line Buffer configuration controls buffer management.
-
- * **memory-size-in-mb <n>**
-     Configure the memory size used for buffers. If not set, VPP defaults
-     to 32MB.
+     **Example:** cli-line-mode
      
-     **Example:** memory-size-in-mb 64
-
-
-"cj" Parameters
-"""""""""""""""
-
-The circular journal (CJ) thread-safe circular log buffer scheme is
-occasionally useful when chasing bugs. Calls to it should not be checked in.
-See .../vlib/vlib/unix/cj.c. The circular journal is disables by default.
-When enabled, the number of records must be provided, there is no default
-value.
-
- * **records <n>**
-     Configure the number of circular journal records in the circular buffer.
-     The number of records should be a power of 2.
+ * **cli-prompt <string>**
+     Configure the CLI prompt to be string.
      
-     **Example:** records 131072
-
- * **on**
-     Turns on logging at the earliest possible moment.
+     **Example:** cli-prompt vpp-2
      
-     **Example:** on
-
-
-"cpu" Parameters
-""""""""""""""""
-
-Command-line CPU configuration controls the creation of named thread types, and
-the cpu affinity thereof. In the VPP there is one main thread and optionally
-the user can create worker(s). The main thread and worker thread(s) can be
-pinned to CPU core(s) automatically or manually.
-
-**Automatic Pinning:**
-
- * **workers <n>**
-     Create <n> worker threads.
+ * **cli-history-limit <n>**
+     Limit commmand history to <n> lines. A value of 0 disables command history.
+     Default value: 50
      
-     **Example:** workers 4
+     **Example:** cli-history-limit 100
+     
+ * **cli-no-banner**
+     Disable the login banner on stdin and Telnet connections.
+     
+     **Example:** cli-no-banner
+     
+ * **cli-no-pager**
+     Disable the output pager.
+     
+     **Example:** cli-no-pager
+     
+ * **cli-pager-buffer-limit <n>**
+     Limit pager buffer to <n> lines of output. A value of 0 disables the
+     pager. Default value: 100000
+     
+     **Example:** cli-pager-buffer-limit 5000
+     
+ * **runtime-dir <dir>**
+     Set the runtime directory, which is the default location for certain
+     files, like socket files. Default is based on User ID used to start VPP.
+     Typically it is *'root'*, which defaults to *'/run/vpp/'*. Otherwise,
+     defaults to *'/run/user/<uid>/vpp/'*.
+     
+     **Example:** runtime-dir /tmp/vpp
+     
+ * **poll-sleep-usec <n>**
+     Add a fixed-sleep between main loop poll. Default is 0, which is not to
+     sleep.
+     
+     **Example:** poll-sleep-usec 100
+     
+ * **pidfile <filename>**
+     Writes the pid of the main thread in the given filename.
+     
+     **Example:** pidfile /run/vpp/vpp1.pid
 
- * **io <n>**
-     Create <n> i/o threads.
-     
-     **Example:** io 2
- 
- * **main-thread-io**
-     Handle i/o devices from thread 0, hand off traffic to worker threads.
-     Requires "workers <n>".
-     
-     **Example:** main-thread-io
- 
- * **skip-cores <n>**
-     Sets number of CPU core(s) to be skipped (1 ... N-1). Skipped CPU core(s)
-     are not used for pinning main thread and working thread(s). The main thread
-     is automatically pinned to the first available CPU core and worker(s) are
-     pinned to next free CPU core(s) after core assigned to main threadLeave
-     the low nn bits of the process affinity mask clear.
-     
-     **Example:** skip-cores 4
-
-**Manual Pinning:**
-
- * **main-core <n>**
-     Assign main thread to a specific core.
-     
-     **Example:** main-core 1
-     
- * **coremask-workers <hex-mask>**
-     Place worker threads according to the bitmap hex-mask.
-     
-     **Example:** coremask-workers 0x0000000000C0000C
-     
- * **corelist-workers <list>**
-     Same as coremask-workers but accepts a list of cores instead of a bitmap.
-     
-     **Example:** corelist-workers 2-3,18-19
-     
- * **coremask-io <hex-mask>**
-     Place I/O threads according to the bitmap hex-mask.
-     
-     **Example:** coremask-io 0x0000000003000030
-     
- * **corelist-io <list>**
-     Same as coremask-io but accepts a list of cores instead of a bitmap.
-     
-     **Example:** corelist-io 4-5,20-21
-     
- * **coremask-hqos-threads <hex-mask>**
-     Place HQoS threads according to the bitmap hex-mask. A HQoS thread can
-     run multiple HQoS objects each associated with different output interfaces.
-     
-     **Example:** coremask-hqos-threads 0x000000000C0000C0
-
- * **corelist-hqos-threads <list>**
-     Same as coremask-hqos-threads but accepts a list of cores instead of a
-     bitmap.
-     
-     **Example:** corelist-hqos-threads 6-7,22-23
-
-**Other:**
-
- * **use-pthreads**
-     TBD
-     
-     **Example:** use-pthreads
-
- * **thread-prefix <prefix>**
-     Set a prefix to be prepended to each thread name. The thread name already
-     contains an underscore. If not provided, the default is *'vpp'*.
-     Currently, prefix used on threads: *'vpp_main'*, *'vpp_stats'*
-     
-     **Example:** thread-prefix vpp1
-
- * **scheduler-policy rr|fifo|batch|idle|other**
-     TBD
-     
-     **Example:** scheduler-policy fifo
-
- * **scheduler-priority <n>**
-     Set the scheduler priority. Only valid if the *'scheduler-policy'* is set
-     to *'fifo'* or *'rr'*. The valid ranges for the scheduler priority depends
-     on the *'scheduler-policy'* and the current kernel version running. The
-     range is typically 1 to 99, but see the linux man pages for *'sched'* for
-     more details. If this value is not set, the current linux kernel default
-     is left in place.
-     
-     **Example:** scheduler-priority 50
-
- * **<thread-name> <count>**
-     Set the number of threads for a given thread (by name). Some threads, like
-     *'stats'*, have a fixed number of threads and cannot be changed. List of
-     possible threads include (but not limited too): hqos-threads, workers
-     
-     **Example:** hqos-threads 2
-
-.. note::
-
-    The "main" thread always occupies the lowest core-id specified in the
-    DPDK [process-level] coremask.
-
-Here's a full-bore manual placement example:
-
-.. code-block:: console
-
-   /usr/bin/vpp  unix interactive tuntap disable cpu { main-thread-io coremask-workers 18 coremask-stats 4 } dpdk { coremask 1e }
-   
-   # taskset -a -p <vpe-pid>
-   pid 16251's current affinity mask: 2        # main thread
-   pid 16288's current affinity mask: ffffff   # DPDK interrupt thread (not bound to a core)
-   pid 16289's current affinity mask: 4        # stats thread
-   pid 16290's current affinity mask: 8        # worker thread 0
-   pid 16291's current affinity mask: 10       # worker thread 1
-
+.. _dpdk:
 
 "dpdk" Parameters
-"""""""""""""""""
+_________________
 
 Command line DPDK configuration controls a number of parameters, including
 device whitelisting, the number of CPUs available for launching
@@ -596,9 +448,351 @@ Popular options include:
                  |    num-tx-queues 3
                  | }
 
+.. _cpu:
+
+"cpu" Parameters
+________________
+
+Command-line CPU configuration controls the creation of named thread types, and
+the cpu affinity thereof. In the VPP there is one main thread and optionally
+the user can create worker(s). The main thread and worker thread(s) can be
+pinned to CPU core(s) automatically or manually.
+
+**Automatic Pinning:**
+
+ * **workers <n>**
+     Create <n> worker threads.
+     
+     **Example:** workers 4
+
+ * **io <n>**
+     Create <n> i/o threads.
+     
+     **Example:** io 2
+ 
+ * **main-thread-io**
+     Handle i/o devices from thread 0, hand off traffic to worker threads.
+     Requires "workers <n>".
+     
+     **Example:** main-thread-io
+ 
+ * **skip-cores <n>**
+     Sets number of CPU core(s) to be skipped (1 ... N-1). Skipped CPU core(s)
+     are not used for pinning main thread and working thread(s). The main thread
+     is automatically pinned to the first available CPU core and worker(s) are
+     pinned to next free CPU core(s) after core assigned to main threadLeave
+     the low nn bits of the process affinity mask clear.
+     
+     **Example:** skip-cores 4
+
+**Manual Pinning:**
+
+ * **main-core <n>**
+     Assign main thread to a specific core.
+     
+     **Example:** main-core 1
+     
+ * **coremask-workers <hex-mask>**
+     Place worker threads according to the bitmap hex-mask.
+     
+     **Example:** coremask-workers 0x0000000000C0000C
+     
+ * **corelist-workers <list>**
+     Same as coremask-workers but accepts a list of cores instead of a bitmap.
+     
+     **Example:** corelist-workers 2-3,18-19
+     
+ * **coremask-io <hex-mask>**
+     Place I/O threads according to the bitmap hex-mask.
+     
+     **Example:** coremask-io 0x0000000003000030
+     
+ * **corelist-io <list>**
+     Same as coremask-io but accepts a list of cores instead of a bitmap.
+     
+     **Example:** corelist-io 4-5,20-21
+     
+ * **coremask-hqos-threads <hex-mask>**
+     Place HQoS threads according to the bitmap hex-mask. A HQoS thread can
+     run multiple HQoS objects each associated with different output interfaces.
+     
+     **Example:** coremask-hqos-threads 0x000000000C0000C0
+
+ * **corelist-hqos-threads <list>**
+     Same as coremask-hqos-threads but accepts a list of cores instead of a
+     bitmap.
+     
+     **Example:** corelist-hqos-threads 6-7,22-23
+
+**Other:**
+
+ * **use-pthreads**
+     TBD
+     
+     **Example:** use-pthreads
+
+ * **thread-prefix <prefix>**
+     Set a prefix to be prepended to each thread name. The thread name already
+     contains an underscore. If not provided, the default is *'vpp'*.
+     Currently, prefix used on threads: *'vpp_main'*, *'vpp_stats'*
+     
+     **Example:** thread-prefix vpp1
+
+ * **scheduler-policy rr|fifo|batch|idle|other**
+     TBD
+     
+     **Example:** scheduler-policy fifo
+
+ * **scheduler-priority <n>**
+     Set the scheduler priority. Only valid if the *'scheduler-policy'* is set
+     to *'fifo'* or *'rr'*. The valid ranges for the scheduler priority depends
+     on the *'scheduler-policy'* and the current kernel version running. The
+     range is typically 1 to 99, but see the linux man pages for *'sched'* for
+     more details. If this value is not set, the current linux kernel default
+     is left in place.
+     
+     **Example:** scheduler-priority 50
+
+ * **<thread-name> <count>**
+     Set the number of threads for a given thread (by name). Some threads, like
+     *'stats'*, have a fixed number of threads and cannot be changed. List of
+     possible threads include (but not limited too): hqos-threads, workers
+     
+     **Example:** hqos-threads 2
+
+.. note::
+
+    The "main" thread always occupies the lowest core-id specified in the
+    DPDK [process-level] coremask.
+
+Here's a full-bore manual placement example:
+
+.. code-block:: console
+
+   /usr/bin/vpp  unix interactive tuntap disable cpu { main-thread-io coremask-workers 18 coremask-stats 4 } dpdk { coremask 1e }
+   
+   # taskset -a -p <vpe-pid>
+   pid 16251's current affinity mask: 2        # main thread
+   pid 16288's current affinity mask: ffffff   # DPDK interrupt thread (not bound to a core)
+   pid 16289's current affinity mask: 4        # stats thread
+   pid 16290's current affinity mask: 8        # worker thread 0
+   pid 16291's current affinity mask: 10       # worker thread 1
+
+
+.. _acl-plugin:
+
+"acl-plugin" Parameters
+_______________________
+
+The following parameters should only be set by those that are familiar with the
+interworkings of VPP and the ACL Plugin.
+
+The first three parameters, *connection hash buckets*, *connection hash memory*, and *connection count max*, set the **connection table per-interface parameters** for modifying how the two bounded-index extensible hash tables for IPv6 (40\*8 bit key and 8\*8 bit value pairs) and IPv4 (16\*8 bit key and 8\*8 bit value pairs) **ACL plugin FA interface sessions** are initialized.
+
+ * **connection hash buckets <n>**
+     Sets the number of hash buckets (rounded up to a power of 2) in each of the two bi-hash tables. Defaults to 64\*1024 (65536) hash buckets.
+     
+     **Example:** connection hash buckets 65536
+     
+ * **connection hash memory <n>**
+     Sets the number of bytes used for “backing store” allocation in each of the two bi-hash tables. Defaults to 1073741824 bytes.
+     
+     **Example:** connection hash memory 1073741824
+     
+ * **connection count max <n>**
+     Sets the maximum number of pool elements when allocating each per-worker pool of sessions for both bi-hash tables. Defaults to 500000 elements in each pool.
+     
+     **Example:** connection count max 500000
+     
+ * **main heap size <n>G|<n>M|<n>K|<n>**
+     Sets the size of the main memory heap that holds all the ACL module related allocations (other than hash.) Default size is 0, but during ACL heap initialization is equal to *per_worker_size_with_slack * tm->n_vlib_mains + bihash_size + main_slack*. Note that these variables are partially based on the **connection table per-interface parameters** mentioned above.
+     
+     **Example:** main heap size 3G
+
+The next three parameters, *hash lookup heap size*, *hash lookup hash buckets*, and *hash lookup hash memory*, modify the initialization of the bi-hash lookup table used by the ACL plugin. This table is initialized when attempting to apply an ACL to the existing vector of ACLs looked up during packet processing (but it is found that the table does not exist / has not been initialized yet.)
+     
+ * **hash lookup heap size  <n>G|<n>M|<n>K|<n>**
+     Sets the size of the memory heap that holds all the miscellaneous allocations related to hash-based lookups. Default size is 67108864 bytes.
+     
+     **Example:** hash lookup heap size 70M
+     
+ * **hash lookup hash buckets <n>**
+     Sets the number of hash buckets (rounded up to a power of 2) in the bi-hash lookup table. Defaults to 65536 hash buckets.
+     
+     **Example:** hash lookup hash buckets 65536
+     
+ * **hash lookup hash memory <n>**
+     Sets the number of bytes used for “backing store” allocation in the bi-hash lookup table. Defaults to 67108864 bytes.
+     
+     **Example:** hash lookup hash memory 67108864
+     
+ * **use tuple merge <n>**
+     Sets a boolean value indicating whether or not to use TupleMerge for hash ACL's. Defaults to 1 (true), meaning the default implementation of hashing ACL's **does use** TupleMerge.
+     
+     **Example:** use tuple merge 1
+     
+ * **tuple merge split threshold <n>**
+     Sets the maximum amount of rules (ACE's) that can collide in a bi-hash lookup table before the table is split into two new tables. Splitting ensures less rule collisions by hashing colliding rules based on their common tuple (usually their maximum common tuple.) Splitting occurs when the *length of the colliding rules vector* is greater than this threshold amount. Defaults to a maximum of 39 rule collisions per table.
+     
+     **Example:** tuple merge split threshold 30
+     
+ * **reclassify sessions <n>**
+     Sets a boolean value indicating whether or not to take the epoch of the session into account when dealing with re-applying ACL's or changing already applied ACL's. Defaults to 0 (false), meaning the default implementation **does NOT** take the epoch of the session into account.
+     
+     **Example:** reclassify sessions 1
+
+.. _api-queue:
+
+"api-queue" Parameters
+______________________
+
+The following parameters should only be set by those that are familiar with the
+interworkings of VPP.
+
+ * **length  <n>**
+     Sets the api queue length. Minimum valid queue length is 1024, which is
+     also the default.
+     
+     **Example:** length 2048
+
+.. _api-segment:
+
+"api-segment" Parameters
+________________________
+
+These values control various aspects of the binary API interface to VPP.
+
+ * **prefix <path>**
+     Sets the prefix prepended to the name used for shared memory (SHM)
+     segments. The default is empty, meaning shared memory segments are created
+     directly in the SHM directory *'/dev/shm'*. It is worth noting that on
+     many systems *'/dev/shm'* is a symbolic link to somewhere else in the file
+     system; Ubuntu links it to *'/run/shm'*.
+     
+     **Example:** prefix /run/shm
+
+ * **uid <number|name>**
+     Sets the user ID or name that should be used to set the ownership of the
+     shared memory segments. Defaults to the same user that VPP is started
+     with, probably root.
+
+     **Example:** uid root
+
+ * **gid <number|name>**
+     Sets the group ID or name that should be used to set the ownership of the
+     shared memory segments. Defaults to the same group that VPP is started
+     with, probably root.
+     
+     **Example:** gid vpp
+
+The following parameters should only be set by those that are familiar with the
+interworkings of VPP.
+
+ * **baseva <x>**
+     Set the base address for SVM global region. If not set, on AArch64, the
+     code will try to determine the base address. All other default to
+     0x30000000.
+     
+     **Example:** baseva 0x20000000
+
+ * **global-size <n>G|<n>M|<n>**
+     Set the global memory size, memory shared across all router instances,
+     packet buffers, etc. If not set, defaults to 64M. The input value can be
+     set in GB, MB or bytes.
+     
+     **Example:** global-size 2G
+
+ * **global-pvt-heap-size <n>M|size <n>**
+     Set the size of the global VM private mheap. If not set, defaults to 128k.
+     The input value can be set in MB or bytes.
+     
+     **Example:** global-pvt-heap-size size 262144
+
+ * **api-pvt-heap-size <n>M|size <n>**
+     Set the size of the api private mheap. If not set, defaults to 128k.
+     The input value can be set in MB or bytes.
+     
+     **Example:** api-pvt-heap-size 1M
+
+ * **api-size <n>M|<n>G|<n>**
+     Set the size of the API region. If not set, defaults to 16M. The input
+     value can be set in GB, MB or bytes.
+     
+     **Example:** api-size 64M
+
+.. _api-trace:
+
+"api-trace" Parameters
+______________________
+
+The ability to trace, dump, and replay control-plane API traces makes all the
+difference in the world when trying to understand what the control-plane has
+tried to ask the forwarding-plane to do.
+
+ * **on|enable**
+     Enable API trace capture from the beginning of time, and arrange for a
+     post-mortem dump of the API trace if the application terminates abnormally.
+     By default, the (circular) trace buffer will be configured to capture
+     256K traces. The default *'startup.conf'* file has trace enabled by default,
+     and unless there is a very strong reason, it should remain enabled.
+     
+     **Example:** on
+
+ * **nitems <n>**
+     Configure the circular trace buffer to contain the last <n> entries. By
+     default, the trace buffer captures the last 256K API messages received.
+     
+     **Example:** nitems 524288
+
+ * **save-api-table <filename>**
+     Dumps the API message table to /tmp/<filename>.
+     
+     **Example:** save-api-table apiTrace-07-04.txt
+
+Typically, one simply enables the API message trace scheme:
+
+     api-trace { on }
+
+.. _buffers:
+
+"buffers" Parameters
+____________________
+
+Command line Buffer configuration controls buffer management.
+
+ * **memory-size-in-mb <n>**
+     Configure the memory size used for buffers. If not set, VPP defaults
+     to 32MB.
+     
+     **Example:** memory-size-in-mb 64
+
+
+.. _cj:
+
+"cj" Parameters
+_______________
+
+The circular journal (CJ) thread-safe circular log buffer scheme is
+occasionally useful when chasing bugs. Calls to it should not be checked in.
+See .../vlib/vlib/unix/cj.c. The circular journal is disables by default.
+When enabled, the number of records must be provided, there is no default
+value.
+
+ * **records <n>**
+     Configure the number of circular journal records in the circular buffer.
+     The number of records should be a power of 2.
+     
+     **Example:** records 131072
+
+ * **on**
+     Turns on logging at the earliest possible moment.
+     
+     **Example:** on
+
+.. _dns:
 
 "dns" Parameters
-""""""""""""""""
+________________
 
  * **max-cache-size <n>**
      TBD
@@ -610,9 +804,10 @@ Popular options include:
      
      **Example:** TBD
 
+.. _heapsize:
 
 "heapsize" Parameters
-"""""""""""""""""""""
+_____________________
 
 Heapsize configuration controls the size of the main heap. The heap size is
 configured very early in the boot sequence, before loading plug-ins or doing
@@ -625,9 +820,10 @@ much of anything else.
      
      **Example:** heapsize 2G
 
+.. _ip:
 
 "ip" Parameters
-"""""""""""""""
+_______________
 
 IPv4 heap configuration. he heap size is configured very early in the boot
 sequence, before loading plug-ins or doing much of anything else.
@@ -639,9 +835,10 @@ sequence, before loading plug-ins or doing much of anything else.
      
      **Example:** heap-size 64M
 
+.. _ip6:
 
 "ip6" Parameters
-""""""""""""""""
+________________
 
 IPv6 heap configuration. he heap size is configured very early in the boot
 sequence, before loading plug-ins or doing much of anything else.
@@ -659,9 +856,10 @@ sequence, before loading plug-ins or doing much of anything else.
      
      **Example:** hash-buckets 131072
 
+.. _l2learn:
 
 "l2learn" Parameters
-""""""""""""""""""""
+____________________
 
 Configure Layer 2 MAC Address learning parameters.
 
@@ -672,9 +870,10 @@ Configure Layer 2 MAC Address learning parameters.
      
      **Example:** limit 8388608
 
+.. _l2tp:
 
 "l2tp" Parameters
-"""""""""""""""""
+_________________
 
 IPv6 Layer 2 Tunnelling Protocol Version 3 (IPv6-L2TPv3) configuration controls
 the method used to locate a specific IPv6-L2TPv3 tunnel. The following settings
@@ -695,9 +894,10 @@ are mutually exclusive:
      
      **Example:** lookup-session-id
 
+.. _logging:
 
 "logging" Parameters
-""""""""""""""""""""
+____________________
 
  * **size <n>**
      TBD
@@ -719,9 +919,10 @@ are mutually exclusive:
      
      **Example:** TBD
 
+.. _mactime:
 
 "mactime" Parameters
-""""""""""""""""""""
+____________________
 
  * **lookup-table-buckets <n>**
      TBD
@@ -739,18 +940,20 @@ are mutually exclusive:
      
      **Example:** TBD
 
+.. _map:
 
 "map" Parameters
-""""""""""""""""
+________________
 
  * **customer edge**
      TBD
      
      **Example:** customer edge
 
+.. _mc:
 
 "mc" Parameters
-"""""""""""""""
+_______________
 
 MC Test Process.
 
@@ -814,9 +1017,11 @@ MC Test Process.
      
      **Example:** TBD
 
+.. _nat:
+
 
 "nat" Parameters
-""""""""""""""""
+________________
 
  * **translation hash buckets <n>**
      TBD
@@ -913,9 +1118,10 @@ MC Test Process.
      
      **Example:** endpoint-dependent
 
+.. _oam:
 
 "oam" Parameters
-""""""""""""""""
+________________
 
 OAM configuration controls the (ip4-icmp) interval, and number of misses
 allowed before reporting an oam target down to any registered listener.
@@ -931,9 +1137,10 @@ allowed before reporting an oam target down to any registered listener.
      
      **Example:** misses-allowed 5
 
+.. _plugins:
 
 "plugins" Parameters
-""""""""""""""""""""
+____________________
 A plugin can be disabled by default. It may still be in an experimental phase
 or only be needed in special circumstances. If this is the case, the plugin can
 be explicitely enabled in *'startup.conf'*. Also, a plugin that is enabled by
@@ -988,9 +1195,10 @@ only the plugins that are desired.
                | plugin dpdk_plugin.so { enable }
                | plugin acl_plugin.so { enable }
 
+.. _plugin_path:
 
 "plugin_path" Parameters
-""""""""""""""""""""""""
+________________________
 
 Alternate syntax to choose plugin path. Plugin_path configuration controls the
 set of directories searched for vlib plugins. Supply a colon-separated list of
@@ -998,18 +1206,20 @@ set of directories searched for vlib plugins. Supply a colon-separated list of
 
     **Example:** plugin_path /home/bms/vpp/build-root/install-vpp-native/vpp/lib64/vpp_plugins
 
+.. _punt:
 
 "punt" Parameters
-"""""""""""""""""
+_________________
 
  * **socket <path>**
      TBD
      
      **Example:** TBD
 
+.. _session:
 
 "session" Parameters
-""""""""""""""""""""
+____________________
 
  * **event-queue-length <n>**
      TBD
@@ -1081,9 +1291,10 @@ set of directories searched for vlib plugins. Supply a colon-separated list of
      
      **Example:** evt_qs_memfd_seg
 
+.. _socketsvr:
 
 "socketsvr" Parameters
-""""""""""""""""""""""
+______________________
 
 Create a socket server for API server (.../vlibmemory/socksvr_vlib.c.).
 If not set, API server doesn't run.
@@ -1098,9 +1309,10 @@ If not set, API server doesn't run.
      
      **Example:** default
 
+.. _stats:
 
 "stats" Parameters
-""""""""""""""""""
+__________________
 
 Create a socket server for *'stats'* poller. If not set, 'stats'* poller
 doesn't run.
@@ -1115,9 +1327,10 @@ doesn't run.
      
      **Example:** default
 
+.. _statseg:
 
 "statseg" Parameters
-""""""""""""""""""""
+____________________
 
  * **size <n>G|<n>M|<n>K|<n>**
      TBD
@@ -1125,9 +1338,10 @@ doesn't run.
      
      **Example:** TBD
      
+.. _tapcli:     
 
 "tapcli" Parameters
-"""""""""""""""""""
+___________________
 
  * **mtu <n>**
      TBD
@@ -1139,9 +1353,10 @@ doesn't run.
      
      **Example:** disable
 
+.. _tcp:
 
 "tcp" Parameters
-""""""""""""""""
+________________
 
  * **preallocated-connections <n>**
      TBD
@@ -1158,9 +1373,10 @@ doesn't run.
      
      **Example:** TBD
 
+.. _tls:
 
 "tls" Parameters
-""""""""""""""""
+________________
 
  * **se-test-cert-in-ca**
      TBD
@@ -1173,9 +1389,10 @@ doesn't run.
      
      **Example:** TBD
 
+.. _tuntap:
 
 "tuntap" Parameters
-"""""""""""""""""""
+___________________
 
 The "tuntap" driver configures a point-to-point interface between the vpp
 engine and the local Linux kernel stack. This allows e.g. users to ssh to the
@@ -1212,135 +1429,10 @@ Here's a typical multiple parameter invocation:
 
      | tuntap { ethernet have-normal-interface name vpp1 }
 
-
-"unix" Parameters
-"""""""""""""""""
-
-Configure VPP startup and behavior type attributes, as well and any OS based
-attributes.
-
- * **interactive**
-     Attach CLI to stdin/out and provide a debugging command line interface.
-     Implies nodaemon.
-     
-     **Example:** interactive
-     
- * **nodaemon**
-     Do not fork / background the vpp process. Typical when invoking VPP
-     applications from a process monitor. Set by default in the default
-     *'startup.conf'* file.
-     
-     **Example:** nodaemon
-     
- * **log <filename>**
-     Logs the startup configuration and all subsequent CLI commands in filename.
-     Very useful in situations where folks don't remember or can't be bothered
-     to include CLI commands in bug reports. The default *'startup.conf'* file
-     is to write to *'/var/log/vpp/vpp.log'*.
-     
-     In VPP 18.04, the default log file location was moved from '/tmp/vpp.log'
-     to '/var/log/vpp/vpp.log' . The VPP code is indifferent to the file location.
-     However, if SELinux is enabled, then the new location is required for the file
-     to be properly labeled. Check your local *'startup.conf'* file for the log file
-     location on your system.
-     
-     **Example:** log /var/log/vpp/vpp-debug.log
-     
- * **exec|startup-config <filename>**
-     Read startup operational configuration from filename. The contents of the file
-     will be performed as though entered at the CLI. The two keywords are aliases
-     for the same function; if both are specified, only the last will have an effect.
-     The file contains CLI commands, for example:
-
-     | $ cat /usr/share/vpp/scripts/interface-up.txt
-     | set interface state TenGigabitEthernet1/0/0 up
-     | set interface state TenGigabitEthernet1/0/1 up
-     
-     **Example:** startup-config /usr/share/vpp/scripts/interface-up.txt
-     
- * **gid number|name>**
-     Sets the effective group ID to the input group ID or group name of the calling
-     process.
-     
-     **Example:** gid vpp
-     
- * **full-coredump**
-     Ask the Linux kernel to dump all memory-mapped address regions, instead of
-     just text+data+bss.
-     
-     **Example:** full-coredump
-     
- * **coredump-size unlimited|<n>G|<n>M|<n>K|<n>**
-     Set the maximum size of the coredump file. The input value can be set in
-     GB, MB, KB or bytes, or set to *'unlimited'*.
-     
-     **Example:** coredump-size unlimited
-     
- * **cli-listen <ipaddress:port>|<socket-path>**
-     Bind the CLI to listen at address localhost on TCP port 5002. This will
-     accept an ipaddress:port pair or a filesystem path; in the latter case a
-     local Unix socket is opened instead. The default *'startup.conf'* file
-     is to open the socket *'/run/vpp/cli.sock'*.
-     
-     **Example:** cli-listen localhost:5002
-     **Example:** cli-listen /run/vpp/cli.sock
-     
- * **cli-line-mode**
-     Disable character-by-character I/O on stdin. Useful when combined with,
-     for example, emacs M-x gud-gdb.
-     
-     **Example:** cli-line-mode
-     
- * **cli-prompt <string>**
-     Configure the CLI prompt to be string.
-     
-     **Example:** cli-prompt vpp-2
-     
- * **cli-history-limit <n>**
-     Limit commmand history to <n> lines. A value of 0 disables command history.
-     Default value: 50
-     
-     **Example:** cli-history-limit 100
-     
- * **cli-no-banner**
-     Disable the login banner on stdin and Telnet connections.
-     
-     **Example:** cli-no-banner
-     
- * **cli-no-pager**
-     Disable the output pager.
-     
-     **Example:** cli-no-pager
-     
- * **cli-pager-buffer-limit <n>**
-     Limit pager buffer to <n> lines of output. A value of 0 disables the
-     pager. Default value: 100000
-     
-     **Example:** cli-pager-buffer-limit 5000
-     
- * **runtime-dir <dir>**
-     Set the runtime directory, which is the default location for certain
-     files, like socket files. Default is based on User ID used to start VPP.
-     Typically it is *'root'*, which defaults to *'/run/vpp/'*. Otherwise,
-     defaults to *'/run/user/<uid>/vpp/'*.
-     
-     **Example:** runtime-dir /tmp/vpp
-     
- * **poll-sleep-usec <n>**
-     Add a fixed-sleep between main loop poll. Default is 0, which is not to
-     sleep.
-     
-     **Example:** poll-sleep-usec 100
-     
- * **pidfile <filename>**
-     Writes the pid of the main thread in the given filename.
-     
-     **Example:** pidfile /run/vpp/vpp1.pid
-
-
+.. _vhost-user:
 
 "vhost-user" Parameters
-"""""""""""""""""""""""
+_______________________
 
 Vhost-user configuration parameters control the vhost-user driver.
 
@@ -1363,9 +1455,10 @@ Vhost-user configuration parameters control the vhost-user driver.
      
      **Example:** dont-dump-memory
 
+.. _vlib:
 
 "vlib" Parameters
-"""""""""""""""""
+_________________
 
  * **memory-trace**
      TBD
