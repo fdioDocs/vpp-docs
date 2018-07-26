@@ -15,7 +15,7 @@ If you're on CentOS, follow the `steps here <https://wiki.centos.org/HowTos/Virt
 
 If you're on Ubuntu, perform:
 
-.. code-block:: shell
+.. code-block:: console
 
    $ sudo apt-get install virtualbox 
 
@@ -24,13 +24,13 @@ __________________
 
 Here we are on a 64-bit version of CentOS, downloading and installing Vagrant 2.1.2:
 
-.. code-block:: shell
+.. code-block:: console
 
    $ yum -y install https://releases.hashicorp.com/vagrant/2.1.2/vagrant_2.1.2_x86_64.rpm
 
 This is a similar command, but on a 64-bit version of Debian:
 
-.. code-block:: shell
+.. code-block:: console
 
    $ sudo apt-get install https://releases.hashicorp.com/vagrant/2.1.2/vagrant_2.1.2_x86_64.deb
 

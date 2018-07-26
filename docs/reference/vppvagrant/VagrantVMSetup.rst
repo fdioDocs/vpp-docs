@@ -6,7 +6,7 @@ Accessing your VM
 ^^^^^^^^^^^^^^^^^
 ssh into the newly created box:
 
-.. code-block:: shell
+.. code-block:: console
 
     $ vagrant ssh <id>
 
@@ -28,7 +28,7 @@ Sample output looks like:
 
 Become the root with:
 
-.. code-block:: shell
+.. code-block:: console
 
     $ sudo bash
 
@@ -38,19 +38,19 @@ When you ssh into your Vagrant box you will be placed in the directory */home/va
 
 For Ubuntu systems:
 
-.. code-block:: shell
+.. code-block:: console
     
-    ~# dpkg -i *.deb
+    # dpkg -i *.deb
 
 For CentOS systems:
 
-.. code-block:: shell
+.. code-block:: console
     
-    ~# rpm -Uvh *.rpm
+    # rpm -Uvh *.rpm
 
 
 Since VPP is now installed, you can start running VPP with:
 
-.. code-block:: shell
+.. code-block:: console
   
-  ~# service vpp start 
+  # service vpp start 
