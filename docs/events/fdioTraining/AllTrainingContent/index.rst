@@ -9,8 +9,6 @@ All Technical Content
 As each session is delivered, the content will be provided here initially as PDF, with links to Videos, other content, to come as available.
 These presentations were held during the FD.io Training/Hackfest on April 5th, 2016.
 
-.. toctree::
-
 =======
 Day One
 =======

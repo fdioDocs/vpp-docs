@@ -1,4 +1,4 @@
-.. _2016_02_29_fdioandhoneycomb::
+.. _2016_02_29_fdioandhoneycomb:
 
 .. toctree:
 

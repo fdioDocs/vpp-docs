@@ -7,10 +7,12 @@ Writing VPP Documentation
 .. toctree::
 
   buildingrst
-  pushingapatch
+  gitreview
+  readthedocs
   styleguide/index.rst
   styleguidemd/index.rst
   todo
+  pushingapatch
 
 
 
