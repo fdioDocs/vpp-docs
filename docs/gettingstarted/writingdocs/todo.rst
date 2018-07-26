@@ -32,21 +32,6 @@ It is mentioned that a queue size of 256 is not large enough. Come up wit a proc
 to change the queue size.
 
 
-:ref:`reportingissues`
-======================
-
-Move the reporting issues section to troublshooting
-
-:ref:`writingdocs`
-==================
-
-Move the writing docs section out of getting started user guides.
-
-Basic Configuration
-===================
-
-Create a Basic configuration section and put startup.conf and huge pages in it.
-
 :ref:`users`
 ============
 

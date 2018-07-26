@@ -30,8 +30,8 @@ For example start with a clone of the vpp-docs.
 
 .. code-block:: console
 
-   $ git clone https://github.com/fdioDocs/vpp-docs
-   $ cd vpp-docs/docs
+   $ git clone https://gerrit.fd.io/r/vpp
+   $ cd vpp
 
 
 Install the virtual environment
@@ -44,7 +44,8 @@ In your vpp-docs directory, run:
    $ python -m pip install --user virtualenv 
    $ python -m virtualenv env
    $ source env/bin/activate
-   $ pip install -r etc/requirements.txt
+   $ pip install -r docs/etc/requirements.txt
+   $ cd docs
 
 Which installs all the required applications into it's own, isolated, virtual environment, so as to not
 interfere with other builds that may use different versions of software.
@@ -63,7 +64,7 @@ View the results
 ^^^^^^^^^^^^^^^^
 
 | If there are no errors during the build process, you should now have an **index.html** file in your
-| **vpp-docs/docs/_build/html** directory, which you can then view in your browser.
+| **vpp/docs/_build/html** directory, which you can then view in your browser.
 
 .. figure:: /_images/htmlBuild.png
    :alt: Figure: My directory containing the index.html file
@@ -233,6 +234,3 @@ Now on your builds page from the previous image, you can click "View Docs" at th
 .. figure:: /_images/rtdWebpage.png
    :scale: 30%
    :align: left
-
-
-
