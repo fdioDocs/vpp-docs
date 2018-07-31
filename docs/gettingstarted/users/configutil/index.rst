@@ -20,7 +20,7 @@ packages. This should be used to insure the latest tested release is installed.
 
 .. toctree::
 
-   installing
+   installingvppconfig
    usingvppconfig
    commandfour
    commandone
