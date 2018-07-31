@@ -1,14 +1,17 @@
 .. _pushingapatch:
 
-===============================================
-Pushing your changes to the VPP Docs Repository
-===============================================
+=================
+Github Repository
+=================
+
+**The github repository is no longer being used. The gerrit server is being used.**
+
+To use the gerrit repository refer to :ref:`gitreview`.
 
 Overview
 ________
 
 This section will cover how to fork your own branch of the `fdioDocs/vpp-docs <https://github.com/fdioDocs/vpp-docs>`_ repository, clone that repo locally to your computer, make changes to it, and how to issue a pull request when you want your changes to be reflected on the main repo.
- 
 
 .. toctree::
 
