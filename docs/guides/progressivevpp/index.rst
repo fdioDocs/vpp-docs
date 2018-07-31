@@ -9,7 +9,7 @@ Progressive VPP Tutorial
 Overview 
 ========
 
-Learn to FD.io VPP on a single Ubuntu 16.04 VM using Vagrant with this walkthrough
+Learn to run FD.io VPP on a single Ubuntu 16.04 VM using Vagrant with this walkthrough
 covering basic FD.io VPP senarios. Useful FD.io VPP commands will be used, and
 will discuss basic operations, and the state of a running FD.io VPP on a system.
 
@@ -20,7 +20,7 @@ will discuss basic operations, and the state of a running FD.io VPP on a system.
 .. _introduction-to-vpp-vagrant:
 
 Setting up your environment
--------------------------------------
+---------------------------
 
 All of these exercises are designed to be performed on an Ubuntu 16.04 (Xenial) box.
 
@@ -29,13 +29,13 @@ All of these exercises are designed to be performed on an Ubuntu 16.04 (Xenial) 
 
 .. toctree::
 
-    settingupenvironment
+    settingupenvironment.rst
 
 The DPDK Plugin will be disabled for this section. The link below demonstrates how this is done. 
 
 .. toctree::
 
-    removedpdkplugin
+    removedpdkplugin.rst
 
 Running Vagrant
 ---------------
@@ -72,4 +72,11 @@ Skills to be Learned
 
 .. toctree::
 
-    interface
+    interface.rst
+
+Traces
+------
+
+.. toctree::
+
+    traces.rst
