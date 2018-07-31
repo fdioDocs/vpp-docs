@@ -17,6 +17,5 @@ After setting up Vagrant, use these commands on your Vagrant directory to boot t
 
     # vagrant ssh
 
-
 Afterwards, configure FD.io VPP on the Vagrant system using the :ref:`configuration utility<installingvppconfig>`
 

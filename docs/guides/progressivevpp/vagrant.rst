@@ -2,27 +2,11 @@
 
 .. toctree::
 
-Action: Start a FD.io VPP shell using vppctl
---------------------------------------------
-
-For help on installing and configuring VPP properly, refer to the :ref:`VPP Configuration Utility<vpp-config-guide>` first.
-You can also use vppctl to launch a FD.io VPP shell with which you can run multiple FD.io VPP commands interactively by running:
-
-.. code-block:: console
-    
-    $ sudo vppctl 
-       _______    _        _   _____  ___
-    __/ __/ _ \  (_)__    | | / / _ \/ _ \
-    _/ _// // / / / _ \   | |/ / ___/ ___/
-    /_/ /____(_)_/\___/   |___/_/  /_/
-    vpp# show ver
-    vpp v18.04-release built by root on f10ad4364e3e at Wed Apr 25 16:06:03 UTC 2018
-
 Exercise: Routing
 -----------------
 
 Skills to be Learned
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 In this exercise you will learn these new skills:
 
@@ -39,7 +23,7 @@ And revisit the old ones:
 #. Examine and clear trace on vpp1 and vpp2
 
 FD.io VPP command learned in this exercise
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. `ip route
    add <https://docs.fd.io/vpp/17.04/clicmd_src_vnet_ip.html#clicmd_ip_route>`__
@@ -101,7 +85,7 @@ Skills to be Learned
 #. Examine a bridge domain
 
 FD.io VPP command learned in this exercise
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. `show
    bridge <https://docs.fd.io/vpp/17.04/clicmd_src_vnet_l2.html#clicmd_show_bridge-domain>`__

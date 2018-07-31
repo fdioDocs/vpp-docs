@@ -43,104 +43,84 @@ one).
 Create a veth interface with one end named **vpp1out** and the other
 named **vpp1host**
 
-::
+.. code-block:: console
 
-   sudo ip link add name vpp1out type veth peer name vpp1host
+  $ sudo ip link add name vpp1out type veth peer name vpp1host
 
 Turn up both ends:
 
-::
+.. code-block:: console
 
-   sudo ip link set dev vpp1out up
-   sudo ip link set dev vpp1host up
+  $ sudo ip link set dev vpp1out up
+  $ sudo ip link set dev vpp1host up
 
 Assign an IP address
+~~~~~~~~~~~~~~~~~~~~
 
-::
+.. code-block:: console
 
-   sudo ip addr add 10.10.1.1/24 dev vpp1host
+  $ sudo ip addr add 10.10.1.1/24 dev vpp1host
 
 Display the result:
 
-::
+.. code-block:: console
 
-   sudo ip addr show vpp1host
+  $ sudo ip addr show vpp1host
+  5: vpp1host@vpp1out: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether e2:0f:1e:59:ec:f7 brd ff:ff:ff:ff:ff:ff
+    inet 10.10.1.1/24 scope global vpp1host
+       valid_lft forever preferred_lft forever
+    inet6 fe80::e00f:1eff:fe59:ecf7/64 scope link
+       valid_lft forever preferred_lft forever
 
-Example Output:
-
-::
-
-   10: vpp1host@vpp1out: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
-       link/ether 5e:97:e3:41:aa:b8 brd ff:ff:ff:ff:ff:ff
-       inet 10.10.1.1/24 scope global vpp1host
-          valid_lft forever preferred_lft forever
-       inet6 fe80::5c97:e3ff:fe41:aab8/64 scope link 
-          valid_lft forever preferred_lft forever
-
-Action: Create vpp host- interface
+Action: Create vpp host-interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Create a host interface attached to **vpp1out**.
 
-::
+.. code-block:: console
 
-   sudo vppctl -s /run/vpp/cli-vpp1.sock create host-interface name vpp1out
-
-Output:
-
-::
-
-   host-vpp1out
+  vpp# create host-interface name vpp1out
+  host-vpp1out
 
 Confirm the interface:
 
-::
+.. code-block:: console
 
-   sudo vppctl -s /run/vpp/cli-vpp1.sock show hardware
-
-Example Output:
-
-::
-
-                 Name                Idx   Link  Hardware
-   host-vpp1out                       1     up   host-vpp1out
-     Ethernet address 02:fe:48:ec:d5:a7
-     Linux PACKET socket interface
-   local0                             0    down  local0
-     local
+  vpp# show hardware
+                Name                Idx   Link  Hardware
+  host-vpp1out                       1     up   host-vpp1out
+  Ethernet address 02:fe:d9:75:d5:b4
+  Linux PACKET socket interface
+  local0                             0    down  local0
+  local
 
 Turn up the interface:
 
-::
+.. code-block:: console
 
-   sudo vppctl -s /run/vpp/cli-vpp1.sock set int state host-vpp1out up
+  vpp# set int state host-vpp1out up
 
 Confirm the interface is up:
 
-::
+.. code-block:: console
 
-   sudo vppctl -s /run/vpp/cli-vpp1.sock show int
-
-::
-
-                 Name               Idx       State          Counter          Count     
-   host-vpp1out                      1         up       
-   local0                            0        down
+  vpp# show int
+                Name               Idx    State  MTU (L3/IP4/IP6/MPLS)     Counter          Count
+  host-vpp1out                      1      up          9000/0/0/0
+  local0                            0     down          0/0/0/0
 
 Assign ip address 10.10.1.2/24
 
-::
+.. code-block:: console
 
-   sudo vppctl -s /run/vpp/cli-vpp1.sock set int ip address host-vpp1out 10.10.1.2/24
+  vpp# set int ip address host-vpp1out 10.10.1.2/24
 
 Confirm the ip address is assigned:
 
-::
+.. code-block:: console
 
-   sudo vppctl -s /run/vpp/cli-vpp1.sock show int addr
-
-::
-
-   host-vpp1out (up):
-     10.10.1.2/24
-   local0 (dn):
+  vpp# show int addr
+  host-vpp1out (up):
+    L3 10.10.1.2/24
+  local0 (dn):

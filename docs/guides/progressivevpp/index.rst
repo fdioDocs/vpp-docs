@@ -52,6 +52,21 @@ When running multiple FD.io VPP instances, each instance needs to have specified
 
     vagrant.rst
 
+Start a FD.io VPP shell using vppctl
+------------------------------------
+
+The command *$ sudo vppctl* will launch a FD.io VPP shell with which you can run multiple FD.io VPP commands interactively by running:
+
+.. code-block:: console
+    
+    $ sudo vppctl 
+       _______    _        _   _____  ___
+    __/ __/ _ \  (_)__    | | / / _ \/ _ \
+    _/ _// // / / / _ \   | |/ / ___/ ___/
+    /_/ /____(_)_/\___/   |___/_/  /_/
+    vpp# show ver
+    vpp v18.07-release built by root on c469eba2a593 at Mon Jul 30 23:27:03 UTC 2018
+
 Create an Interface
 -------------------
 
