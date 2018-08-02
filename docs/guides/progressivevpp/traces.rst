@@ -127,8 +127,8 @@ Ping from FD.io VPP to Host
 
   Statistics: 5 sent, 5 received, 0% packet loss
 
-Action: Examine Trace of ping from vpp to host
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Action: Examine Trace of ping from FD.io VPP to host
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The output will demonstrate FD.io VPP's trace of ping for all packets.
 
@@ -433,8 +433,8 @@ Examine arp tables
 .. code-block:: console 
 
   vpp# show ip arp
-      Time           IP4       Flags      Ethernet              Interface
-      1101.5636    10.10.1.1      D    e2:0f:1e:59:ec:f7 host-vpp1out        
+  Time           IP4       Flags      Ethernet              Interface
+  1101.5636    10.10.1.1      D    e2:0f:1e:59:ec:f7 host-vpp1out        
 
 Examine routing tables
 ~~~~~~~~~~~~~~~~~~~~~~

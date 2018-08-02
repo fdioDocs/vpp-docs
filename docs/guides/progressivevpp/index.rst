@@ -25,17 +25,7 @@ Setting up your environment
 All of these exercises are designed to be performed on an Ubuntu 16.04 (Xenial) box.
 
 * If you have an Ubuntu 16.04 box on which you have sudo or root access, you can feel free to use that.
-* If you do not, a Vagrantfile is provided to setup a basic Ubuntu 16.04 box for you. 
-
-.. toctree::
-
-    settingupenvironment.rst
-
-The DPDK Plugin will be disabled for this section. The link below demonstrates how this is done. 
-
-.. toctree::
-
-    removedpdkplugin.rst
+* If you do not, a Vagrantfile is provided to setup a basic Ubuntu 16.04 box for you in the the steps below.
 
 Running Vagrant
 ---------------
@@ -50,7 +40,13 @@ When running multiple FD.io VPP instances, each instance needs to have specified
 
 .. toctree::
 
-    vagrant.rst
+    settingupenvironment.rst
+
+The DPDK Plugin will be disabled for this section. The link below demonstrates how this is done. 
+
+.. toctree::
+
+    removedpdkplugin.rst
 
 Start a FD.io VPP shell using vppctl
 ------------------------------------
@@ -95,3 +91,82 @@ Traces
 .. toctree::
 
     traces.rst
+
+Routing
+-------
+
+Skills to be Learned
+^^^^^^^^^^^^^^^^^^^^
+
+In this exercise you will learn these new skills:
+
+#. Add route to Linux Host routing table
+#. Add route to FD.io VPP routing table
+
+And revisit the old ones:
+
+#. Examine FD.io VPP routing table
+#. Enable trace on vpp1 and vpp2
+#. ping from host to FD.io VPP
+#. Examine and clear trace on vpp1 and vpp2
+#. ping from FD.io VPP to host
+#. Examine and clear trace on vpp1 and vpp2
+
+
+.. toctree::
+
+    routing.rst
+
+Connecting Two FD.io VPP Instances
+----------------------------------
+
+memif is a very high performance, direct memory interface type which can
+be used between FD.io VPP instances to form a topology. It uses a file socket
+for a control channel to set up that shared memory.
+
+Skills to be Learned
+^^^^^^^^^^^^^^^^^^^^
+
+You will learn the following new skill in this exercise:
+
+#. Create a memif interface between two FD.io VPP instances
+
+You should be able to perform this exercise with the following skills
+learned in previous exercises:
+
+#. Run a second FD.io VPP instance
+#. Add an ip address to a FD.io VPP interface
+#. Ping from FD.io VPP
+
+.. toctree::
+
+    twovppinstances.rst
+
+Switching
+---------
+
+Skills to be Learned
+^^^^^^^^^^^^^^^^^^^^
+
+#. Associate an interface with a bridge domain
+#. Create a loopback interaface
+#. Create a BVI (Bridge Virtual Interface) for a bridge domain
+#. Examine a bridge domain
+
+.. toctree::
+
+    switching.rst
+
+Source NAT
+----------
+
+Skills to be Learned
+^^^^^^^^^^^^^^^^^^^^
+
+#. Abusing networks namespaces for fun and profit
+#. Configuring snat address
+#. Configuring snat inside and outside interfaces
+
+.. toctree::
+
+    sourceNAT.rst
