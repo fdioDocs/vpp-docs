@@ -2,8 +2,8 @@
 
 .. toctree::
 
-Exercise: Routing
------------------
+Routing
+=======
 
 Skills to be Learned
 ^^^^^^^^^^^^^^^^^^^^
@@ -43,7 +43,7 @@ The initial state here is presumed to be the final state from the
 exercise `Connecting two FD.io VPP
 instances <VPP/Progressive_VPP_Tutorial#Connecting_two_vpp_instances>`__
 
-Action: Setup host route
+Setup host route
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: console

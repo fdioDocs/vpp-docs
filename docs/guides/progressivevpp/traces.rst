@@ -2,6 +2,9 @@
 
 .. toctree::
 
+Traces 
+======
+
 Basic Trace Commands
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -23,6 +26,17 @@ filter trace output - include NODE COUNT | exclude NODE COUNT | none.
 .. code-block:: console 
 
   vpp# trace filter <include NODE COUNT | exclude NODE COUNT | none>
+
+Skills to be Learned
+~~~~~~~~~~~~~~~~~~~~
+
+#. Setup a 'trace'
+#. View a 'trace'
+#. Clear a 'trace'
+#. Verify using ping from host
+#. Ping from vpp
+#. Examine Arp Table
+#. Examine ip fib
 
 Add Trace
 ~~~~~~~~~
@@ -127,7 +141,7 @@ Ping from FD.io VPP to Host
 
   Statistics: 5 sent, 5 received, 0% packet loss
 
-Action: Examine Trace of ping from FD.io VPP to host
+Examine Trace of ping from FD.io VPP to host
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The output will demonstrate FD.io VPP's trace of ping for all packets.

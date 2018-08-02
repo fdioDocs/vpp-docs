@@ -33,7 +33,7 @@ Initial State
 The initial state here is presumed to be the final state from the
 exercise `VPP Basics <VPP/Progressive_VPP_Tutorial#Exercise:_vpp_basics>`__
  
-Action: Create veth interfaces on host
+Create veth interfaces on host
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In Linux, there is a type of interface call 'veth'. Think of a 'veth'
@@ -73,7 +73,7 @@ Display the result:
     inet6 fe80::e00f:1eff:fe59:ecf7/64 scope link
        valid_lft forever preferred_lft forever
 
-Action: Create vpp host-interface
+Create vpp host-interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Create a host interface attached to **vpp1out**.

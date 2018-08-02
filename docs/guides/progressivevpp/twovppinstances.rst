@@ -2,13 +2,10 @@
 
 .. toctree::
 
-Exercise: Connecting two FD.io VPP instances
---------------------------------------------
+Connecting two FD.io VPP Instances
+----------------------------------
 
 .. _background-1:
-
-Background
-^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 memif is a very high performance, direct memory interface type which can
 be used between FD.io VPP instances to form a topology. It uses a file socket
@@ -17,7 +14,7 @@ for a control channel to set up that shared memory.
 .. _skills-to-be-learned-1:
 
 Skills to be Learned
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 You will learn the following new skill in this exercise:
 
@@ -33,7 +30,7 @@ learned in previous exercises:
 .. _topology-1:
 
 Topology
-^^^^^^^^^^^^^
+^^^^^^^^
 
 .. figure:: /_images/Connecting_two_vpp_instances_with_memif.png
    :alt: Connect two FD.io VPP topology
@@ -51,7 +48,7 @@ Interface <VPP/Progressive_VPP_Tutorial#Exercise:_Create_an_Interface>`__
 
 .. _action-running-a-second-vpp-instances-1:
 
-Action: Running a second FD.io VPP instances
+Running a second FD.io VPP instances
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You should already have a FD.io VPP instance running named: vpp1.
@@ -60,7 +57,7 @@ Run a second FD.io VPP instance named: vpp2.
 
 .. _action-create-memif-interface-on-vpp1-1:
 
-Action: Create memif interface on vpp1
+Create memif interface on vpp1
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create a memif interface on vpp1:
@@ -80,7 +77,7 @@ Use your previously used skills to:
 
 .. _action-create-memif-interface-on-vpp2-1:
 
-Action: Create memif interface on vpp2
+Create memif interface on vpp2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We want vpp2 to pick up the 'slave' role using the same
@@ -101,7 +98,7 @@ Use your previously used skills to:
 
 .. _action-ping-from-vpp1-to-vpp2-1:
 
-Action: Ping from vpp1 to vpp2
+Ping from vpp1 to vpp2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Ping 10.10.2.2 from vpp1

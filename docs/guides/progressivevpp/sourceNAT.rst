@@ -3,7 +3,7 @@
 .. toctree::
 
 Source NAT
-----------
+==========
 
 Skills to be Learned
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -43,7 +43,7 @@ To clear existing config from previous exercises run:
    $ sudo ip link del dev vpp1host
    $ sudo ip link del dev vpp1vpp2
 
-Action: Install vpp-plugins
+Install vpp-plugins
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Snat is supported by a plugin, so vpp-plugins need to be installed
@@ -52,7 +52,7 @@ Snat is supported by a plugin, so vpp-plugins need to be installed
 
    $ sudo apt-get install vpp-plugins
 
-Action: Create FD.io VPP  instance
+Create FD.io VPP  instance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create one FD.io VPP  instance named vpp1.
@@ -72,7 +72,7 @@ Confirm snat plugin is present:
      6.libsixrd_plugin.so
      7.lb_plugin.so
 
-Action: Create veth interfaces
+Create veth interfaces
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Create a veth interface with one end named vpp1outside and the other
@@ -110,7 +110,7 @@ Create a route inside the netns:
 
     $ sudo ip netns exec inside ip route add 10.10.1.0/24 via 10.10.2.2
 
-Action: Configure vpp outside interface
+Configure vpp outside interface
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Create a vpp host interface connected to vpp1outside
@@ -118,7 +118,7 @@ Action: Configure vpp outside interface
 #. Create a vpp host interface connected to vpp1inside
 #. Assign ip address 10.10.2.2/24
 
-Action: Configure snat
+Configure snat
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Configure snat to use the address of host-vpp1outside
@@ -133,7 +133,7 @@ Configure snat inside and outside interfaces
 
    vpp# set interface snat in host-vpp1inside out host-vpp1outside
 
-Action: Prepare to Observe Snat
+Prepare to Observe Snat
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Observing snat in this configuration is interesting. To do so, vagrant
@@ -145,14 +145,14 @@ ssh a second time into your VM and run:
 
 Also enable tracing on vpp1
 
-Action: Ping via snat
+Ping via snat
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: console
 
    $ sudo ip netns exec inside ping -c 1 10.10.1.1
 
-Action: Confirm snat
+Confirm snat
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Examine the tcpdump output and vpp1 trace to confirm snat occurred.

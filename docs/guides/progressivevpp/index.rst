@@ -20,7 +20,7 @@ will discuss basic operations, and the state of a running FD.io VPP on a system.
 .. _introduction-to-vpp-vagrant:
 
 Setting up your environment
----------------------------
+===========================
 
 All of these exercises are designed to be performed on an Ubuntu 16.04 (Xenial) box.
 
@@ -28,9 +28,9 @@ All of these exercises are designed to be performed on an Ubuntu 16.04 (Xenial) 
 * If you do not, a Vagrantfile is provided to setup a basic Ubuntu 16.04 box for you in the the steps below.
 
 Running Vagrant
----------------
+===============
 
-VPP runs in userspace.  In a production environment you will often run it with DPDK to connect to real NICs or vhost to connect to VMs.
+FD.io VPP runs in userspace.  In a production environment you will often run it with DPDK to connect to real NICs or vhost to connect to VMs.
 In those circumstances you usually run a single instance of FD.io VPP.
 
 For purposes of this tutorial, it is going to be extremely useful to run multiple instances of vpp, and connect them to each other to form
@@ -49,7 +49,7 @@ The DPDK Plugin will be disabled for this section. The link below demonstrates h
     removedpdkplugin.rst
 
 Start a FD.io VPP shell using vppctl
-------------------------------------
+====================================
 
 The command *$ sudo vppctl* will launch a FD.io VPP shell with which you can run multiple FD.io VPP commands interactively by running:
 
@@ -64,7 +64,7 @@ The command *$ sudo vppctl* will launch a FD.io VPP shell with which you can run
     vpp v18.07-release built by root on c469eba2a593 at Mon Jul 30 23:27:03 UTC 2018
 
 Create an Interface
--------------------
+===================
 
 Skills to be Learned
 ^^^^^^^^^^^^^^^^^^^^
@@ -73,6 +73,17 @@ Skills to be Learned
 #. Assign an IP address to one end of the veth interface in the Linux host
 #. Create a vpp host-interface that connected to one end of a veth interface via AF_PACKET
 #. Add an ip address to a vpp interface
+
+.. toctree::
+
+    interface.rst
+
+Traces
+======
+
+Skills to be Learned
+^^^^^^^^^^^^^^^^^^^^
+
 #. Setup a 'trace'
 #. View a 'trace'
 #. Clear a 'trace'
@@ -83,17 +94,10 @@ Skills to be Learned
 
 .. toctree::
 
-    interface.rst
-
-Traces
-------
-
-.. toctree::
-
     traces.rst
 
 Routing
--------
+=======
 
 Skills to be Learned
 ^^^^^^^^^^^^^^^^^^^^
@@ -118,7 +122,7 @@ And revisit the old ones:
     routing.rst
 
 Connecting Two FD.io VPP Instances
-----------------------------------
+==================================
 
 memif is a very high performance, direct memory interface type which can
 be used between FD.io VPP instances to form a topology. It uses a file socket
@@ -143,7 +147,7 @@ learned in previous exercises:
     twovppinstances.rst
 
 Switching
----------
+=========
 
 Skills to be Learned
 ^^^^^^^^^^^^^^^^^^^^
@@ -158,7 +162,7 @@ Skills to be Learned
     switching.rst
 
 Source NAT
-----------
+==========
 
 Skills to be Learned
 ^^^^^^^^^^^^^^^^^^^^

@@ -2,8 +2,8 @@
 
 .. toctree::
 
-Exercise: Switching
--------------------
+Switching
+=========
 
 Skills to be Learned
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -48,13 +48,13 @@ To clear existing config from previous exercises run:
    $ sudo ip link del dev vpp1host
    $ sudo ip link del dev vpp1vpp2
 
-Action: Run FD.io VPP instances
+Run FD.io VPP instances
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Run a vpp instance named **vpp1**
 #. Run a vpp instance named **vpp2**
 
-Action: Connect vpp1 to host
+Connect vpp1 to host
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Create a veth with one end named vpp1host and the other named
@@ -62,7 +62,7 @@ Action: Connect vpp1 to host
 #. Connect vpp1out to vpp1
 #. Add ip address 10.10.1.1/24 on vpp1host
 
-Action: Connect vpp1 to vpp2
+Connect vpp1 to vpp2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Create a veth with one end named vpp1vpp2 and the other named
@@ -70,7 +70,7 @@ Action: Connect vpp1 to vpp2
 #. Connect vpp1vpp2 to vpp1.
 #. Connect vpp2vpp1 to vpp2.
 
-Action: Configure Bridge Domain on vpp1
+Configure Bridge Domain on vpp1
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Check to see what bridge domains already exist, and select the first
@@ -127,7 +127,7 @@ Examine bridge domain 1:
         host-vpp1out            1     1    0    -      *                 none
         host-vpp1vpp2           2     1    0    -      *                 none
 
-Action: Configure loopback interface on vpp2
+Configure loopback interface on vpp2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: console
@@ -138,7 +138,7 @@ Action: Configure loopback interface on vpp2
 Add the ip address 10.10.1.2/24 to vpp2 interface loop0. Set the state
 of interface loop0 on vpp2 to 'up'
 
-Action: Configure bridge domain on vpp2
+Configure bridge domain on vpp2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Check to see the first available bridge domain ID (it will be 1 in this
@@ -159,7 +159,7 @@ Add interface vpp2vpp1 to bridge domain 1
 
 Examine the bridge domain and interfaces.
 
-Action: Ping from host to vpp and vpp to host
+Ping from host to vpp and vpp to host
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Add trace on vpp1 and vpp2
@@ -168,7 +168,7 @@ Action: Ping from host to vpp and vpp to host
 #. ping from vpp2 to 10.10.1.1
 #. Examine and clear trace on vpp1 and vpp2
 
-Action: Examine l2 fib
+Examine l2 fib
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: console
