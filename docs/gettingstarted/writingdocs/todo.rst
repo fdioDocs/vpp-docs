@@ -43,8 +43,8 @@ The getting started users guide needs an overview
 This section should be references to the doxygen links. The doxygen links will need to be cleaned up.
 This section could be a quick reference only using commands we have tested.
 
-:ref:`progressivevpp`
-=====================
+:ref:`progressivevpp<progressivevpp>`
+=====================================
 
 This section needs work. It needs to be split up and tested.
 
