@@ -1,10 +1,10 @@
 .. _gitreview:
 
 *******************************
-Merging FD.io VPP documents
+Getting a Patch Reviewed
 *******************************
 
-This section describes how to get FD.io VPP documents reviewed and merged.
+This section describes how to get FD.io VPP sources reviewed and merged.
 
 Setup
 ========
@@ -57,32 +57,33 @@ Otherwise, clone with:
     $ git clone ssh://YOUR_GERRIT_USERNAME@gerrit.fd.io:29418/vpp
     $ cd vpp
 
-When attempting to clone the repo it will ask if you want to add the Server Host Key to the list of known hosts. Type **yes** and hit enter.
+When attempting to clone the repo Git will prompt you asking if you want to add the Server Host Key to the list of known hosts. Enter **yes** and press the **Enter** key.
 
 Git Review
 ===========
 
-The VPP documents use the gerrit server and git review for submitting and fetching patches.
+The VPP documents use the gerrit server, and git review for submitting and fetching patches.
 
 
 New patch
 -----------------
 
-When working with new patch use the following to get your patch reviewed.
+When working with a new patch, use the following commands to get your patch reviewed.
 
-Make sure you have modified the correct files with:
+Make sure you have modified the correct files by issuing the following commands:
 
 .. code-block:: console
 
     $ git status
     $ git diff
 
-Then add and commit the patch. For documents we will add a tag **DOCS:**
+Then add and commit the patch. You may want to add a tag to the commit comments.
+For example for a document with only patches you should add the tag **DOCS:**.
 
 .. code-block:: console
 
     $ git add <filename>
-    $ git commit -s -m "DOCS: <COMMIT_MESSAGE>"
+    $ git commit -s -m "<*TAG*>: <*COMMIT_MESSAGE*>"
     $ git review
 
 If you are creating a draft, meaning you do not want your changes reviewed yet, do the following:
@@ -102,7 +103,7 @@ Existing patch
 
 The "change number" used below is in the URL of the review.
 
-After clicking an individual review, the change number can be found in the URL at "https://gerrit.fd.io/r/#/c/<CHANGE_NUMBER>/"
+After clicking an individual review, the change number can be found in the URL at "https://gerrit.fd.io/r/#/c/<*CHANGE_NUMBER*>/"
 
 To view an existing patch:
 
@@ -138,3 +139,19 @@ When you're done viewing or modifying a branch, get back to the master branch wi
 
     $ git reset --hard origin/master
     $ git checkout master
+
+Resolving a Conflict
+--------------------------------
+
+If a change has a conflict it should be resolved with the following:git-review -d <Gerrit change #>
+
+.. code-block:: console
+
+    $ git rebase origin/master
+       while (conflicts)
+          <fix conflicts>
+          $ git rebase --continue
+    $ git review
+
+
+

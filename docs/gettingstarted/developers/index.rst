@@ -1,8 +1,8 @@
 .. _gstarteddevel:
 
-##########
-Developers
-##########
+###############
+For Developers
+###############
 
 The Developers section covers the following areas:
 
@@ -18,14 +18,17 @@ The Developers section covers the following areas:
    building
    running_vpp
    gdb_examples
+   gitreview
    softwarearchitecture
    infrastructure
    vlib
    plugins
    vnet
    featurearcs
+   multiarch/index.rst
    bihash
    vpp_api_module
    binary_api_support
+   buildsystem/index.rst
    sample_plugin
 
