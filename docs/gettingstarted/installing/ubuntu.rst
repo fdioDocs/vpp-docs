@@ -52,7 +52,7 @@ Create the file **/etc/apt/sources.list.d/99fd.io.list** that contain the follow
 
 .. code-block:: console
 
-   deb [trusted=yes] https://packagecloud.io/fdio/master/ubuntu xenial main ./
+   deb [trusted=yes] https://packagecloud.io/fdio/master/ubuntu xenial main
 
 Get the key:
 
@@ -87,7 +87,7 @@ For the master packages:
 
 .. code-block:: console
 
-  sudo apt-get install vpp-plugin-core vpp-ext-deps vpp-api-python vpp-dbg vpp-dev vpp-plugin-dpdk
+  sudo apt-get install vpp-plugin-core vpp-api-python vpp-dbg vpp-dev vpp-plugin-dpdk
 
 Uninstall the Packages
 ======================
