@@ -3,30 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-#########
-FD.io VPP
-#########
+The VPP User Documents Have Moved
+**********************************
 
-FD.io Vector Packet Processing (VPP) is a fast, scalable and multi-platform network stack. 
+The latest VPP Documents can now be found at `VPP User Documents <https://fd.io/docs/vpp/master>`_.
 
-FD.io VPP is, at it's core, a scalable layer 2-4 network stack. 
-It supports integration into both Open Stack and Kubernetes environments. 
-It supports network management features including configuration, counters and sampling. 
-It supports extending with plugins, tracing and debugging. 
-It supports use cases such as vSwitch, vRouter, Gateways, Firewalls and Load Balancers, to name but a few. 
-Finally it is useful both a software development kit or an appliance out of the box. 
+The FD.io main site is at `Site <https://FD.io>`_.
 
-.. toctree::
-   :maxdepth: 2
+Some of the Fd.io Project Documents can be found at `FD.io Projects <https://fd.io/projects>`_.
 
-   overview/index
-   gettingstarted/index
-   links/index
-   usecases/index
-   featuresbyrelease/index
-   troubleshooting/index
-   events/index
-   reference/index
-   relatedprojects/index
-   archive/index
-   about.rst
+
+
+
