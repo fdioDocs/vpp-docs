@@ -1,5 +1,5 @@
 
-VPP DOCS
+gettingstarted/writingdocs/styleguidemd
 #######################################################
 
 .. raw:: html

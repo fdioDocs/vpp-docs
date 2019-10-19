@@ -1,5 +1,5 @@
 
-VPP DOCS
+reference/readthedocs
 #######################################################
 
 .. raw:: html
