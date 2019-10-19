@@ -1,5 +1,5 @@
 
-VPP DOCS
+gettingstarted/users/configuring
 #######################################################
 
 .. raw:: html

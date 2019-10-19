@@ -1,5 +1,5 @@
 
-VPP DOCS
+reference/vppvagrant
 #######################################################
 
 .. raw:: html

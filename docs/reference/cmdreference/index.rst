@@ -1,5 +1,5 @@
 
-VPP DOCS
+reference/cmdreference
 #######################################################
 
 .. raw:: html

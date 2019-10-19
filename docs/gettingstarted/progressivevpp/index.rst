@@ -1,5 +1,5 @@
 
-VPP DOCS
+gettingstarted/progressivevpp
 #######################################################
 
 .. raw:: html
