@@ -25,7 +25,7 @@ author = u'John DeNisco'
 # The short X.Y version
 version = u'obsolete'
 # The full version, including alpha/beta/rc tags
-release = u'0'
+release = u'19.01-rc0~174-geb601240'
 
 
 # -- General configuration ---------------------------------------------------
